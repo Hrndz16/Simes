@@ -1,0 +1,18 @@
+<RCC>
+  <qresource prefix="iconos">
+    <file>icons8-salida-50.png</file>
+    <file>icons8-imagen-50.png</file>
+    <file>banner1.png</file>
+    <file>icons8-mail-50.png</file>
+    <file>icons8-reloj-96.png</file>
+    <file>icons8-casa-96.png</file>
+    <file>icons8-nombre-100.png</file>
+    <file>icons8-usuario-50.png</file>
+  </qresource>
+  <qresource prefix="Carteles">
+    <file>fondo inicio.png</file>
+    <file>cartel3.png</file>
+    <file>cartel1.png</file>
+    <file>cartel2.png</file>
+  </qresource>
+</RCC>
