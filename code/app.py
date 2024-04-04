@@ -123,10 +123,10 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def habilitar_o_deshabilitarDatos(self,b): ## Habilita o deshabilita los datos del stackedWidget Nro 4
         """Recibe un booleano y habilita o desabilita los lineedits del stackedWidget Nro 4"""
         self.Line_tipoUsuario.setReadOnly(b)
-        self.Correo_6.setReadOnly(b)
-        self.Correo_7.setReadOnly(b)
-        self.Correo_8.setReadOnly(b)
-        self.Correo_9.setReadOnly(b)
+        self.perfil_nombre.setReadOnly(b)
+        self.perfil_correo.setReadOnly(b)
+        self.perfil_apellido.setReadOnly(b)
+        self.perfil_cedula.setReadOnly(b)
         if b == False:
             self.texto_enLineEdit()
         else:
@@ -135,10 +135,10 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def texto_enLineEdit(self):
         us = self.db.CosultarDatosU(self.Usu_activo)[0]
         self.Line_tipoUsuario.setText(self.db.tipoUsuario(us[2]))
-        self.Correo_6.setText(us[3])
-        self.Correo_7.setText(us[4])
-        #self.Correo_8.setText(us[])
-        self.Correo_9.setText(us[5])
+        self.perfil_nombre.setText(us[3])
+        self.perfil_apellido.setText(us[4])
+        self.perfil_cedula.setText(us[0])
+        self.perfil_correo.setText(us[5])
             
         # SE VERIFICAN LOS DATOS
         
