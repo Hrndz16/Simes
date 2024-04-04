@@ -47,12 +47,20 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.mensaje.setIcon(QMessageBox.Information)
         self.mensaje.setStandardButtons(QMessageBox.Ok)
         self.mensaje.setWindowFlags(Qt.FramelessWindowHint)
+        self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())#habilita el cambio de datos de perfil del usuario
         
-    
+        
     def botonIngresar(self):
         self.Correo_2.clear()
         self.password_2.clear()
-        self.stackedWidget_principal.setCurrentIndex(1) if self.tipo_usuario == 0 else self.stackedWidget_principal.setCurrentIndex(4) #coloca en la ventana de ingreso o inicio de sesion   
+        ## self.stackedWidget_principal.setCurrentIndex(1) if self.tipo_usuario == 0 else self.stackedWidget_principal.setCurrentIndex(4) #coloca en la ventana de ingreso o inicio de sesion  
+        if self.tipo_usuario == 0:
+            self.stackedWidget_principal.setCurrentIndex(1)
+        else:
+            self.stackedWidget_principal.setCurrentIndex(4)
+            self.visible_us() 
+            
+            
     def botonInicio(self):    
         if self.tipo_usuario == 0 or self.tipo_usuario==3 :
             self.stackedWidget_principal.setCurrentIndex(0) #coloca en la ventana de inicio segun el tipo de usuario 
@@ -64,7 +72,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def botonProxEvento(self):
         self.stackedWidget_principal.setCurrentIndex(2)#coloca en la ventana de proximo evento
     def iniciarSesion(self):
-        correo=self.Correo_2.text()
+        self.Usu_activo = correo=self.Correo_2.text()
         contraseña=self.password_2.text()
         if self.db.isExist('usuarios','correo',correo) and self.db.isExist('usuarios','contra',contraseña):
             self.tipo_usuario = self.db.consultarTipoU(correo)
@@ -105,6 +113,56 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             if isinstance(widget, QLineEdit):
                 # Limpiamos el texto del QLineEdit
                 widget.clear()
+                
+                
+    def habilitar_cambio_datos(self): 
+        """Este metodo se encarga del proceso de cambar y guardar los datos de un Usuario"""
+        self.Boton_EditarDatos.setText('Guardar Cambios')
+        self.habilitar_o_deshabilitarDatos(False)
+        
+    def habilitar_o_deshabilitarDatos(self,b): ## Habilita o deshabilita los datos del stackedWidget Nro 4
+        """Recibe un booleano y habilita o desabilita los lineedits del stackedWidget Nro 4"""
+        self.Line_tipoUsuario.setReadOnly(b)
+        self.Correo_6.setReadOnly(b)
+        self.Correo_7.setReadOnly(b)
+        self.Correo_8.setReadOnly(b)
+        self.Correo_9.setReadOnly(b)
+        if b == False:
+            self.texto_enLineEdit()
+        else:
+            self.visible_us()
+        
+    def texto_enLineEdit(self):
+        us = self.db.CosultarDatosU(self.Usu_activo)[0]
+        self.Line_tipoUsuario.setText(self.db.tipoUsuario(us[2]))
+        self.Correo_6.setText(us[3])
+        self.Correo_7.setText(us[4])
+        #self.Correo_8.setText(us[])
+        self.Correo_9.setText(us[5])
+            
+        # SE VERIFICAN LOS DATOS
+        
+    def guardarCambioDatos(self):
+        tipoU = self.Line_tipoUsuario.text()
+        nombre = self.Correo_6.text()
+        cc = self.Correo_7.text()
+        tel = self.Correo_8.text()
+        correo = self.Correo_9.text()
+        registro = self.db.buscarRegistros(cc=cc,correo=correo)
+        if registro[0] == 1 and registro[3] == 1:
+            pass
+            
+        
+        
+        # SE ACTUALIZA EL CORREO EN LA VARIABLE SELF.USU_ACTIVO
+        
+    def visible_us(self): # HACE VISIBLE LOS DATOS DEL stackedWidget Nro 4
+        us = self.db.CosultarDatosU(self.Usu_activo)[0]
+        self.Line_tipoUsuario.setPlaceholderText(self.db.tipoUsuario(us[2]))
+        self.Correo_6.setPlaceholderText(us[3])
+        self.Correo_7.setPlaceholderText(us[4])
+        #self.Correo_8.setPlaceholderText(us[])
+        self.Correo_9.setPlaceholderText(us[5])
         
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
