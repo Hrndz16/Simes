@@ -146,7 +146,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         tipoU = self.Line_tipoUsuario.text()
         nombre = self.Correo_6.text()
         cc = self.Correo_7.text()
-        tel = self.Correo_8.text()
+        apellido = self.Correo_8.text()
         correo = self.Correo_9.text()
         registro = self.db.buscarRegistros(cc=cc,correo=correo)
         if registro[0] == 1 and registro[3] == 1:
@@ -158,11 +158,12 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         
     def visible_us(self): # HACE VISIBLE LOS DATOS DEL stackedWidget Nro 4
         us = self.db.CosultarDatosU(self.Usu_activo)[0]
+        print(us)
         self.Line_tipoUsuario.setPlaceholderText(self.db.tipoUsuario(us[2]))
-        self.Correo_6.setPlaceholderText(us[3])
-        self.Correo_7.setPlaceholderText(us[4])
-        #self.Correo_8.setPlaceholderText(us[])
-        self.Correo_9.setPlaceholderText(us[5])
+        self.perfil_nombre.setPlaceholderText(us[3])
+        self.perfil_cedula.setPlaceholderText(str(us[0]))
+        self.perfil_apellido.setPlaceholderText(us[4])
+        self.perfil_correo.setPlaceholderText(us[5])
         
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)

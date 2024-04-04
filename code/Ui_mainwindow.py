@@ -789,7 +789,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 799, 517))
+        self.Area_eventos.setGeometry(QRect(0, 0, 98, 28))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -1120,11 +1120,32 @@ class Ui_MainWindow(object):
         self.contenido_registro_2.setFrameShadow(QFrame.Raised)
         self.gridLayout_7 = QGridLayout(self.contenido_registro_2)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.Correo_6 = QLineEdit(self.contenido_registro_2)
-        self.Correo_6.setObjectName(u"Correo_6")
-        self.Correo_6.setReadOnly(True)
+        self.Boto_cerrarsesion = QPushButton(self.contenido_registro_2)
+        self.Boto_cerrarsesion.setObjectName(u"Boto_cerrarsesion")
+        icon2 = QIcon()
+        icon2.addFile(u":/iconos/icons8-salida-50.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.Boto_cerrarsesion.setIcon(icon2)
+        self.Boto_cerrarsesion.setIconSize(QSize(20, 20))
 
-        self.gridLayout_7.addWidget(self.Correo_6, 2, 3, 1, 1, Qt.AlignTop)
+        self.gridLayout_7.addWidget(self.Boto_cerrarsesion, 10, 4, 1, 2)
+
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_7.addItem(self.horizontalSpacer_12, 2, 4, 1, 1)
+
+        self.perfil_correo = QLineEdit(self.contenido_registro_2)
+        self.perfil_correo.setObjectName(u"perfil_correo")
+        self.perfil_correo.setReadOnly(True)
+
+        self.gridLayout_7.addWidget(self.perfil_correo, 9, 3, 1, 1, Qt.AlignTop)
+
+        self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_7.addItem(self.verticalSpacer_9, 0, 3, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_7.addItem(self.verticalSpacer_4, 10, 1, 1, 1)
 
         self.label_correo_5 = QLabel(self.contenido_registro_2)
         self.label_correo_5.setObjectName(u"label_correo_5")
@@ -1142,117 +1163,15 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px; /* Espaciado interno */")
         self.label_correo_5.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_7.addWidget(self.label_correo_5, 7, 1, 2, 1, Qt.AlignRight)
-
-        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_7.addItem(self.horizontalSpacer_10, 2, 0, 1, 1)
-
-        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_7.addItem(self.verticalSpacer_4, 9, 1, 1, 1)
+        self.gridLayout_7.addWidget(self.label_correo_5, 8, 1, 2, 1, Qt.AlignRight)
 
         self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_7.addItem(self.horizontalSpacer_11, 1, 6, 1, 1)
 
-        self.Correo_8 = QLineEdit(self.contenido_registro_2)
-        self.Correo_8.setObjectName(u"Correo_8")
-        self.Correo_8.setReadOnly(True)
+        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_7.addWidget(self.Correo_8, 6, 3, 1, 1, Qt.AlignTop)
-
-        self.Correo_9 = QLineEdit(self.contenido_registro_2)
-        self.Correo_9.setObjectName(u"Correo_9")
-        self.Correo_9.setReadOnly(True)
-
-        self.gridLayout_7.addWidget(self.Correo_9, 8, 3, 1, 1, Qt.AlignTop)
-
-        self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_7.addItem(self.verticalSpacer_9, 0, 3, 1, 1)
-
-        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_7.addItem(self.horizontalSpacer_12, 2, 4, 1, 1)
-
-        self.comboBox_2 = QComboBox(self.contenido_registro_2)
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.setObjectName(u"comboBox_2")
-        self.comboBox_2.setMinimumSize(QSize(142, 35))
-        self.comboBox_2.setMaximumSize(QSize(142, 35))
-        self.comboBox_2.setLayoutDirection(Qt.LeftToRight)
-
-        self.gridLayout_7.addWidget(self.comboBox_2, 3, 1, 2, 1, Qt.AlignVCenter)
-
-        self.label_2 = QLabel(self.contenido_registro_2)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setMinimumSize(QSize(142, 35))
-        self.label_2.setMaximumSize(QSize(142, 35))
-        self.label_2.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
-"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
-"    font-weight: bold; /* Negrita */\n"
-"    font-family: Arial, sans-serif; /* Fuente */\n"
-"    background-color: #ecf0f1; /* Color de fondo */\n"
-"    border: 2px solid #3498db; /* Borde */\n"
-"    border-radius: 10px; /* Radio de borde */\n"
-"    padding: 5px 10px; /* Espaciado interno */")
-        self.label_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_7.addWidget(self.label_2, 5, 1, 2, 1)
-
-        self.label_correo_4 = QLabel(self.contenido_registro_2)
-        self.label_correo_4.setObjectName(u"label_correo_4")
-        self.label_correo_4.setMinimumSize(QSize(142, 35))
-        self.label_correo_4.setMaximumSize(QSize(142, 35))
-        self.label_correo_4.setFont(font2)
-        self.label_correo_4.setLayoutDirection(Qt.LeftToRight)
-        self.label_correo_4.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
-"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
-"    font-weight: bold; /* Negrita */\n"
-"    font-family: Arial, sans-serif; /* Fuente */\n"
-"    background-color: #ecf0f1; /* Color de fondo */\n"
-"    border: 2px solid #3498db; /* Borde */\n"
-"    border-radius: 10px; /* Radio de borde */\n"
-"    padding: 5px 10px; /* Espaciado interno */")
-        self.label_correo_4.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_7.addWidget(self.label_correo_4, 2, 1, 1, 1)
-
-        self.Label_usuario = QLabel(self.contenido_registro_2)
-        self.Label_usuario.setObjectName(u"Label_usuario")
-        self.Label_usuario.setMinimumSize(QSize(142, 35))
-        self.Label_usuario.setMaximumSize(QSize(142, 35))
-        self.Label_usuario.setLayoutDirection(Qt.LeftToRight)
-        self.Label_usuario.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
-"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
-"    font-weight: bold; /* Negrita */\n"
-"    font-family: Arial, sans-serif; /* Fuente */\n"
-"    background-color: #ecf0f1; /* Color de fondo */\n"
-"    border: 2px solid #3498db; /* Borde */\n"
-"    border-radius: 10px; /* Radio de borde */\n"
-"    padding: 5px 10px; /* Espaciado interno */")
-        self.Label_usuario.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_7.addWidget(self.Label_usuario, 1, 1, 1, 1)
-
-        self.Line_tipoUsuario = QLineEdit(self.contenido_registro_2)
-        self.Line_tipoUsuario.setObjectName(u"Line_tipoUsuario")
-        self.Line_tipoUsuario.setReadOnly(True)
-
-        self.gridLayout_7.addWidget(self.Line_tipoUsuario, 1, 3, 1, 1)
-
-        self.Boto_cerrarsesion = QPushButton(self.contenido_registro_2)
-        self.Boto_cerrarsesion.setObjectName(u"Boto_cerrarsesion")
-        icon2 = QIcon()
-        icon2.addFile(u":/iconos/icons8-salida-50.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.Boto_cerrarsesion.setIcon(icon2)
-        self.Boto_cerrarsesion.setIconSize(QSize(20, 20))
-
-        self.gridLayout_7.addWidget(self.Boto_cerrarsesion, 9, 4, 1, 2)
+        self.gridLayout_7.addItem(self.horizontalSpacer_10, 2, 0, 1, 1)
 
         self.Foto_usuario = QLabel(self.contenido_registro_2)
         self.Foto_usuario.setObjectName(u"Foto_usuario")
@@ -1269,23 +1188,17 @@ class Ui_MainWindow(object):
         self.Foto_usuario.setPixmap(QPixmap(u":/iconos/icons8-nombre-100.png"))
         self.Foto_usuario.setScaledContents(True)
 
-        self.gridLayout_7.addWidget(self.Foto_usuario, 1, 5, 3, 1)
-
-        self.Correo_7 = QLineEdit(self.contenido_registro_2)
-        self.Correo_7.setObjectName(u"Correo_7")
-        self.Correo_7.setReadOnly(True)
-
-        self.gridLayout_7.addWidget(self.Correo_7, 3, 3, 1, 1, Qt.AlignVCenter)
+        self.gridLayout_7.addWidget(self.Foto_usuario, 1, 5, 4, 1)
 
         self.Boton_cambiarContra = QToolButton(self.contenido_registro_2)
         self.Boton_cambiarContra.setObjectName(u"Boton_cambiarContra")
 
-        self.gridLayout_7.addWidget(self.Boton_cambiarContra, 8, 5, 1, 1)
+        self.gridLayout_7.addWidget(self.Boton_cambiarContra, 9, 5, 1, 1)
 
         self.Boton_EditarDatos = QToolButton(self.contenido_registro_2)
         self.Boton_EditarDatos.setObjectName(u"Boton_EditarDatos")
 
-        self.gridLayout_7.addWidget(self.Boton_EditarDatos, 8, 4, 1, 1, Qt.AlignRight)
+        self.gridLayout_7.addWidget(self.Boton_EditarDatos, 9, 4, 1, 1, Qt.AlignRight)
 
         self.Boton_CambiarFoto = QToolButton(self.contenido_registro_2)
         self.Boton_CambiarFoto.setObjectName(u"Boton_CambiarFoto")
@@ -1312,23 +1225,110 @@ class Ui_MainWindow(object):
         self.Boton_CambiarFoto.setIcon(icon3)
         self.Boton_CambiarFoto.setIconSize(QSize(20, 20))
 
-        self.gridLayout_7.addWidget(self.Boton_CambiarFoto, 6, 5, 1, 2)
+        self.gridLayout_7.addWidget(self.Boton_CambiarFoto, 7, 5, 1, 2)
 
-        self.comboBox_2.raise_()
-        self.label_2.raise_()
+        self.comboBox_2 = QComboBox(self.contenido_registro_2)
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.setObjectName(u"comboBox_2")
+        self.comboBox_2.setMinimumSize(QSize(142, 35))
+        self.comboBox_2.setMaximumSize(QSize(142, 35))
+        self.comboBox_2.setLayoutDirection(Qt.LeftToRight)
+
+        self.gridLayout_7.addWidget(self.comboBox_2, 7, 1, 1, 1)
+
+        self.perfil_cedula = QLineEdit(self.contenido_registro_2)
+        self.perfil_cedula.setObjectName(u"perfil_cedula")
+        self.perfil_cedula.setReadOnly(True)
+
+        self.gridLayout_7.addWidget(self.perfil_cedula, 7, 3, 1, 1)
+
+        self.label_2 = QLabel(self.contenido_registro_2)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(142, 35))
+        self.label_2.setMaximumSize(QSize(142, 35))
+        self.label_2.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Negrita */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"    border: 2px solid #3498db; /* Borde */\n"
+"    border-radius: 10px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */")
+        self.label_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_2, 4, 1, 1, 1)
+
+        self.perfil_apellido = QLineEdit(self.contenido_registro_2)
+        self.perfil_apellido.setObjectName(u"perfil_apellido")
+        self.perfil_apellido.setReadOnly(True)
+
+        self.gridLayout_7.addWidget(self.perfil_apellido, 4, 3, 1, 1)
+
+        self.label_correo_4 = QLabel(self.contenido_registro_2)
+        self.label_correo_4.setObjectName(u"label_correo_4")
+        self.label_correo_4.setMinimumSize(QSize(142, 35))
+        self.label_correo_4.setMaximumSize(QSize(142, 35))
+        self.label_correo_4.setFont(font2)
+        self.label_correo_4.setLayoutDirection(Qt.LeftToRight)
+        self.label_correo_4.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Negrita */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"    border: 2px solid #3498db; /* Borde */\n"
+"    border-radius: 10px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */")
+        self.label_correo_4.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.label_correo_4, 3, 1, 1, 1)
+
+        self.perfil_nombre = QLineEdit(self.contenido_registro_2)
+        self.perfil_nombre.setObjectName(u"perfil_nombre")
+        self.perfil_nombre.setReadOnly(True)
+
+        self.gridLayout_7.addWidget(self.perfil_nombre, 3, 3, 1, 1)
+
+        self.Label_usuario = QLabel(self.contenido_registro_2)
+        self.Label_usuario.setObjectName(u"Label_usuario")
+        self.Label_usuario.setMinimumSize(QSize(142, 35))
+        self.Label_usuario.setMaximumSize(QSize(142, 35))
+        self.Label_usuario.setLayoutDirection(Qt.LeftToRight)
+        self.Label_usuario.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Negrita */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"    border: 2px solid #3498db; /* Borde */\n"
+"    border-radius: 10px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */")
+        self.Label_usuario.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_7.addWidget(self.Label_usuario, 2, 1, 1, 1)
+
+        self.Line_tipoUsuario = QLineEdit(self.contenido_registro_2)
+        self.Line_tipoUsuario.setObjectName(u"Line_tipoUsuario")
+        self.Line_tipoUsuario.setReadOnly(True)
+
+        self.gridLayout_7.addWidget(self.Line_tipoUsuario, 2, 3, 1, 1)
+
         self.label_correo_5.raise_()
-        self.label_correo_4.raise_()
-        self.Correo_6.raise_()
-        self.Correo_9.raise_()
-        self.Correo_8.raise_()
+        self.perfil_correo.raise_()
         self.Boton_CambiarFoto.raise_()
-        self.Label_usuario.raise_()
-        self.Line_tipoUsuario.raise_()
         self.Foto_usuario.raise_()
         self.Boto_cerrarsesion.raise_()
-        self.Correo_7.raise_()
         self.Boton_cambiarContra.raise_()
         self.Boton_EditarDatos.raise_()
+        self.comboBox_2.raise_()
+        self.perfil_cedula.raise_()
+        self.label_2.raise_()
+        self.perfil_apellido.raise_()
+        self.label_correo_4.raise_()
+        self.perfil_nombre.raise_()
+        self.Label_usuario.raise_()
+        self.Line_tipoUsuario.raise_()
 
         self.horizontalLayout_7.addWidget(self.contenido_registro_2)
 
@@ -1447,7 +1447,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_principal.setCurrentIndex(3)
+        self.stackedWidget_principal.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1521,27 +1521,27 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"Apellido:", None))
         self.Apellido.setInputMask("")
         self.Apellido.setText("")
-        self.Correo_6.setInputMask("")
+        self.Boto_cerrarsesion.setText(QCoreApplication.translate("MainWindow", u"CERRAR SESION", None))
+#if QT_CONFIG(shortcut)
+        self.Boto_cerrarsesion.setShortcut("")
+#endif // QT_CONFIG(shortcut)
+        self.perfil_correo.setInputMask("")
         self.label_correo_5.setText(QCoreApplication.translate("MainWindow", u"Correo:", None))
-        self.Correo_8.setInputMask("")
-        self.Correo_8.setText("")
-        self.Correo_9.setInputMask("")
+        self.Boton_cambiarContra.setText(QCoreApplication.translate("MainWindow", u"Cambiar Contase\u00f1a", None))
+        self.Boton_EditarDatos.setText(QCoreApplication.translate("MainWindow", u"Editar Datos", None))
+        self.Boton_CambiarFoto.setText(QCoreApplication.translate("MainWindow", u"Cambiar imagen", None))
         self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"CC", None))
         self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"TI", None))
         self.comboBox_2.setItemText(2, QCoreApplication.translate("MainWindow", u"CE", None))
         self.comboBox_2.setItemText(3, QCoreApplication.translate("MainWindow", u"RC", None))
 
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Telefono:", None))
+        self.perfil_cedula.setInputMask("")
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Apellido:", None))
+        self.perfil_apellido.setInputMask("")
+        self.perfil_apellido.setText("")
         self.label_correo_4.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
+        self.perfil_nombre.setInputMask("")
         self.Label_usuario.setText(QCoreApplication.translate("MainWindow", u"Usuario:", None))
-        self.Boto_cerrarsesion.setText(QCoreApplication.translate("MainWindow", u"CERRAR SESION", None))
-#if QT_CONFIG(shortcut)
-        self.Boto_cerrarsesion.setShortcut("")
-#endif // QT_CONFIG(shortcut)
-        self.Correo_7.setInputMask("")
-        self.Boton_cambiarContra.setText(QCoreApplication.translate("MainWindow", u"Cambiar Contase\u00f1a", None))
-        self.Boton_EditarDatos.setText(QCoreApplication.translate("MainWindow", u"Editar Datos", None))
-        self.Boton_CambiarFoto.setText(QCoreApplication.translate("MainWindow", u"Cambiar imagen", None))
         self.botonAdmUsuarios.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR USUARIOS", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR EVENTOS", None))
     # retranslateUi
