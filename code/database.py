@@ -51,15 +51,72 @@ class DataBase():
             case 3:
                 return 'Visitante'
             
-    def buscarRegistros(self,cc = 0,nombre = 0,apellido = 0,correo = 0):
-        atributos_usuario = ['idusuario','nomusuario','apeusuario','correousuario']
-        lis = [cc,nombre,apellido,correo]
+    def buscarRegistros(self,cc = 0,correo = 0):
+        """Busca el registro del usuario por idusuario y su correo, retornando una lista con el numero de registros en la base de datos"""
+
         lis2 = []
-        for i in lis:
-            if i != 0:
-                con = f"select count(*) from usuarios where {atributos_usuario} ilike '%{i}%'"
+        if cc != '':
+            con = f"select count(*) from usuarios where idusuario = '{cc}'"
+            self.cur.execute(con)
+            conteo = self.cur.fetchall()
+            lis2.append(int(conteo[0][0]))
+        else:lis2.append(0)
+
+        con = f"select count(*) from usuarios where correousuario = '{correo}'"
+        self.cur.execute(con)
+        conteo = self.cur.fetchall()
+        lis2.append(int(conteo[0][0]))
+        return lis2
+        
+
+    def incertar_datos(self,correo,lista_datos):
+        """Metodo para cambiar los datos del usuario en la base de datos"""
+        b = True
+        # VALIDAR QUE EL CORREO Y LA CEDULA SON UNICAS
+        if self.validarCedula(lista_datos[0],correo=correo): 
+            if self.validarCorreo(lista_datos[3],correo):
+                registros = self.buscarRegistros(lista_datos[0],lista_datos[3])
+                atributos = ['idusuario','nomusuario','apeusuario','correousuario']
+                if registros[0]<=1 and registros[1]<=1:
+                    for i in range(len(lista_datos)):
+                        if lista_datos[i] != '':
+                            con = f"""UPDATE usuarios SET {atributos[i]} = '{lista_datos[i]}' WHERE correousuario = '{correo}'"""
+                            self.cur.execute(con)
+                            self.conn.commit()     
+                else: 
+                    b = False
+            else:b = False
+        else : b = False
+        return b
+    
+    def validarCedula(self,cedula,correo):
+        registro = []
+        b = True
+        if cedula != '':
+            con = f"""select * from usuarios where idusuario = '{cedula}'"""
+            self.cur.execute(con)
+            r = self.cur.fetchall()
+            try:
+                registro.append(r[0])
+                if registro[0][5] != None and registro[0][5] != correo:
+                    b = False
+            except IndexError:pass
+        return b
+    
+    def validarCorreo(self,correoN,correoV):
+        registro = []
+        b = True
+        try:
+            if correoN != '':
+                con = f"""select * from usuarios where correousuario = '{correoV}'"""
                 self.cur.execute(con)
-                conteo = self.cur.fetchall
-                lis2.append(conteo[0][0])
-            else:
-                lis2.append(0)
+                registro.append(self.cur.fetchall()[0])
+                con = f"""select * from usuarios where correousuario = '{correoN}'"""
+                self.cur.execute(con)
+                registro.append(self.cur.fetchall()[0])
+                if registro[0][0] != registro[1][0]:
+                    b = False
+        except IndexError: pass
+        return b
+            
+        

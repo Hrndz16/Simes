@@ -146,7 +146,6 @@ QPushButton#Boton_inicio:hover {
          <property name="font">
           <font>
            <pointsize>-1</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1253,9 +1252,8 @@ border-color: rgb(170, 170, 255);</string>
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial,sans-serif</family>
+                  <family>Arial</family>
                   <pointsize>-1</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1374,8 +1372,8 @@ alternate-background-color: rgb(255, 162, 115);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>98</width>
-                <height>28</height>
+                <width>799</width>
+                <height>517</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -1572,9 +1570,8 @@ QComboBox::down-arrow {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial,sans-serif</family>
+                  <family>Arial</family>
                   <pointsize>-1</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1678,9 +1675,8 @@ QComboBox::down-arrow {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial,sans-serif</family>
+                  <family>Arial</family>
                   <pointsize>-1</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1943,9 +1939,8 @@ QRadioButton::indicator:unchecked {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial,sans-serif</family>
+                  <family>Arial</family>
                   <pointsize>-1</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -2189,9 +2184,8 @@ QToolButton:pressed {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial,sans-serif</family>
+                  <family>Arial</family>
                   <pointsize>-1</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
