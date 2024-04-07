@@ -2,10 +2,10 @@
 import sys,os
 ruta = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(f'{ruta}\\imgs')
-from PySide6.QtWidgets import QMainWindow,QApplication,QVBoxLayout,QMessageBox,QLineEdit
+from PySide6.QtWidgets import QMainWindow,QApplication,QVBoxLayout,QMessageBox,QLineEdit,QFileDialog
 from Ui_mainwindow import Ui_MainWindow as MW
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QFont
+from PySide6.QtGui import QFont,QPixmap
 from eventos import FrameEvento
 from database import DataBase
 
@@ -48,7 +48,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.mensaje.setStandardButtons(QMessageBox.Ok)
         self.mensaje.setWindowFlags(Qt.FramelessWindowHint)
         self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())#habilita el cambio de datos de perfil del usuario
-        
+        self.Boton_CambiarFoto.clicked.connect(lambda:self.abrir_dialogo_archivo())
     def botonIngresar(self):
         self.Correo_2.clear()
         self.password_2.clear()
@@ -58,6 +58,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         else:
             self.stackedWidget_principal.setCurrentIndex(4)
             self.visible_us() 
+            self.cargarFotoPerfil()
             
             
     def botonInicio(self):    
@@ -175,6 +176,30 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.perfil_correo.setPlaceholderText(us[5])
         
         
+    def abrir_dialogo_archivo(self):
+        opciones = QFileDialog.Options()
+        opciones |= QFileDialog.DontUseNativeDialog
+        archivo, _ = QFileDialog.getOpenFileName(self, "Seleccionar archivo", "", "Archivos de imagen (*.png *.jpg *.jpeg *.gif);;Todos los archivos (*)", options=opciones)
+        if archivo:
+            print("Archivo seleccionado:", archivo)
+            self.agregarFotoPerfil(archivo)
+            self.db.rutaFotoUsuario(self.Usu_activo,archivo)
+            
+    def agregarFotoPerfil(self,ruta):
+        foto = QPixmap(os.path.join(ruta))
+        self.Foto_usuario.setPixmap(foto)
+        
+    def cargarFotoPerfil(self):
+        us = self.db.CosultarDatosU(self.Usu_activo)
+        print(us)
+        if us[0][7] is not None:
+            ruta = str(us[0][7])
+            print(ruta)
+            ruta = self.db.convertirByteaIMG(us[0][7],self.Usu_activo)
+            print(ruta)
+            self.agregarFotoPerfil(ruta)
+        
+            
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()

@@ -1,5 +1,5 @@
 #importacion del modulo
-import psycopg2
+import psycopg2,os
 class DataBase():
     def __init__(self) -> None:
         # Conexion a base de datos
@@ -118,5 +118,25 @@ class DataBase():
                     b = False
         except IndexError: pass
         return b
-            
+
+    def rutaFotoUsuario(self,correo,ruta):
+        ruta = self.imgBite(ruta)
+        print(ruta)
+        d = (ruta,correo)
+        con = f"""UPDATE usuarios SET fotousuario = %s WHERE correousuario = %s"""
+        self.cur.execute(con,d)
+        self.conn.commit()
         
+    def imgBite(self,ruta):
+        with open(ruta,'rb') as img:
+            ima = img.read()
+            return ima
+    
+    def convertirByteaIMG(self,ruta,correo):
+        ruta = bytes(ruta)
+        id = self.CosultarDatosU(correo)[0][0]
+        rutaFoto = os.path.dirname(os.path.dirname(__file__))+f'\\imgsperfil\\img{id}.jpg'
+        with open(rutaFoto,'wb') as img:
+            img.write(ruta)
+            img.close()
+        return rutaFoto

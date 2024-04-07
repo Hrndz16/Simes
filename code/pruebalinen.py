@@ -1,6 +1,7 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication,QPushButton,QLineEdit,QLabel,QWidget,QVBoxLayout
-import sys
+from PySide6.QtGui import QPixmap
+import sys,os
 class main(QWidget):
     def __init__(self):
         super().__init__()
@@ -10,7 +11,8 @@ class main(QWidget):
         self.label = QLabel('si sabe')
         self.l.addWidget(self.b)
         self.l.addWidget(self.line)
-        self.b.clicked.connect(lambda: self.p1(self.line))
+        self.l.addWidget(self.label)
+        self.b.clicked.connect(lambda: self.agregar_foto(self.label))
         
     def p1(self,line):
         self.l.addWidget(self.label)
@@ -30,6 +32,9 @@ class main(QWidget):
         self.b.clicked.disconnect()
         self.b.clicked.connect(lambda:print('si master '))
         
+    def agregar_foto(self,label):
+        fot = QPixmap(os.path.join(os.path.dirname(os.path.dirname(__file__)),"imgs","cartel2.png"))
+        label.setPixmap(fot)
         
 if __name__ == '__main__':
     app = QApplication(sys.argv)
