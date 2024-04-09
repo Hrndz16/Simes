@@ -137,7 +137,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_EditarDatos.clicked.connect(lambda: self.obtenerDatos())     
         
     def obtenerDatos(self):
-        self.Boton_EditarDatos.setText('editar datos')
+        self.Boton_EditarDatos.setText('Editar Datos')
         nombre = self.perfil_nombre.text()
         cc = self.perfil_cedula.text()
         apellido = self.perfil_apellido.text()
@@ -190,12 +190,9 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         
     def cargarFotoPerfil(self):
         us = self.db.CosultarDatosU(self.Usu_activo)
-        print(us)
         if us[0][7] is not None:
             ruta = str(us[0][7])
-            print(ruta)
             ruta = self.db.convertirByteaIMG(us[0][7],self.Usu_activo)
-            print(ruta)
             self.agregarFotoPerfil(ruta)
         
     def cerrar_sesion(self):
