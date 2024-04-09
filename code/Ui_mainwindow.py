@@ -789,11 +789,11 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 98, 28))
+        self.Area_eventos.setGeometry(QRect(0, 0, 799, 519))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
-        self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.LayoutEventos = QVBoxLayout(self.Area_eventos)
+        self.LayoutEventos.setObjectName(u"LayoutEventos")
         self.scrollArea.setWidget(self.Area_eventos)
 
         self.horizontalLayout_6.addWidget(self.scrollArea)
@@ -1344,7 +1344,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12.setContentsMargins(0, 0, 0, 0)
         self.frame_2 = QFrame(self.page_admin)
         self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setMaximumSize(QSize(200, 16777215))
+        self.frame_2.setMinimumSize(QSize(215, 0))
+        self.frame_2.setMaximumSize(QSize(230, 16777215))
         self.frame_2.setStyleSheet(u"\n"
 "QFrame{\n"
 "background-color: rgb(177, 103, 255);\n"
@@ -1433,6 +1434,22 @@ class Ui_MainWindow(object):
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_13 = QHBoxLayout(self.frame_3)
+        self.horizontalLayout_13.setSpacing(0)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.stackedWidget = QStackedWidget(self.frame_3)
+        self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setMaximumSize(QSize(16777215, 16777215))
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.stackedWidget.addWidget(self.page)
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.stackedWidget.addWidget(self.page_2)
+
+        self.horizontalLayout_13.addWidget(self.stackedWidget)
+
 
         self.horizontalLayout_12.addWidget(self.frame_3)
 
@@ -1447,7 +1464,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_principal.setCurrentIndex(4)
+        self.stackedWidget_principal.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

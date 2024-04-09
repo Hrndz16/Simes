@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QLabel, QMainWindow, QPushButton, QSizePolicy,
-    QSpacerItem, QWidget)
+    QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -26,9 +26,10 @@ class Ui_MainWindow(object):
         MainWindow.resize(800, 600)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.verticalLayout = QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
         self.Frame_base_evento = QFrame(self.centralwidget)
         self.Frame_base_evento.setObjectName(u"Frame_base_evento")
-        self.Frame_base_evento.setGeometry(QRect(570, 100, 778, 282))
         self.Frame_base_evento.setMinimumSize(QSize(0, 0))
         self.Frame_base_evento.setMaximumSize(QSize(16777215, 16777215))
         self.Frame_base_evento.setAutoFillBackground(False)
@@ -37,9 +38,12 @@ class Ui_MainWindow(object):
         self.Frame_base_evento.setFrameShadow(QFrame.Raised)
         self.gridLayout_7 = QGridLayout(self.Frame_base_evento)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.line_6 = QFrame(self.Frame_base_evento)
+        self.line_6.setObjectName(u"line_6")
+        self.line_6.setFrameShape(QFrame.HLine)
+        self.line_6.setFrameShadow(QFrame.Sunken)
 
-        self.gridLayout_7.addItem(self.horizontalSpacer_10, 0, 1, 1, 1)
+        self.gridLayout_7.addWidget(self.line_6, 4, 0, 1, 2)
 
         self.line_3 = QFrame(self.Frame_base_evento)
         self.line_3.setObjectName(u"line_3")
@@ -48,12 +52,21 @@ class Ui_MainWindow(object):
 
         self.gridLayout_7.addWidget(self.line_3, 2, 0, 1, 2)
 
-        self.line_6 = QFrame(self.Frame_base_evento)
-        self.line_6.setObjectName(u"line_6")
-        self.line_6.setFrameShape(QFrame.HLine)
-        self.line_6.setFrameShadow(QFrame.Sunken)
+        self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_7.addWidget(self.line_6, 4, 0, 1, 2)
+        self.gridLayout_7.addItem(self.horizontalSpacer_10, 0, 1, 1, 1)
+
+        self.Titulo_evento = QLabel(self.Frame_base_evento)
+        self.Titulo_evento.setObjectName(u"Titulo_evento")
+        self.Titulo_evento.setMinimumSize(QSize(0, 100))
+        self.Titulo_evento.setMaximumSize(QSize(16777215, 100))
+        self.Titulo_evento.setStyleSheet(u"QLabel{\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente m\u00e1s grande */\n"
+"    font-weight: bold; /* Fuente en negrita */\n"
+"    color: #333; /* Color de texto m\u00e1s oscuro */\n"
+"}")
+
+        self.gridLayout_7.addWidget(self.Titulo_evento, 0, 0, 1, 1)
 
         self.base_horas_eventos = QFrame(self.Frame_base_evento)
         self.base_horas_eventos.setObjectName(u"base_horas_eventos")
@@ -128,17 +141,12 @@ class Ui_MainWindow(object):
 
         self.gridLayout_7.addWidget(self.base_horas_eventos, 3, 0, 1, 2)
 
-        self.Titulo_evento = QLabel(self.Frame_base_evento)
-        self.Titulo_evento.setObjectName(u"Titulo_evento")
-        self.Titulo_evento.setMinimumSize(QSize(0, 100))
-        self.Titulo_evento.setMaximumSize(QSize(16777215, 100))
-        self.Titulo_evento.setStyleSheet(u"QLabel{\n"
-"    font-size: 18px; /* Tama\u00f1o de fuente m\u00e1s grande */\n"
-"    font-weight: bold; /* Fuente en negrita */\n"
-"    color: #333; /* Color de texto m\u00e1s oscuro */\n"
-"}")
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_7.addWidget(self.Titulo_evento, 0, 0, 1, 1)
+        self.gridLayout_7.addItem(self.verticalSpacer, 5, 0, 1, 1)
+
+
+        self.verticalLayout.addWidget(self.Frame_base_evento)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -149,9 +157,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.Titulo_evento.setText(QCoreApplication.translate("MainWindow", u"Lunes 1-4-23", None))
         self.Hora.setText(QCoreApplication.translate("MainWindow", u"1-4pm", None))
         self.Descripcion.setText(QCoreApplication.translate("MainWindow", u"Exposicion de la corona de oro", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Suscribirse", None))
-        self.Titulo_evento.setText(QCoreApplication.translate("MainWindow", u"Lunes 1-4-23", None))
     # retranslateUi
 

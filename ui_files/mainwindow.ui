@@ -146,6 +146,7 @@ QPushButton#Boton_inicio:hover {
          <property name="font">
           <font>
            <pointsize>-1</pointsize>
+           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -217,7 +218,7 @@ QPushButton#Boton_ingresar:hover {
           <string notr="true">background-color: rgb(198, 198, 198);</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="page_1_inicio">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1252,8 +1253,9 @@ border-color: rgb(170, 170, 255);</string>
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1373,14 +1375,14 @@ alternate-background-color: rgb(255, 162, 115);</string>
                 <x>0</x>
                 <y>0</y>
                 <width>799</width>
-                <height>517</height>
+                <height>519</height>
                </rect>
               </property>
               <property name="styleSheet">
                <string notr="true">background-color: rgb(241, 241, 241);
 alternate-background-color: rgb(255, 162, 115);</string>
               </property>
-              <layout class="QVBoxLayout" name="verticalLayout_5"/>
+              <layout class="QVBoxLayout" name="LayoutEventos"/>
              </widget>
             </widget>
            </item>
@@ -1570,8 +1572,9 @@ QComboBox::down-arrow {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1675,8 +1678,9 @@ QComboBox::down-arrow {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1939,8 +1943,9 @@ QRadioButton::indicator:unchecked {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -2184,8 +2189,9 @@ QToolButton:pressed {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -2311,9 +2317,15 @@ background-color: rgb(255, 255, 255);
            </property>
            <item>
             <widget class="QFrame" name="frame_2">
+             <property name="minimumSize">
+              <size>
+               <width>215</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
-               <width>200</width>
+               <width>230</width>
                <height>16777215</height>
               </size>
              </property>
@@ -2454,6 +2466,35 @@ gridline-color: rgb(255, 255, 255);
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QStackedWidget" name="stackedWidget">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <widget class="QWidget" name="page"/>
+                <widget class="QWidget" name="page_2"/>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>

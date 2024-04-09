@@ -2,7 +2,7 @@
 import sys,os
 ruta = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(f'{ruta}\\imgs')
-from PySide6.QtWidgets import QMainWindow,QApplication,QVBoxLayout,QMessageBox,QLineEdit,QFileDialog
+from PySide6.QtWidgets import QMainWindow,QApplication,QSpacerItem,QMessageBox,QLineEdit,QFileDialog,QSizePolicy
 from Ui_mainwindow import Ui_MainWindow as MW
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont,QPixmap
@@ -70,7 +70,9 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def botonRegistrarse(self):
         self.stackedWidget_principal.setCurrentIndex(3)#coloca en la ventana de registro
     def botonProxEvento(self):
+        
         self.stackedWidget_principal.setCurrentIndex(2)#coloca en la ventana de proximo evento
+        self.cargarEventos()
     def iniciarSesion(self):
         self.Usu_activo = correo=self.Correo_2.text()
         contraseña=self.password_2.text()
@@ -198,6 +200,14 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             ruta = self.db.convertirByteaIMG(us[0][7],self.Usu_activo)
             print(ruta)
             self.agregarFotoPerfil(ruta)
+            
+    def cargarEventos(self):
+        eventos = []
+        eventos.append(FrameEvento())
+        self.LayoutEventos.addWidget(eventos[0])
+        self.LayoutEventos.addWidget(self.verticalSpacer)
+        
+        
         
             
 if __name__ == '__main__':#crea la ventana
