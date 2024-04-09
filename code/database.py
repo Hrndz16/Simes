@@ -3,7 +3,7 @@ import psycopg2
 class DataBase():
     def __init__(self) -> None:
         # Conexion a base de datos
-        self.conn = psycopg2.connect(user='postgres',password = 'POSTGRES1',host='127.0.0.1', port='5432', database='db_Simes')
+        self.conn = psycopg2.connect(user='postgres',host='127.0.0.1', port='5432', database='db_Simes')
         # Utilizar cursor
         self.cur = self.conn.cursor()
 

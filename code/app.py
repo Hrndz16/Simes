@@ -158,8 +158,6 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         
     def visible_us(self): # HACE VISIBLE LOS DATOS DEL stackedWidget Nro 4
         us = self.db.CosultarDatosU(self.Usu_activo)[0]
-        print(us)
-        self.Line_tipoUsuario.setPlaceholderText(self.db.tipoUsuario(us[2]))
         self.perfil_nombre.setPlaceholderText(us[3])
         self.perfil_cedula.setPlaceholderText(str(us[0]))
         self.perfil_apellido.setPlaceholderText(us[4])
