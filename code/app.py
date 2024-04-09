@@ -49,6 +49,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.mensaje.setWindowFlags(Qt.FramelessWindowHint)
         self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())#habilita el cambio de datos de perfil del usuario
         self.Boton_CambiarFoto.clicked.connect(lambda:self.abrir_dialogo_archivo())
+        self.Boto_cerrarsesion.clicked.connect(lambda:self.cerrar_sesion())
+        
     def botonIngresar(self):
         self.Correo_2.clear()
         self.password_2.clear()
@@ -112,8 +114,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             # Verificamos si el widget es un QLineEdit
             if isinstance(widget, QLineEdit):
                 # Limpiamos el texto del QLineEdit
-                widget.clear()
-                
+                widget.clear()            
                 
     def habilitar_cambio_datos(self): 
         """Este metodo se encarga del proceso de cambar y guardar los datos de un Usuario"""
@@ -130,12 +131,10 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.perfil_apellido.setReadOnly(b)
         self.perfil_cedula.setReadOnly(b)
         self.visible_us()
-        
-        
+                
     def guardarCambioDatos(self):
         ##tipoU = self.Line_tipoUsuario.text()
-        self.Boton_EditarDatos.clicked.connect(lambda: self.obtenerDatos())
-        
+        self.Boton_EditarDatos.clicked.connect(lambda: self.obtenerDatos())     
         
     def obtenerDatos(self):
         self.Boton_EditarDatos.setText('editar datos')
@@ -199,7 +198,14 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             print(ruta)
             self.agregarFotoPerfil(ruta)
         
+    def cerrar_sesion(self):
+        self.tipo_usuario = 0
+        self.Usu_activo = 0
+        self.stackedWidget_principal.setCurrentIndex(0)
+        self.Boton_ingresar.setText('INICIAR SESIÓN')
+        pass        
             
+    
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()

@@ -1854,23 +1854,198 @@ QRadioButton::indicator:unchecked {
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_7">
-              <item row="10" column="4" colspan="2">
-               <widget class="QPushButton" name="Boto_cerrarsesion">
+              <item row="2" column="0">
+               <spacer name="horizontalSpacer_10">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="9" column="4" alignment="Qt::AlignRight">
+               <widget class="QToolButton" name="Boton_EditarDatos">
                 <property name="text">
-                 <string>CERRAR SESION</string>
+                 <string>Editar Datos</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="5" rowspan="4">
+               <widget class="QLabel" name="Foto_usuario">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>150</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>150</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #2c3e50; /* Color del texto */
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    font-family: Arial, sans-serif; /* Fuente */
+    background-color: #ecf0f1; /* Color de fondo */
+    border: 2px solid #3498db; /* Borde */
+    border-radius: 10px; /* Radio de borde */
+    padding: 5px 10px; /* Espaciado interno */</string>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="../imgs/Recursos.qrc">:/iconos/icons8-nombre-100.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QComboBox" name="comboBox_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>142</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>142</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>CC</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TI</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>CE</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>RC</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLabel" name="label_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>142</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>142</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #2c3e50; /* Color del texto */
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    font-family: Arial, sans-serif; /* Fuente */
+    background-color: #ecf0f1; /* Color de fondo */
+    border: 2px solid #3498db; /* Borde */
+    border-radius: 10px; /* Radio de borde */
+    padding: 5px 10px; /* Espaciado interno */</string>
+                </property>
+                <property name="text">
+                 <string>Apellido:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="Label_usuario">
+                <property name="minimumSize">
+                 <size>
+                  <width>142</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>142</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #2c3e50; /* Color del texto */
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    font-family: Arial, sans-serif; /* Fuente */
+    background-color: #ecf0f1; /* Color de fondo */
+    border: 2px solid #3498db; /* Borde */
+    border-radius: 10px; /* Radio de borde */
+    padding: 5px 10px; /* Espaciado interno */</string>
+                </property>
+                <property name="text">
+                 <string>Usuario:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="5" colspan="2">
+               <widget class="QToolButton" name="Boton_CambiarFoto">
+                <property name="styleSheet">
+                 <string notr="true"># Estilos para QToolButton
+QToolButton {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Esquinas redondeadas */
+    padding: 8px 16px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+}
+
+QToolButton:hover {
+    background-color: #45a049; /* Cambia el color de fondo al pasar el mouse */
+}
+
+QToolButton:pressed {
+    background-color: #357a38; /* Cambia el color de fondo al hacer clic */
+}</string>
+                </property>
+                <property name="text">
+                 <string>Cambiar imagen</string>
                 </property>
                 <property name="icon">
                  <iconset resource="../imgs/Recursos.qrc">
-                  <normaloff>:/iconos/icons8-salida-50.png</normaloff>:/iconos/icons8-salida-50.png</iconset>
+                  <normaloff>:/iconos/icons8-imagen-50.png</normaloff>:/iconos/icons8-imagen-50.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
                   <width>20</width>
                   <height>20</height>
                  </size>
-                </property>
-                <property name="shortcut">
-                 <string/>
                 </property>
                </widget>
               </item>
@@ -1887,31 +2062,8 @@ QRadioButton::indicator:unchecked {
                 </property>
                </spacer>
               </item>
-              <item row="9" column="3" alignment="Qt::AlignTop">
-               <widget class="QLineEdit" name="perfil_correo">
-                <property name="inputMask">
-                 <string/>
-                </property>
-                <property name="readOnly">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="3">
                <spacer name="verticalSpacer_9">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="10" column="1">
-               <spacer name="verticalSpacer_4">
                 <property name="orientation">
                  <enum>Qt::Vertical</enum>
                 </property>
@@ -1965,6 +2117,33 @@ QRadioButton::indicator:unchecked {
                 </property>
                </widget>
               </item>
+              <item row="9" column="3" alignment="Qt::AlignTop">
+               <widget class="QLineEdit" name="perfil_correo">
+                <property name="inputMask">
+                 <string/>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="QLineEdit" name="perfil_nombre">
+                <property name="inputMask">
+                 <string/>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="5">
+               <widget class="QToolButton" name="Boton_cambiarContra">
+                <property name="text">
+                 <string>Cambiar Contaseña</string>
+                </property>
+               </widget>
+              </item>
               <item row="1" column="6">
                <spacer name="horizontalSpacer_11">
                 <property name="orientation">
@@ -1978,189 +2157,16 @@ QRadioButton::indicator:unchecked {
                 </property>
                </spacer>
               </item>
-              <item row="2" column="0">
-               <spacer name="horizontalSpacer_10">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="1" column="5" rowspan="4">
-               <widget class="QLabel" name="Foto_usuario">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>150</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>150</width>
-                  <height>150</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: #2c3e50; /* Color del texto */
-    font-size: 18px; /* Tamaño de fuente */
-    font-weight: bold; /* Negrita */
-    font-family: Arial, sans-serif; /* Fuente */
-    background-color: #ecf0f1; /* Color de fondo */
-    border: 2px solid #3498db; /* Borde */
-    border-radius: 10px; /* Radio de borde */
-    padding: 5px 10px; /* Espaciado interno */</string>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="../imgs/Recursos.qrc">:/iconos/icons8-nombre-100.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="5">
-               <widget class="QToolButton" name="Boton_cambiarContra">
-                <property name="text">
-                 <string>Cambiar Contaseña</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="4" alignment="Qt::AlignRight">
-               <widget class="QToolButton" name="Boton_EditarDatos">
-                <property name="text">
-                 <string>Editar Datos</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="5" colspan="2">
-               <widget class="QToolButton" name="Boton_CambiarFoto">
-                <property name="styleSheet">
-                 <string notr="true"># Estilos para QToolButton
-QToolButton {
-    background-color: #4CAF50; /* Color de fondo */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Esquinas redondeadas */
-    padding: 8px 16px; /* Espaciado interno */
-    font-size: 14px; /* Tamaño de fuente */
-    font-weight: bold; /* Fuente en negrita */
-}
-
-QToolButton:hover {
-    background-color: #45a049; /* Cambia el color de fondo al pasar el mouse */
-}
-
-QToolButton:pressed {
-    background-color: #357a38; /* Cambia el color de fondo al hacer clic */
-}</string>
-                </property>
-                <property name="text">
-                 <string>Cambiar imagen</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../imgs/Recursos.qrc">
-                  <normaloff>:/iconos/icons8-imagen-50.png</normaloff>:/iconos/icons8-imagen-50.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="1">
-               <widget class="QComboBox" name="comboBox_2">
-                <property name="minimumSize">
-                 <size>
-                  <width>142</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>142</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="layoutDirection">
-                 <enum>Qt::LeftToRight</enum>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>CC</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>TI</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>CE</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>RC</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="7" column="3">
-               <widget class="QLineEdit" name="perfil_cedula">
-                <property name="inputMask">
-                 <string/>
-                </property>
+              <item row="2" column="3">
+               <widget class="QLineEdit" name="Line_tipoUsuario">
                 <property name="readOnly">
                  <bool>true</bool>
                 </property>
                </widget>
               </item>
-              <item row="4" column="1">
-               <widget class="QLabel" name="label_2">
-                <property name="minimumSize">
-                 <size>
-                  <width>142</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>142</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: #2c3e50; /* Color del texto */
-    font-size: 18px; /* Tamaño de fuente */
-    font-weight: bold; /* Negrita */
-    font-family: Arial, sans-serif; /* Fuente */
-    background-color: #ecf0f1; /* Color de fondo */
-    border: 2px solid #3498db; /* Borde */
-    border-radius: 10px; /* Radio de borde */
-    padding: 5px 10px; /* Espaciado interno */</string>
-                </property>
-                <property name="text">
-                 <string>Apellido:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="3">
-               <widget class="QLineEdit" name="perfil_apellido">
+              <item row="7" column="3">
+               <widget class="QLineEdit" name="perfil_cedula">
                 <property name="inputMask">
-                 <string/>
-                </property>
-                <property name="text">
                  <string/>
                 </property>
                 <property name="readOnly">
@@ -2210,53 +2216,47 @@ QToolButton:pressed {
                 </property>
                </widget>
               </item>
-              <item row="3" column="3">
-               <widget class="QLineEdit" name="perfil_nombre">
+              <item row="11" column="4" colspan="2">
+               <widget class="QPushButton" name="Boto_cerrarsesion">
+                <property name="text">
+                 <string>CERRAR SESION</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../imgs/Recursos.qrc">
+                  <normaloff>:/iconos/icons8-salida-50.png</normaloff>:/iconos/icons8-salida-50.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="shortcut">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="11" column="1">
+               <spacer name="verticalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="4" column="3">
+               <widget class="QLineEdit" name="perfil_apellido">
                 <property name="inputMask">
                  <string/>
                 </property>
-                <property name="readOnly">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QLabel" name="Label_usuario">
-                <property name="minimumSize">
-                 <size>
-                  <width>142</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>142</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="layoutDirection">
-                 <enum>Qt::LeftToRight</enum>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">color: #2c3e50; /* Color del texto */
-    font-size: 18px; /* Tamaño de fuente */
-    font-weight: bold; /* Negrita */
-    font-family: Arial, sans-serif; /* Fuente */
-    background-color: #ecf0f1; /* Color de fondo */
-    border: 2px solid #3498db; /* Borde */
-    border-radius: 10px; /* Radio de borde */
-    padding: 5px 10px; /* Espaciado interno */</string>
-                </property>
                 <property name="text">
-                 <string>Usuario:</string>
+                 <string/>
                 </property>
-                <property name="alignment">
-                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="3">
-               <widget class="QLineEdit" name="Line_tipoUsuario">
                 <property name="readOnly">
                  <bool>true</bool>
                 </property>
