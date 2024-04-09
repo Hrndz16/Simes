@@ -2,10 +2,10 @@
 import sys,os
 ruta = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(f'{ruta}\\imgs')
-from PySide6.QtWidgets import QMainWindow,QApplication,QVBoxLayout,QMessageBox,QLineEdit
+from PySide6.QtWidgets import QMainWindow,QApplication,QVBoxLayout,QMessageBox,QLineEdit,QFileDialog
 from Ui_mainwindow import Ui_MainWindow as MW
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QFont
+from PySide6.QtGui import QFont,QPixmap
 from eventos import FrameEvento
 from database import DataBase
 
@@ -48,8 +48,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.mensaje.setStandardButtons(QMessageBox.Ok)
         self.mensaje.setWindowFlags(Qt.FramelessWindowHint)
         self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())#habilita el cambio de datos de perfil del usuario
-        
-        
+        self.Boton_CambiarFoto.clicked.connect(lambda:self.abrir_dialogo_archivo())
     def botonIngresar(self):
         self.Correo_2.clear()
         self.password_2.clear()
@@ -59,6 +58,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         else:
             self.stackedWidget_principal.setCurrentIndex(4)
             self.visible_us() 
+            self.cargarFotoPerfil()
             
             
     def botonInicio(self):    
@@ -117,52 +117,89 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
                 
     def habilitar_cambio_datos(self): 
         """Este metodo se encarga del proceso de cambar y guardar los datos de un Usuario"""
+        self.Boton_EditarDatos.clicked.disconnect()
         self.Boton_EditarDatos.setText('Guardar Cambios')
         self.habilitar_o_deshabilitarDatos(False)
+        self.guardarCambioDatos()
+        return None
         
     def habilitar_o_deshabilitarDatos(self,b): ## Habilita o deshabilita los datos del stackedWidget Nro 4
-        """Recibe un booleano y habilita o desabilita los lineedits del stackedWidget Nro 4"""
-        self.Line_tipoUsuario.setReadOnly(b)
+        """Recibe un booleano y habilita(True) o deshabilita(False) los lineedits del stackedWidget Nro 4"""
         self.perfil_nombre.setReadOnly(b)
         self.perfil_correo.setReadOnly(b)
         self.perfil_apellido.setReadOnly(b)
         self.perfil_cedula.setReadOnly(b)
-        if b == False:
-            self.texto_enLineEdit()
-        else:
-            self.visible_us()
+        self.visible_us()
         
-    def texto_enLineEdit(self):
-        us = self.db.CosultarDatosU(self.Usu_activo)[0]
-        self.Line_tipoUsuario.setText(self.db.tipoUsuario(us[2]))
-        self.perfil_nombre.setText(us[3])
-        self.perfil_apellido.setText(us[4])
-        self.perfil_cedula.setText(us[0])
-        self.perfil_correo.setText(us[5])
-            
-        # SE VERIFICAN LOS DATOS
         
     def guardarCambioDatos(self):
-        tipoU = self.Line_tipoUsuario.text()
-        nombre = self.Correo_6.text()
-        cc = self.Correo_7.text()
-        apellido = self.Correo_8.text()
-        correo = self.Correo_9.text()
-        registro = self.db.buscarRegistros(cc=cc,correo=correo)
-        if registro[0] == 1 and registro[3] == 1:
-            pass
+        ##tipoU = self.Line_tipoUsuario.text()
+        self.Boton_EditarDatos.clicked.connect(lambda: self.obtenerDatos())
+        
+        
+    def obtenerDatos(self):
+        self.Boton_EditarDatos.setText('editar datos')
+        nombre = self.perfil_nombre.text()
+        cc = self.perfil_cedula.text()
+        apellido = self.perfil_apellido.text()
+        correo = self.perfil_correo.text()
+        lis = [cc,nombre,apellido,correo]
+        if self.db.incertar_datos(self.Usu_activo,lis) == False:
+            self.mensaje.setText('¡Correo o Cedula ya existen!\n Ingrese otros datos por favor')
+            self.mensaje.exec_()
+            self.limpiar_lineedits()
+            self.Boton_EditarDatos.clicked.disconnect()
+            self.habilitar_o_deshabilitarDatos(True)
+            self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())
+        else: 
+            self.mensaje.setText('¡Los cambios se hicieron con exito!')
+            self.mensaje.exec_()
+            self.cambiar_correo(correo)
+            self.limpiar_lineedits()
+            self.habilitar_o_deshabilitarDatos(True)
+            self.Boton_EditarDatos.clicked.disconnect()
+            self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())
             
+    def cambiar_correo(self,correo):
+        if correo != '':
+            self.Usu_activo = correo
         
         
         # SE ACTUALIZA EL CORREO EN LA VARIABLE SELF.USU_ACTIVO
         
     def visible_us(self): # HACE VISIBLE LOS DATOS DEL stackedWidget Nro 4
         us = self.db.CosultarDatosU(self.Usu_activo)[0]
+        self.Line_tipoUsuario.setPlaceholderText(self.db.tipoUsuario(us[2]))
         self.perfil_nombre.setPlaceholderText(us[3])
         self.perfil_cedula.setPlaceholderText(str(us[0]))
         self.perfil_apellido.setPlaceholderText(us[4])
         self.perfil_correo.setPlaceholderText(us[5])
         
+        
+    def abrir_dialogo_archivo(self):
+        opciones = QFileDialog.Options()
+        opciones |= QFileDialog.DontUseNativeDialog
+        archivo, _ = QFileDialog.getOpenFileName(self, "Seleccionar archivo", "", "Archivos de imagen (*.png *.jpg *.jpeg *.gif);;Todos los archivos (*)", options=opciones)
+        if archivo:
+            print("Archivo seleccionado:", archivo)
+            self.agregarFotoPerfil(archivo)
+            self.db.rutaFotoUsuario(self.Usu_activo,archivo)
+            
+    def agregarFotoPerfil(self,ruta):
+        foto = QPixmap(os.path.join(ruta))
+        self.Foto_usuario.setPixmap(foto)
+        
+    def cargarFotoPerfil(self):
+        us = self.db.CosultarDatosU(self.Usu_activo)
+        print(us)
+        if us[0][7] is not None:
+            ruta = str(us[0][7])
+            print(ruta)
+            ruta = self.db.convertirByteaIMG(us[0][7],self.Usu_activo)
+            print(ruta)
+            self.agregarFotoPerfil(ruta)
+        
+            
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()
