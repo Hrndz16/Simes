@@ -225,6 +225,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_guardarEvento.clicked.connect(lambda:self.guardarEvento())
         # Conectar el ComboBox con la lista de coordinadores
         corr = self.db.listaCoordinadores()
+        self.combo_coordinadores.addItem('')
         for cor in corr:
             dat = f'{cor[0]}'+'  '+cor[1]+' '+cor[2]
             self.combo_coordinadores.addItem(dat)
