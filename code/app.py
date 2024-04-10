@@ -203,6 +203,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         pass        
             
     
+    
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()
