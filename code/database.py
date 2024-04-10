@@ -3,7 +3,7 @@ import psycopg2,os
 class DataBase():
     def __init__(self) -> None:
         # Conexion a base de datos
-        self.conn = psycopg2.connect(user='postgres',host='127.0.0.1', port='5432', database='db_Simes')
+        self.conn = psycopg2.connect(user='postgres',host='127.0.0.1',password = 'POSTGRES1', port='5432', database='db_Simes')
         # Utilizar cursor
         self.cur = self.conn.cursor()
 
@@ -140,3 +140,10 @@ class DataBase():
             img.write(ruta)
             img.close()
         return rutaFoto
+    
+    def listaCoordinadores(self):
+        """Retorna la lista de Coordinadores"""
+        consulta = f"""select idusuario,nomusuario,apeusuario from usuarios where tipousuario = '2'"""
+        self.cur.execute(consulta)
+        coordinadores = self.cur.fetchall()
+        return coordinadores

@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QDateTimeEdit, QFrame,
+from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QFrame,
     QGridLayout, QHBoxLayout, QLabel, QLineEdit,
     QMainWindow, QPlainTextEdit, QPushButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QStackedWidget, QToolButton,
-    QVBoxLayout, QWidget)
+    QSizePolicy, QSpacerItem, QStackedWidget, QTimeEdit,
+    QToolButton, QVBoxLayout, QWidget)
 import Recursos_rc
 
 class Ui_MainWindow(object):
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(733, 677)
+        MainWindow.resize(810, 600)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -790,7 +790,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 799, 517))
+        self.Area_eventos.setGeometry(QRect(0, 0, 798, 528))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -1459,29 +1459,24 @@ class Ui_MainWindow(object):
         self.gridLayout_8 = QGridLayout()
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setHorizontalSpacing(13)
-        self.verticalSpacer_13 = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.label_3 = QLabel(self.page)
+        self.label_3.setObjectName(u"label_3")
 
-        self.gridLayout_8.addItem(self.verticalSpacer_13, 2, 1, 1, 1)
+        self.gridLayout_8.addWidget(self.label_3, 1, 0, 1, 1)
 
-        self.label_6 = QLabel(self.page)
-        self.label_6.setObjectName(u"label_6")
+        self.combo_coordinadores = QComboBox(self.page)
+        self.combo_coordinadores.setObjectName(u"combo_coordinadores")
+        self.combo_coordinadores.setMinimumSize(QSize(0, 30))
 
-        self.gridLayout_8.addWidget(self.label_6, 5, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.combo_coordinadores, 3, 1, 1, 1)
 
-        self.label_4 = QLabel(self.page)
-        self.label_4.setObjectName(u"label_4")
+        self.verticalSpacer_14 = QSpacerItem(30, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
-        self.gridLayout_8.addWidget(self.label_4, 3, 0, 1, 1)
+        self.gridLayout_8.addItem(self.verticalSpacer_14, 7, 1, 1, 1)
 
-        self.dateTimeEdit = QDateTimeEdit(self.page)
-        self.dateTimeEdit.setObjectName(u"dateTimeEdit")
-        self.dateTimeEdit.setMinimumSize(QSize(0, 30))
+        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_8.addWidget(self.dateTimeEdit, 3, 1, 1, 1)
-
-        self.verticalSpacer_12 = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout_8.addItem(self.verticalSpacer_12, 4, 1, 1, 1)
+        self.gridLayout_8.addItem(self.horizontalSpacer_13, 1, 3, 1, 1)
 
         self.lineEdit = QLineEdit(self.page)
         self.lineEdit.setObjectName(u"lineEdit")
@@ -1489,27 +1484,56 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.lineEdit, 1, 1, 1, 1)
 
-        self.comboBox_3 = QComboBox(self.page)
-        self.comboBox_3.setObjectName(u"comboBox_3")
-        self.comboBox_3.setMinimumSize(QSize(0, 30))
+        self.label_6 = QLabel(self.page)
+        self.label_6.setObjectName(u"label_6")
 
-        self.gridLayout_8.addWidget(self.comboBox_3, 5, 1, 1, 1)
+        self.gridLayout_8.addWidget(self.label_6, 3, 0, 1, 1)
 
-        self.label_3 = QLabel(self.page)
-        self.label_3.setObjectName(u"label_3")
+        self.verticalSpacer_13 = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
-        self.gridLayout_8.addWidget(self.label_3, 1, 0, 1, 1)
-
-        self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_8.addItem(self.horizontalSpacer_13, 1, 3, 1, 1)
-
-        self.verticalSpacer_14 = QSpacerItem(30, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout_8.addItem(self.verticalSpacer_14, 6, 1, 1, 1)
+        self.gridLayout_8.addItem(self.verticalSpacer_13, 2, 1, 1, 1)
 
 
         self.verticalLayout_8.addLayout(self.gridLayout_8)
+
+        self.horizontalLayout_13 = QHBoxLayout()
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalSpacer_18 = QSpacerItem(80, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_13.addItem(self.horizontalSpacer_18)
+
+        self.label_15 = QLabel(self.page)
+        self.label_15.setObjectName(u"label_15")
+
+        self.horizontalLayout_13.addWidget(self.label_15)
+
+        self.fechaEvento = QDateEdit(self.page)
+        self.fechaEvento.setObjectName(u"fechaEvento")
+        self.fechaEvento.setMinimumSize(QSize(150, 30))
+
+        self.horizontalLayout_13.addWidget(self.fechaEvento)
+
+        self.horizontalSpacer_16 = QSpacerItem(80, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_13.addItem(self.horizontalSpacer_16)
+
+        self.label_16 = QLabel(self.page)
+        self.label_16.setObjectName(u"label_16")
+
+        self.horizontalLayout_13.addWidget(self.label_16)
+
+        self.horaEvento = QTimeEdit(self.page)
+        self.horaEvento.setObjectName(u"horaEvento")
+        self.horaEvento.setMinimumSize(QSize(80, 30))
+
+        self.horizontalLayout_13.addWidget(self.horaEvento)
+
+        self.horizontalSpacer_17 = QSpacerItem(80, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_13.addItem(self.horizontalSpacer_17)
+
+
+        self.verticalLayout_8.addLayout(self.horizontalLayout_13)
 
         self.label_5 = QLabel(self.page)
         self.label_5.setObjectName(u"label_5")
@@ -1541,12 +1565,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_14.addItem(self.horizontalSpacer_14)
 
-        self.pushButton = QPushButton(self.page)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(130, 30))
-        self.pushButton.setMaximumSize(QSize(180, 40))
-        self.pushButton.setSizeIncrement(QSize(0, 0))
-        self.pushButton.setStyleSheet(u" QPushButton {\n"
+        self.Boton_guardarEvento = QPushButton(self.page)
+        self.Boton_guardarEvento.setObjectName(u"Boton_guardarEvento")
+        self.Boton_guardarEvento.setMinimumSize(QSize(130, 30))
+        self.Boton_guardarEvento.setMaximumSize(QSize(180, 40))
+        self.Boton_guardarEvento.setSizeIncrement(QSize(0, 0))
+        self.Boton_guardarEvento.setStyleSheet(u" QPushButton {\n"
 "			background-color: rgb(180, 178, 206);/* Color de fondo */\n"
 "            border-style: outset; /* Estilo del borde (puede ser outset, inset, solid, dashed, dotted, none) */\n"
 "            border-width: 2px; /* Ancho del borde */\n"
@@ -1564,7 +1588,7 @@ class Ui_MainWindow(object):
 "            background-color: #367c39; /* Cambio de color de fondo al presionar el bot\u00f3n */\n"
 "        }")
 
-        self.horizontalLayout_14.addWidget(self.pushButton)
+        self.horizontalLayout_14.addWidget(self.Boton_guardarEvento)
 
         self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -1695,17 +1719,18 @@ class Ui_MainWindow(object):
         self.perfil_apellido.setText("")
         self.botonAdmUsuarios.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR USUARIOS", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR EVENTOS", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">T\u00edtulo del evento:</span></p></body></html>", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Encargado del evento:</span></p></body></html>", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Fecha y hora:</span></p></body></html>", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">T\u00edtulo del evento:</span></p></body></html>", None))
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Fecha:</span></p></body></html>", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Hora:</span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Descripci\u00f3n:</span></p></body></html>", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
+        self.Boton_guardarEvento.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
     # retranslateUi
 

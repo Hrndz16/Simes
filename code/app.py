@@ -4,10 +4,11 @@ ruta = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(f'{ruta}\\imgs')
 from PySide6.QtWidgets import QMainWindow,QApplication,QSpacerItem,QMessageBox,QLineEdit,QFileDialog,QSizePolicy
 from Ui_mainwindow import Ui_MainWindow as MW
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt,QDate,QTime
 from PySide6.QtGui import QFont,QPixmap
 from eventos import FrameEvento
 from database import DataBase
+
 
 
 
@@ -50,6 +51,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())#habilita el cambio de datos de perfil del usuario
         self.Boton_CambiarFoto.clicked.connect(lambda:self.abrir_dialogo_archivo())
         self.Boto_cerrarsesion.clicked.connect(lambda:self.cerrar_sesion())
+        self.fechaEvento.setCalendarPopup(True)
         
     def botonIngresar(self):
         self.Correo_2.clear()
@@ -69,6 +71,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
          #coloca en la ventana de inicio segun el tipo de usuario
         else:
             self.stackedWidget_principal.setCurrentIndex(5)
+            self.perfilAdministrador()# Aqui se inicializa la interfaz del perfil del administrador
     def botonRegistrarse(self):
         self.stackedWidget_principal.setCurrentIndex(3)#coloca en la ventana de registro
     def botonProxEvento(self):
@@ -203,8 +206,6 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.LayoutEventos.addWidget(eventos[0])
         self.LayoutEventos.addWidget(self.verticalSpacer)
         
-        
-        
     def cerrar_sesion(self):
         self.tipo_usuario = 0
         self.Usu_activo = 0
@@ -212,7 +213,26 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_ingresar.setText('INICIAR SESIÓN')
         pass        
             
+    def perfilAdministrador(self):
+        ## Aqui se establece la fecha minima 
+        self.fechaEvento.setCalendarPopup(True)
+        self.fechaEvento.setMinimumDate(QDate().currentDate())
+        # Establecer la hora mínima a las 7 de la mañana
+        self.horaEvento.setMinimumTime(QTime(7, 0))
+        # Establecer la hora maxima a las 8 de la noche 
+        self.horaEvento.setMaximumTime(QTime(20,0))
+        # Se conecta el botón con la función guardar evento 
+        self.Boton_guardarEvento.clicked.connect(lambda:self.guardarEvento())
+        # Conectar el ComboBox con la lista de coordinadores
+        corr = self.db.listaCoordinadores()
+        for cor in corr:
+            dat = f'{cor[0]}'+'  '+cor[1]+' '+cor[2]
+            self.combo_coordinadores.addItem(dat)
+        
     
+    def guardarEvento(self):
+        pass
+        
     
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
