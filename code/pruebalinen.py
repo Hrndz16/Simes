@@ -2,7 +2,7 @@ from PySide6.QtCore import QTime
 hora1 = QTime(12,40).toString("h:mm AP")
 hora2 = QTime(13,40).toString("h:mm AP")
 print(hora1,hora2)
-if QTime().fromString(hora1,"HH:mm") < QTime().fromString(hora2,"HH:mm"):
+if QTime.fromString(hora1,"h:mm AP") < QTime.fromString(hora2,"h:mm AP"):
     print('Si se pudieron comparar')
 
 #######################################################################################################################################

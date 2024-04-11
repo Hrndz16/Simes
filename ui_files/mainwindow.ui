@@ -2722,7 +2722,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                      </widget>
                     </item>
                     <item>
-                     <widget class="QTimeEdit" name="timeEdit_3">
+                     <widget class="QTimeEdit" name="finEvento">
                       <property name="minimumSize">
                        <size>
                         <width>80</width>

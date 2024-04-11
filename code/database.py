@@ -147,3 +147,9 @@ class DataBase():
         self.cur.execute(consulta)
         coordinadores = self.cur.fetchall()
         return coordinadores
+    
+    def guardar_evento(self,nomevento,fechevento,encargadoevento,descripcionevento,horaevento):
+        consulta =f"""insert into eventos (nomevento,fechevento,encargadoevento,descripcionevento,horaevento) values (%s,%s,%s,%s,%s)"""
+        datos = (nomevento,fechevento,encargadoevento,descripcionevento,horaevento)
+        self.cur.execute(consulta,datos)
+        self.conn.commit()

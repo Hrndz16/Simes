@@ -1548,12 +1548,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_16.addWidget(self.label_26)
 
-        self.timeEdit_3 = QTimeEdit(self.page)
-        self.timeEdit_3.setObjectName(u"timeEdit_3")
-        self.timeEdit_3.setMinimumSize(QSize(80, 30))
-        self.timeEdit_3.setMaximumSize(QSize(200, 16777215))
+        self.finEvento = QTimeEdit(self.page)
+        self.finEvento.setObjectName(u"finEvento")
+        self.finEvento.setMinimumSize(QSize(80, 30))
+        self.finEvento.setMaximumSize(QSize(200, 16777215))
 
-        self.horizontalLayout_16.addWidget(self.timeEdit_3)
+        self.horizontalLayout_16.addWidget(self.finEvento)
 
         self.horizontalSpacer_20 = QSpacerItem(80, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
 
