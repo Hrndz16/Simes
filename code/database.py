@@ -163,3 +163,9 @@ class DataBase():
 # a=DataBase()
 # evento=a.cargarEventos()
 # print(type(evento[0][1]))
+    
+    def guardar_evento(self,nomevento,fechevento,encargadoevento,descripcionevento,horaevento):
+        consulta =f"""insert into eventos (nomevento,fechevento,encargadoevento,descripcionevento,horaevento) values (%s,%s,%s,%s,%s)"""
+        datos = (nomevento,fechevento,encargadoevento,descripcionevento,horaevento)
+        self.cur.execute(consulta,datos)
+        self.conn.commit()

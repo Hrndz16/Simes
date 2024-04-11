@@ -224,21 +224,68 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.fechaEvento.setCalendarPopup(True)
         self.fechaEvento.setMinimumDate(QDate().currentDate())
         # Establecer la hora mínima a las 7 de la mañana
-        self.horaEvento.setMinimumTime(QTime(7, 0))
+        self.inicioEvento.setMinimumTime(QTime(7, 0))
         # Establecer la hora maxima a las 8 de la noche 
-        self.horaEvento.setMaximumTime(QTime(20,0))
+        self.inicioEvento.setMaximumTime(QTime(20,0))
+        # Se establece la hora minima para el final
+        self.finEvento.setMinimumTime(QTime(7,20))
+        # Se establece la hora maxima para la finalizacion del evento
+        self.finEvento.setMaximumTime(QTime(21,0))
         # Se conecta el botón con la función guardar evento 
         self.Boton_guardarEvento.clicked.connect(lambda:self.guardarEvento())
         # Conectar el ComboBox con la lista de coordinadores
         corr = self.db.listaCoordinadores()
         self.combo_coordinadores.addItem('')
         for cor in corr:
-            dat = f'{cor[0]}'+'  '+cor[1]+' '+cor[2]
+            dat = f'{cor[0]}'+' '+cor[1]+' '+cor[2]
             self.combo_coordinadores.addItem(dat)
-        
+            
+        # Conectar el botón guardar con el metodo
+        self.Boton_guardarEvento.clicked.disconnect()
+        self.Boton_guardarEvento.clicked.connect(lambda:self.guardarEvento())        
     
     def guardarEvento(self):
-        pass
+        nomevento = self.tituloEvento.text()
+        encargado = self.combo_coordinadores.currentText().split(' ',1)
+        fech = self.fechaEvento.date().toString("dd/MM/yyyy")# Esta linea recupera la fecha como QDate y la transforma en string 
+        horainicio = self.inicioEvento.time().toString("h:mm AP")# Me devuelve la hora del evento en formato 'am' y 'pm'
+        horafin = self.finEvento.time().toString("h:mm AP")
+        descripcion = self.descripcionEvento.toPlainText()# Me devuelve el texto de la descripcion del evento
+        encargado = self.validarDatosEvento(nomevento,encargado,horainicio,horafin) # Devuelve el nombre del coordinador como cadena de texto
+        if encargado is not False: # Aqui se verifica si se cumple la condición de que todos los datos estan en orden
+            # Se procede a guardar los datos 
+            horaEvento = f'{horainicio}-{horafin}'
+            self.db.guardar_evento(nomevento,fech,encargado,descripcion,horaEvento)
+            self.mensaje.setText('¡El evento se guardo con exito!')
+            self.mensaje.exec_()
+            pass
+        print(nomevento,encargado,fech,horainicio,horafin,descripcion)
+    
+    
+    def validarDatosEvento(self,nomevento,encargado,horainicio,horafin):
+        b = False
+        # Validamos que el nomevento y el encargado no esten vacios
+        if nomevento == '':
+            self.mensaje.setText("¡El Título del evento es obligatorio!")
+            self.mensaje.exec_()
+            self.Boton_guardarEvento.clicked.disconnect()
+            self.Boton_guardarEvento.clicked.connect(lambda:self.perfilAdministrador())
+        elif encargado == '':
+            self.mensaje.setText("¡El encargado del evento es obligatorio!")
+            self.mensaje.exec_()
+            self.Boton_guardarEvento.clicked.disconnect()
+            self.Boton_guardarEvento.clicked.connect(lambda:self.perfilAdministrador())
+
+        else: b = encargado[1]
+            
+        # Validamos que la hora de inicio no sea mayor o igual que la hora final
+        inicio = QTime().fromString(horainicio,"h:mm AP")
+        fin = QTime().fromString(horafin,"h:mm AP")
+        if inicio >= fin:
+            self.mensaje.setText("Horas incorrectas. Ingreselas de nuevo")
+            self.mensaje.exec_()
+            
+        return b
         
     
 if __name__ == '__main__':#crea la ventana
