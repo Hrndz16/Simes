@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(810, 600)
+        MainWindow.resize(813, 600)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -723,7 +723,7 @@ class Ui_MainWindow(object):
         self.label_correo_2.setMinimumSize(QSize(142, 0))
         self.label_correo_2.setMaximumSize(QSize(100, 16777215))
         font2 = QFont()
-        font2.setFamilies([u"Arial"])
+        font2.setFamilies([u"Arial,sans-serif"])
         font2.setBold(True)
         self.label_correo_2.setFont(font2)
         self.label_correo_2.setLayoutDirection(Qt.RightToLeft)
@@ -790,11 +790,15 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 798, 528))
+        self.Area_eventos.setGeometry(QRect(0, 0, 809, 530))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_5.addItem(self.verticalSpacer_12)
+
         self.scrollArea.setWidget(self.Area_eventos)
 
         self.horizontalLayout_6.addWidget(self.scrollArea)
@@ -1622,7 +1626,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_principal.setCurrentIndex(5)
+        self.stackedWidget_principal.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

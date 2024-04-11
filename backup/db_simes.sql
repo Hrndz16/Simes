@@ -5,6 +5,8 @@
 -- Dumped from database version 16.0
 -- Dumped by pg_dump version 16.0
 
+-- Started on 2024-04-10 20:37:48
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -21,20 +23,39 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- TOC entry 215 (class 1259 OID 18219)
 -- Name: eventos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.eventos (
-    nomevento character varying(50) NOT NULL,
-    fechevento timestamp without time zone NOT NULL,
-    encargadoevento character(10) NOT NULL,
-    descripcionevento text
+    nomevento character varying NOT NULL,
+    fechevento date NOT NULL,
+    encargadoevento character(1) NOT NULL,
+    descripcionevento text,
+    idevento integer NOT NULL,
+    "horaEvento" text
 );
 
 
 ALTER TABLE public.eventos OWNER TO postgres;
 
 --
+-- TOC entry 217 (class 1259 OID 18244)
+-- Name: eventos_idevento_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public.eventos ALTER COLUMN idevento ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.eventos_idevento_seq
+    START WITH 1000
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 216 (class 1259 OID 18224)
 -- Name: usuarios; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -53,14 +74,18 @@ CREATE TABLE public.usuarios (
 ALTER TABLE public.usuarios OWNER TO postgres;
 
 --
+-- TOC entry 4785 (class 0 OID 18219)
+-- Dependencies: 215
 -- Data for Name: eventos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.eventos (nomevento, fechevento, encargadoevento, descripcionevento) FROM stdin;
+COPY public.eventos (nomevento, fechevento, encargadoevento, descripcionevento, idevento, "horaEvento") FROM stdin;
 \.
 
 
 --
+-- TOC entry 4786 (class 0 OID 18224)
+-- Dependencies: 216
 -- Data for Name: usuarios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -81,16 +106,38 @@ COPY public.usuarios (idusuario, tipoid, tipousuario, nomusuario, apeusuario, co
 555555	CC	2	Carmen	Restrepo	carmenre@gmail.com	555555	\N
 666666	CC	2	Sofia	Calderon	sofical@gmail.com	555555	\N
 777777	CC	2	Daniel	Melano	danimel@gmail.com	555555	\N
+123	CC	3	Marlon	H	d	d	\N
 \.
 
 
 --
+-- TOC entry 4793 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: eventos_idevento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.eventos_idevento_seq', 1000, false);
+
+
+--
+-- TOC entry 4639 (class 2606 OID 18251)
+-- Name: eventos eventos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.eventos
+    ADD CONSTRAINT eventos_pkey PRIMARY KEY (idevento);
+
+
+--
+-- TOC entry 4641 (class 2606 OID 18233)
 -- Name: usuarios usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.usuarios
     ADD CONSTRAINT usuarios_pkey PRIMARY KEY (idusuario);
 
+
+-- Completed on 2024-04-10 20:37:49
 
 --
 -- PostgreSQL database dump complete

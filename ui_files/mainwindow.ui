@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>810</width>
+    <width>813</width>
     <height>600</height>
    </rect>
   </property>
@@ -146,6 +146,7 @@ QPushButton#Boton_inicio:hover {
          <property name="font">
           <font>
            <pointsize>-1</pointsize>
+           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -217,7 +218,7 @@ QPushButton#Boton_ingresar:hover {
           <string notr="true">background-color: rgb(198, 198, 198);</string>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page_1_inicio">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1252,8 +1253,9 @@ border-color: rgb(170, 170, 255);</string>
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1372,15 +1374,29 @@ alternate-background-color: rgb(255, 162, 115);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>798</width>
-                <height>528</height>
+                <width>809</width>
+                <height>530</height>
                </rect>
               </property>
               <property name="styleSheet">
                <string notr="true">background-color: rgb(241, 241, 241);
 alternate-background-color: rgb(255, 162, 115);</string>
               </property>
-              <layout class="QVBoxLayout" name="verticalLayout_5"/>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <spacer name="verticalSpacer_12">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
              </widget>
             </widget>
            </item>
@@ -1570,8 +1586,9 @@ QComboBox::down-arrow {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1675,8 +1692,9 @@ QComboBox::down-arrow {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -2091,8 +2109,9 @@ QToolButton:pressed {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -2190,8 +2209,9 @@ QToolButton:pressed {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>

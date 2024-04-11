@@ -3,7 +3,7 @@ import psycopg2,os
 class DataBase():
     def __init__(self) -> None:
         # Conexion a base de datos
-        self.conn = psycopg2.connect(user='postgres',host='127.0.0.1',password = 'POSTGRES1', port='5432', database='db_Simes')
+        self.conn = psycopg2.connect(user='postgres',host='127.0.0.1', port='5432', database='db_Simes')
         # Utilizar cursor
         self.cur = self.conn.cursor()
 
@@ -147,3 +147,19 @@ class DataBase():
         self.cur.execute(consulta)
         coordinadores = self.cur.fetchall()
         return coordinadores
+    
+    def cargarEventos(self):
+        consulta =f'select idevento, distinct fechaevento from eventos order by 2;'
+        self.cur.execute(consulta)
+        evento = self.cur.fetchall()
+        return evento
+    
+    def consultarHoras(self,fecha):
+        consulta=f'select horaevento,descripcionevento from eventos where fechaevento = %s'
+        self.cur.execute(consulta,(fecha,))
+        horas=self.cur.fetchall()
+        return horas
+      
+# a=DataBase()
+# evento=a.cargarEventos()
+# print(type(evento[0][1]))

@@ -157,7 +157,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())
         else: 
             self.mensaje.setText('¡Los cambios se hicieron con exito!')
-            self.mensaje.exec_()
+            self.mensaje.exec()
             self.cambiar_correo(correo)
             self.limpiar_lineedits()
             self.habilitar_o_deshabilitarDatos(True)
@@ -201,10 +201,16 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.agregarFotoPerfil(ruta)
             
     def cargarEventos(self):
-        eventos = []
-        eventos.append(FrameEvento())
-        self.LayoutEventos.addWidget(eventos[0])
-        self.LayoutEventos.addWidget(self.verticalSpacer)
+       eventos=self.db.cargarEventos()
+       i=0
+       for evento in eventos:
+           id=evento[0]
+           fecha=evento[1]
+           item=FrameEvento(id,fecha)
+           self.verticalLayout_5.insertWidget(i,item)
+           i+=1
+        
+        
         
     def cerrar_sesion(self):
         self.tipo_usuario = 0
