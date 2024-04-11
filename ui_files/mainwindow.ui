@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>810</width>
+    <width>890</width>
     <height>600</height>
    </rect>
   </property>
@@ -2510,6 +2510,22 @@ gridline-color: rgb(255, 255, 255);
                     <property name="horizontalSpacing">
                      <number>13</number>
                     </property>
+                    <item row="2" column="1">
+                     <spacer name="verticalSpacer_13">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Fixed</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
                     <item row="1" column="0">
                      <widget class="QLabel" name="label_3">
                       <property name="text">
@@ -2557,7 +2573,7 @@ gridline-color: rgb(255, 255, 255);
                      </spacer>
                     </item>
                     <item row="1" column="1">
-                     <widget class="QLineEdit" name="lineEdit">
+                     <widget class="QLineEdit" name="tituloEvento">
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
@@ -2572,22 +2588,6 @@ gridline-color: rgb(255, 255, 255);
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Encargado del evento:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                      </widget>
-                    </item>
-                    <item row="2" column="1">
-                     <spacer name="verticalSpacer_13">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                     </spacer>
                     </item>
                    </layout>
                   </item>
@@ -2631,6 +2631,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
                         <height>30</height>
                        </size>
                       </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>250</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                      </widget>
                     </item>
                     <item>
@@ -2643,7 +2649,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>80</width>
+                        <width>70</width>
                         <height>20</height>
                        </size>
                       </property>
@@ -2652,16 +2658,22 @@ li.checked::marker { content: &quot;\2612&quot;; }
                     <item>
                      <widget class="QLabel" name="label_16">
                       <property name="text">
-                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Hora:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Hora inicio:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QTimeEdit" name="horaEvento">
+                     <widget class="QTimeEdit" name="inicioEvento">
                       <property name="minimumSize">
                        <size>
                         <width>80</width>
                         <height>30</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>200</width>
+                        <height>16777215</height>
                        </size>
                       </property>
                      </widget>
@@ -2672,7 +2684,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                        <enum>Qt::Horizontal</enum>
                       </property>
                       <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                       <enum>QSizePolicy::MinimumExpanding</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
@@ -2685,6 +2697,78 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    </layout>
                   </item>
                   <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_16">
+                    <item>
+                     <spacer name="horizontalSpacer_19">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Fixed</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>350</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_26">
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Finalización:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QTimeEdit" name="timeEdit_3">
+                      <property name="minimumSize">
+                       <size>
+                        <width>80</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>200</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="horizontalSpacer_20">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::MinimumExpanding</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>80</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_12">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
                    <widget class="QLabel" name="label_5">
                     <property name="text">
                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Descripción:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -2692,7 +2776,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPlainTextEdit" name="plainTextEdit">
+                   <widget class="QPlainTextEdit" name="descripcionEvento">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -2701,7 +2785,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
+                      <width>660</width>
                       <height>90</height>
                      </size>
                     </property>
@@ -2740,9 +2824,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
                       </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Fixed</enum>
+                      </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>40</width>
+                        <width>260</width>
                         <height>20</height>
                        </size>
                       </property>
@@ -2796,6 +2883,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
                      <spacer name="horizontalSpacer_15">
                       <property name="orientation">
                        <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::MinimumExpanding</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>

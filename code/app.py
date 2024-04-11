@@ -218,21 +218,40 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.fechaEvento.setCalendarPopup(True)
         self.fechaEvento.setMinimumDate(QDate().currentDate())
         # Establecer la hora mínima a las 7 de la mañana
-        self.horaEvento.setMinimumTime(QTime(7, 0))
+        self.inicioEvento.setMinimumTime(QTime(7, 0))
         # Establecer la hora maxima a las 8 de la noche 
-        self.horaEvento.setMaximumTime(QTime(20,0))
+        self.inicioEvento.setMaximumTime(QTime(20,0))
         # Se conecta el botón con la función guardar evento 
         self.Boton_guardarEvento.clicked.connect(lambda:self.guardarEvento())
         # Conectar el ComboBox con la lista de coordinadores
         corr = self.db.listaCoordinadores()
         self.combo_coordinadores.addItem('')
         for cor in corr:
-            dat = f'{cor[0]}'+'  '+cor[1]+' '+cor[2]
+            dat = f'{cor[0]}'+' '+cor[1]+' '+cor[2]
             self.combo_coordinadores.addItem(dat)
-        
+            
+        # Conectar el botón guardar con el metodo
+        self.Boton_guardarEvento.clicked.disconnect()
+        self.Boton_guardarEvento.clicked.connect(lambda:self.guardarEvento())        
     
     def guardarEvento(self):
+        nomevento = self.tituloEvento.text()
+        encargado = self.combo_coordinadores.currentText().split(' ',1)
+        encargado = encargado[1]# Devuelve el nombre del coordinador como cadena de texto
+        fech = self.fechaEvento.date().toString("dd/MM/yyyy")# Esta linea recupera la fecha como QDate y la transforma en string 
+        hora = self.inicioEvento.time().toString("h:mm AP")# Me devuelve la hora del evento en formato 'am' y 'pm'
+        descripcion = self.descripcionEvento.toPlainText()# Me devuelve el texto de la descripcion del evento
+        print(nomevento,encargado,fech,hora,descripcion)
         pass
+    
+    def validarDatosEvento(self,nomevento,encargado,fech,horainicio,horafin):
+        b = True
+        # Validamos que el nomevento y el encargado no esten vacios
+        if nomevento == '' or encargado == '':
+            b = False
+            
+        # Validamos que la hora de inicio no sea mayor o igual que la hora final
+        inicio = QTime().fromString(horainicio,"")
         
     
 if __name__ == '__main__':#crea la ventana

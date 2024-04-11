@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(810, 600)
+        MainWindow.resize(890, 600)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -1459,6 +1459,10 @@ class Ui_MainWindow(object):
         self.gridLayout_8 = QGridLayout()
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setHorizontalSpacing(13)
+        self.verticalSpacer_13 = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout_8.addItem(self.verticalSpacer_13, 2, 1, 1, 1)
+
         self.label_3 = QLabel(self.page)
         self.label_3.setObjectName(u"label_3")
 
@@ -1478,20 +1482,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addItem(self.horizontalSpacer_13, 1, 3, 1, 1)
 
-        self.lineEdit = QLineEdit(self.page)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setMinimumSize(QSize(0, 30))
+        self.tituloEvento = QLineEdit(self.page)
+        self.tituloEvento.setObjectName(u"tituloEvento")
+        self.tituloEvento.setMinimumSize(QSize(0, 30))
 
-        self.gridLayout_8.addWidget(self.lineEdit, 1, 1, 1, 1)
+        self.gridLayout_8.addWidget(self.tituloEvento, 1, 1, 1, 1)
 
         self.label_6 = QLabel(self.page)
         self.label_6.setObjectName(u"label_6")
 
         self.gridLayout_8.addWidget(self.label_6, 3, 0, 1, 1)
-
-        self.verticalSpacer_13 = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout_8.addItem(self.verticalSpacer_13, 2, 1, 1, 1)
 
 
         self.verticalLayout_8.addLayout(self.gridLayout_8)
@@ -1510,10 +1510,11 @@ class Ui_MainWindow(object):
         self.fechaEvento = QDateEdit(self.page)
         self.fechaEvento.setObjectName(u"fechaEvento")
         self.fechaEvento.setMinimumSize(QSize(150, 30))
+        self.fechaEvento.setMaximumSize(QSize(250, 16777215))
 
         self.horizontalLayout_13.addWidget(self.fechaEvento)
 
-        self.horizontalSpacer_16 = QSpacerItem(80, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+        self.horizontalSpacer_16 = QSpacerItem(70, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
         self.horizontalLayout_13.addItem(self.horizontalSpacer_16)
 
@@ -1522,29 +1523,59 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addWidget(self.label_16)
 
-        self.horaEvento = QTimeEdit(self.page)
-        self.horaEvento.setObjectName(u"horaEvento")
-        self.horaEvento.setMinimumSize(QSize(80, 30))
+        self.inicioEvento = QTimeEdit(self.page)
+        self.inicioEvento.setObjectName(u"inicioEvento")
+        self.inicioEvento.setMinimumSize(QSize(80, 30))
+        self.inicioEvento.setMaximumSize(QSize(200, 16777215))
 
-        self.horizontalLayout_13.addWidget(self.horaEvento)
+        self.horizontalLayout_13.addWidget(self.inicioEvento)
 
-        self.horizontalSpacer_17 = QSpacerItem(80, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+        self.horizontalSpacer_17 = QSpacerItem(80, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_13.addItem(self.horizontalSpacer_17)
 
 
         self.verticalLayout_8.addLayout(self.horizontalLayout_13)
 
+        self.horizontalLayout_16 = QHBoxLayout()
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalSpacer_19 = QSpacerItem(350, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_16.addItem(self.horizontalSpacer_19)
+
+        self.label_26 = QLabel(self.page)
+        self.label_26.setObjectName(u"label_26")
+
+        self.horizontalLayout_16.addWidget(self.label_26)
+
+        self.timeEdit_3 = QTimeEdit(self.page)
+        self.timeEdit_3.setObjectName(u"timeEdit_3")
+        self.timeEdit_3.setMinimumSize(QSize(80, 30))
+        self.timeEdit_3.setMaximumSize(QSize(200, 16777215))
+
+        self.horizontalLayout_16.addWidget(self.timeEdit_3)
+
+        self.horizontalSpacer_20 = QSpacerItem(80, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_16.addItem(self.horizontalSpacer_20)
+
+
+        self.verticalLayout_8.addLayout(self.horizontalLayout_16)
+
+        self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_12)
+
         self.label_5 = QLabel(self.page)
         self.label_5.setObjectName(u"label_5")
 
         self.verticalLayout_8.addWidget(self.label_5)
 
-        self.plainTextEdit = QPlainTextEdit(self.page)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setMinimumSize(QSize(0, 90))
-        self.plainTextEdit.setMaximumSize(QSize(16777215, 90))
-        self.plainTextEdit.setStyleSheet(u"QPlainTextEdit {\n"
+        self.descripcionEvento = QPlainTextEdit(self.page)
+        self.descripcionEvento.setObjectName(u"descripcionEvento")
+        self.descripcionEvento.setMinimumSize(QSize(0, 90))
+        self.descripcionEvento.setMaximumSize(QSize(660, 90))
+        self.descripcionEvento.setStyleSheet(u"QPlainTextEdit {\n"
 "            border-style: outset; /* Estilo del borde (puede ser outset, inset, solid, dashed, dotted, none) */\n"
 "            border-width: 1px; /* Ancho del borde */\n"
 "            border-color: rgb(0,0,0); /* Color del borde */\n"
@@ -1553,7 +1584,7 @@ class Ui_MainWindow(object):
 "            color: black; /* Color del texto */\n"
 "        }")
 
-        self.verticalLayout_8.addWidget(self.plainTextEdit)
+        self.verticalLayout_8.addWidget(self.descripcionEvento)
 
         self.verticalSpacer_15 = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
@@ -1561,7 +1592,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_14 = QHBoxLayout()
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.horizontalSpacer_14 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_14 = QSpacerItem(260, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
         self.horizontalLayout_14.addItem(self.horizontalSpacer_14)
 
@@ -1590,7 +1621,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_14.addWidget(self.Boton_guardarEvento)
 
-        self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_15 = QSpacerItem(40, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_14.addItem(self.horizontalSpacer_15)
 
@@ -1729,7 +1760,8 @@ class Ui_MainWindow(object):
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Fecha:</span></p></body></html>", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Hora:</span></p></body></html>", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Hora inicio:</span></p></body></html>", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Finalizaci\u00f3n:</span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Descripci\u00f3n:</span></p></body></html>", None))
         self.Boton_guardarEvento.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
     # retranslateUi
