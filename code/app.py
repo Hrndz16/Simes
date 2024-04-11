@@ -75,7 +75,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def botonRegistrarse(self):
         self.stackedWidget_principal.setCurrentIndex(3)#coloca en la ventana de registro
     def botonProxEvento(self):
-        
+        self.eliminar_widgets(self.verticalLayout_5)
         self.stackedWidget_principal.setCurrentIndex(2)#coloca en la ventana de proximo evento
         self.cargarEventos()
     def iniciarSesion(self):
@@ -204,12 +204,16 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
        eventos=self.db.cargarEventos()
        i=0
        for evento in eventos:
-           id=evento[0]
-           fecha=evento[1]
-           item=FrameEvento(id,fecha)
+           fecha=evento[0]
+           item=FrameEvento(fecha)
            self.verticalLayout_5.insertWidget(i,item)
            i+=1
         
+    def eliminar_widgets(self,layout):
+        while layout.count() > 1:  # Deja al menos un widget en el layout
+            widget = layout.takeAt(0).widget()
+            if widget is not None:
+                widget.deleteLater()
         
         
     def cerrar_sesion(self):

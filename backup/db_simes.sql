@@ -5,8 +5,6 @@
 -- Dumped from database version 16.0
 -- Dumped by pg_dump version 16.0
 
--- Started on 2024-04-10 20:37:48
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -23,24 +21,22 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 215 (class 1259 OID 18219)
 -- Name: eventos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.eventos (
     nomevento character varying NOT NULL,
     fechevento date NOT NULL,
-    encargadoevento character(1) NOT NULL,
+    encargadoevento character varying NOT NULL,
     descripcionevento text,
     idevento integer NOT NULL,
-    "horaEvento" text
+    horaevento text
 );
 
 
 ALTER TABLE public.eventos OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 18244)
 -- Name: eventos_idevento_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -55,7 +51,6 @@ ALTER TABLE public.eventos ALTER COLUMN idevento ADD GENERATED ALWAYS AS IDENTIT
 
 
 --
--- TOC entry 216 (class 1259 OID 18224)
 -- Name: usuarios; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -74,18 +69,16 @@ CREATE TABLE public.usuarios (
 ALTER TABLE public.usuarios OWNER TO postgres;
 
 --
--- TOC entry 4785 (class 0 OID 18219)
--- Dependencies: 215
 -- Data for Name: eventos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.eventos (nomevento, fechevento, encargadoevento, descripcionevento, idevento, "horaEvento") FROM stdin;
+COPY public.eventos (nomevento, fechevento, encargadoevento, descripcionevento, idevento, horaevento) FROM stdin;
+La verdolaga	2024-04-10	Carmen Restrepo	Se hizo para conmemorar la memoria de Pedro Infante	1000	7:00 AM-7:20 AM
+la verdolaga	2024-04-11	Sofia Calderon	sdfasdfas	1001	7:00 AM-7:20 AM
 \.
 
 
 --
--- TOC entry 4786 (class 0 OID 18224)
--- Dependencies: 216
 -- Data for Name: usuarios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -111,16 +104,13 @@ COPY public.usuarios (idusuario, tipoid, tipousuario, nomusuario, apeusuario, co
 
 
 --
--- TOC entry 4793 (class 0 OID 0)
--- Dependencies: 217
 -- Name: eventos_idevento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.eventos_idevento_seq', 1000, false);
+SELECT pg_catalog.setval('public.eventos_idevento_seq', 1001, true);
 
 
 --
--- TOC entry 4639 (class 2606 OID 18251)
 -- Name: eventos eventos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -129,15 +119,12 @@ ALTER TABLE ONLY public.eventos
 
 
 --
--- TOC entry 4641 (class 2606 OID 18233)
 -- Name: usuarios usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.usuarios
     ADD CONSTRAINT usuarios_pkey PRIMARY KEY (idusuario);
 
-
--- Completed on 2024-04-10 20:37:49
 
 --
 -- PostgreSQL database dump complete

@@ -149,13 +149,15 @@ class DataBase():
         return coordinadores
     
     def cargarEventos(self):
-        consulta =f'select idevento, distinct fechaevento from eventos order by 2;'
+        consulta =f'select distinct fechevento from eventos'
         self.cur.execute(consulta)
         evento = self.cur.fetchall()
         return evento
     
+    
+    
     def consultarHoras(self,fecha):
-        consulta=f'select horaevento,descripcionevento from eventos where fechaevento = %s'
+        consulta=f'select idevento,horaevento,descripcionevento,nomevento from eventos where fechevento = %s'
         self.cur.execute(consulta,(fecha,))
         horas=self.cur.fetchall()
         return horas

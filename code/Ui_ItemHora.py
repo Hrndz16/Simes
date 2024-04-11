@@ -22,7 +22,7 @@ class Ui_ItemHora(object):
     def setupUi(self, ItemHora):
         if not ItemHora.objectName():
             ItemHora.setObjectName(u"ItemHora")
-        ItemHora.resize(678, 190)
+        ItemHora.resize(751, 190)
         ItemHora.setMinimumSize(QSize(0, 190))
         ItemHora.setMaximumSize(QSize(16777215, 190))
         self.verticalLayout = QVBoxLayout(ItemHora)
@@ -45,7 +45,7 @@ class Ui_ItemHora(object):
         self.Hora = QLabel(self.base_horas_eventos)
         self.Hora.setObjectName(u"Hora")
         self.Hora.setMinimumSize(QSize(0, 100))
-        self.Hora.setMaximumSize(QSize(100, 100))
+        self.Hora.setMaximumSize(QSize(114, 100))
         self.Hora.setStyleSheet(u".QLabel {\n"
 "    font-size: 14px; /* Tama\u00f1o de fuente normal */\n"
 "    color: #666; /* Color de texto m\u00e1s claro */\n"
@@ -61,7 +61,31 @@ class Ui_ItemHora(object):
 
         self.horizontalLayout_7.addWidget(self.line_4)
 
-        self.Descripcion = QLabel(self.base_horas_eventos)
+        self.frame = QFrame(self.base_horas_eventos)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.frame)
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.label = QLabel(self.frame)
+        self.label.setObjectName(u"label")
+        font = QFont()
+        font.setPointSize(22)
+        font.setBold(False)
+        self.label.setFont(font)
+
+        self.verticalLayout_2.addWidget(self.label)
+
+        self.line_3 = QFrame(self.frame)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setFrameShape(QFrame.HLine)
+        self.line_3.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_2.addWidget(self.line_3)
+
+        self.Descripcion = QLabel(self.frame)
         self.Descripcion.setObjectName(u"Descripcion")
         self.Descripcion.setMinimumSize(QSize(0, 100))
         self.Descripcion.setMaximumSize(QSize(16777215, 100))
@@ -70,7 +94,10 @@ class Ui_ItemHora(object):
 "    color: #666; /* Color de texto m\u00e1s claro */\n"
 "}")
 
-        self.horizontalLayout_7.addWidget(self.Descripcion)
+        self.verticalLayout_2.addWidget(self.Descripcion)
+
+
+        self.horizontalLayout_7.addWidget(self.frame)
 
         self.line_5 = QFrame(self.base_horas_eventos)
         self.line_5.setObjectName(u"line_5")
@@ -123,6 +150,7 @@ class Ui_ItemHora(object):
     def retranslateUi(self, ItemHora):
         ItemHora.setWindowTitle(QCoreApplication.translate("ItemHora", u"Form", None))
         self.Hora.setText(QCoreApplication.translate("ItemHora", u"1-4pm", None))
+        self.label.setText(QCoreApplication.translate("ItemHora", u"Corona de oro", None))
         self.Descripcion.setText(QCoreApplication.translate("ItemHora", u"Exposicion de la corona de oro", None))
         self.boton_sub.setText(QCoreApplication.translate("ItemHora", u"Suscribirse", None))
     # retranslateUi
