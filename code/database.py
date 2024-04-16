@@ -3,7 +3,7 @@ import psycopg2,os
 class DataBase():
     def __init__(self) -> None:
         # Conexion a base de datos
-        self.conn = psycopg2.connect(user='postgres',host='127.0.0.1', port='5432', database='db_Simes')
+        self.conn = psycopg2.connect(user='postgres',host='127.0.0.1', password =  'POSTGRES1',port='5432', database='db_Simes')
         # Utilizar cursor
         self.cur = self.conn.cursor()
 
@@ -121,7 +121,6 @@ class DataBase():
 
     def rutaFotoUsuario(self,correo,ruta):
         ruta = self.imgBite(ruta)
-        print(ruta)
         d = (ruta,correo)
         con = f"""UPDATE usuarios SET fotousuario = %s WHERE correousuario = %s"""
         self.cur.execute(con,d)

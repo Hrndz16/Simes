@@ -8,11 +8,15 @@
     <file>icons8-casa-96.png</file>
     <file>icons8-nombre-100.png</file>
     <file>icons8-usuario-50.png</file>
+    <file>calendario.jpg</file>
   </qresource>
   <qresource prefix="Carteles">
     <file>fondo inicio.png</file>
     <file>cartel3.png</file>
     <file>cartel1.png</file>
     <file>cartel2.png</file>
+  </qresource>
+  <qresource prefix="fondos">
+    <file>fondoInisioSesion.jpg</file>
   </qresource>
 </RCC>
