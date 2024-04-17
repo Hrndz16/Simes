@@ -16,11 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QFrame,
-    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QMainWindow, QPlainTextEdit, QPushButton,
-    QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
-    QTableWidget, QTableWidgetItem, QTimeEdit, QToolButton,
-    QVBoxLayout, QWidget)
+    QGridLayout, QHBoxLayout, QLabel, QLineEdit,
+    QMainWindow, QPlainTextEdit, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QStackedWidget, QTimeEdit,
+    QToolButton, QVBoxLayout, QWidget)
 import Recursos_rc
 
 class Ui_MainWindow(object):
@@ -29,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(871, 661)
+        MainWindow.resize(874, 643)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -848,7 +847,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 837, 569))
+        self.Area_eventos.setGeometry(QRect(0, 0, 870, 560))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -898,7 +897,7 @@ class Ui_MainWindow(object):
 "\n"
 "/* Estilo para QPushButton */\n"
 "QPushButton {\n"
-"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border: 2px solid  rgb(109, 70, 3); /* Borde */\n"
 "    border-radius: 13px; /* Radio de borde */\n"
 "    padding: 5px 10px; /* Espaciado interno */\n"
 "    font-size: 14px; /* Tama\u00f1o de fuente */\n"
@@ -909,14 +908,14 @@ class Ui_MainWindow(object):
 "\n"
 "/* Estilo para QPushButton cuando se presiona */\n"
 "QPushButton:pressed {\n"
-"    bac"
-                        "kground-color: #2980b9; /* Cambio de color al presionar */\n"
+"    ba"
+                        "ckground-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */\n"
 "}\n"
 "\n"
 "/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
 "QPushButton:hover {\n"
-"    background-color: #2980b9; /* Cambio de color al pasar el cursor */\n"
-"    border: 2px solid #2980b9; /* Cambio de borde al pasar el cursor */\n"
+"    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */\n"
+"    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */\n"
 "}\n"
 "\n"
 "/* Estilo para QComboBox */\n"
@@ -935,8 +934,8 @@ class Ui_MainWindow(object):
 "    subcontrol-origin: padding;\n"
 "    subcontrol-position: right;\n"
 "    width: 20px; /* Ancho del bot\u00f3n desplegable */\n"
-"    border-left-width: 0px; /* Sin borde a la izquierda del bot\u00f3"
-                        "n */\n"
+"    border-left-width: 0p"
+                        "x; /* Sin borde a la izquierda del bot\u00f3n */\n"
 "    border-top-right-radius: 5px; /* Radio de borde superior derecho */\n"
 "    border-bottom-right-radius: 5px; /* Radio de borde inferior derecho */\n"
 "    background-color: rgb(109, 70, 3); /* Color de fondo del bot\u00f3n desplegable */\n"
@@ -1184,26 +1183,12 @@ class Ui_MainWindow(object):
         self.frame_9 = QFrame(self.frame_6)
         self.frame_9.setObjectName(u"frame_9")
         self.frame_9.setMinimumSize(QSize(240, 0))
+        self.frame_9.setStyleSheet(u"")
         self.frame_9.setFrameShape(QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QFrame.Raised)
-        self.Foto_usuario = QLabel(self.frame_9)
-        self.Foto_usuario.setObjectName(u"Foto_usuario")
-        self.Foto_usuario.setGeometry(QRect(0, 0, 150, 150))
-        self.Foto_usuario.setMinimumSize(QSize(150, 150))
-        self.Foto_usuario.setMaximumSize(QSize(150, 150))
-        self.Foto_usuario.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
-"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
-"    font-weight: bold; /* Negrita */\n"
-"    font-family: Arial, sans-serif; /* Fuente */\n"
-"    background-color: #ecf0f1; /* Color de fondo */\n"
-"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
-"    border-radius: 75px; /* Radio de borde */\n"
-"    padding: 5px 10px; /* Espaciado interno */")
-        self.Foto_usuario.setPixmap(QPixmap(u":/iconos/icons8-nombre-100.png"))
-        self.Foto_usuario.setScaledContents(True)
         self.Boton_CambiarFoto = QToolButton(self.frame_9)
         self.Boton_CambiarFoto.setObjectName(u"Boton_CambiarFoto")
-        self.Boton_CambiarFoto.setGeometry(QRect(180, 100, 54, 40))
+        self.Boton_CambiarFoto.setGeometry(QRect(180, 110, 54, 40))
         self.Boton_CambiarFoto.setMinimumSize(QSize(54, 40))
         self.Boton_CambiarFoto.setStyleSheet(u"/* Estilo para QPushButton */\n"
 "QToolButton {\n"
@@ -1230,6 +1215,34 @@ class Ui_MainWindow(object):
         icon2.addFile(u":/iconos/icons8-imagen-50.png", QSize(), QIcon.Normal, QIcon.Off)
         self.Boton_CambiarFoto.setIcon(icon2)
         self.Boton_CambiarFoto.setIconSize(QSize(20, 20))
+        self.frame_12 = QFrame(self.frame_9)
+        self.frame_12.setObjectName(u"frame_12")
+        self.frame_12.setGeometry(QRect(0, 0, 150, 150))
+        self.frame_12.setMaximumSize(QSize(150, 150))
+        self.frame_12.setStyleSheet(u"border-radius:75px;\n"
+"")
+        self.frame_12.setFrameShape(QFrame.StyledPanel)
+        self.frame_12.setFrameShadow(QFrame.Raised)
+        self.gridLayout_12 = QGridLayout(self.frame_12)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.gridLayout_12.setContentsMargins(0, 0, -1, -1)
+        self.Foto_usuario = QLabel(self.frame_12)
+        self.Foto_usuario.setObjectName(u"Foto_usuario")
+        self.Foto_usuario.setMinimumSize(QSize(150, 150))
+        self.Foto_usuario.setMaximumSize(QSize(150, 150))
+        self.Foto_usuario.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Negrita */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 15px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */")
+        self.Foto_usuario.setPixmap(QPixmap(u":/iconos/icons8-nombre-100.png"))
+        self.Foto_usuario.setScaledContents(True)
+
+        self.gridLayout_12.addWidget(self.Foto_usuario, 0, 0, 1, 1)
+
 
         self.horizontalLayout_21.addWidget(self.frame_9)
 
@@ -1272,7 +1285,7 @@ class Ui_MainWindow(object):
 "    font-weight: bold; /* Negrita */\n"
 "    font-family: Arial, sans-serif; /* Fuente */\n"
 "    background-color: #ecf0f1; /* Color de fondo */\n"
-"    border: 2px solid rgb(109, 70, 3,); /* Borde */\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
 "    border-radius: 13px; /* Radio de borde */\n"
 "    padding: 5px 10px; /* Espaciado interno */\n"
 "}\n"
@@ -1280,8 +1293,8 @@ class Ui_MainWindow(object):
 "QComboBox {\n"
 "    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
 "    border-radius: 13px; /* Radio de borde */\n"
-"    padding: 5px; /* Esp"
-                        "aciado interno */\n"
+"    padding: 5px; /* Espa"
+                        "ciado interno */\n"
 "    font-size: 14px; /* Tama\u00f1o de fuente */\n"
 "    font-family: Arial, sans-serif; /* Fuente */\n"
 "    color: #2c3e50; /* Color del texto */\n"
@@ -1469,7 +1482,7 @@ class Ui_MainWindow(object):
         self.Boto_cerrarsesion = QPushButton(self.frame_7)
         self.Boto_cerrarsesion.setObjectName(u"Boto_cerrarsesion")
         self.Boto_cerrarsesion.setStyleSheet(u"/* Estilo para QPushButton */\n"
-"QToolButton {\n"
+"QPushButton {\n"
 "    border: 2px solid  rgb(109, 70, 3); /* Borde */\n"
 "    border-radius: 13px; /* Radio de borde */\n"
 "    padding: 5px 10px; /* Espaciado interno */\n"
@@ -1480,12 +1493,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* Estilo para QPushButton cuando se presiona */\n"
-"QToolButton:pressed {\n"
+"QPushButton:pressed {\n"
 "    background-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */\n"
 "}\n"
 "\n"
 "/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
-"QToolButton:hover {\n"
+"QPushButton:hover {\n"
 "    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */\n"
 "    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */\n"
 "}")
@@ -1533,16 +1546,38 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.contenido_registro_2)
 
         self.stackedWidget_principal.addWidget(self.page_perfil)
-        self.page_admin = QWidget()
-        self.page_admin.setObjectName(u"page_admin")
-        self.page_admin.setStyleSheet(u"QWidget{\n"
+        self.paginaCoordinador = QWidget()
+        self.paginaCoordinador.setObjectName(u"paginaCoordinador")
+        self.paginaCoordinador.setStyleSheet(u"QFrame{\n"
+"background-color:transparent;\n"
+"}\n"
+"QWidget{\n"
+"background-color:transparent;\n"
+"}")
+        self.gridLayout_16 = QGridLayout(self.paginaCoordinador)
+        self.gridLayout_16.setSpacing(0)
+        self.gridLayout_16.setObjectName(u"gridLayout_16")
+        self.gridLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.stackedWidget_principal.addWidget(self.paginaCoordinador)
+        self.page_adminCoordinador = QWidget()
+        self.page_adminCoordinador.setObjectName(u"page_adminCoordinador")
+        self.page_adminCoordinador.setStyleSheet(u"QWidget{\n"
 "background-color: transparent;\n"
 "}")
-        self.horizontalLayout_12 = QHBoxLayout(self.page_admin)
+        self.horizontalLayout_12 = QHBoxLayout(self.page_adminCoordinador)
         self.horizontalLayout_12.setSpacing(0)
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.horizontalLayout_12.setContentsMargins(0, 0, 0, 0)
-        self.frame_2 = QFrame(self.page_admin)
+        self.stackedWidget_2 = QStackedWidget(self.page_adminCoordinador)
+        self.stackedWidget_2.setObjectName(u"stackedWidget_2")
+        self.stackedWidget_2.setMaximumSize(QSize(250, 16777215))
+        self.page_4 = QWidget()
+        self.page_4.setObjectName(u"page_4")
+        self.horizontalLayout_24 = QHBoxLayout(self.page_4)
+        self.horizontalLayout_24.setSpacing(0)
+        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
+        self.horizontalLayout_24.setContentsMargins(0, 0, 0, 0)
+        self.frame_2 = QFrame(self.page_4)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setMinimumSize(QSize(200, 0))
         self.frame_2.setMaximumSize(QSize(280, 16777215))
@@ -1571,7 +1606,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_6 = QVBoxLayout(self.frame_2)
         self.verticalLayout_6.setSpacing(0)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 3, 0, 0)
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.Boton_adminUsuarios = QPushButton(self.frame_2)
         self.Boton_adminUsuarios.setObjectName(u"Boton_adminUsuarios")
         self.Boton_adminUsuarios.setMinimumSize(QSize(0, 50))
@@ -1600,6 +1635,25 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.botonAdmEvento)
 
+        self.pushButton = QPushButton(self.frame_2)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setMinimumSize(QSize(0, 50))
+
+        self.verticalLayout_6.addWidget(self.pushButton)
+
+        self.line_2 = QFrame(self.frame_2)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setFrameShape(QFrame.HLine)
+        self.line_2.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_6.addWidget(self.line_2)
+
+        self.pushButton_3 = QPushButton(self.frame_2)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMinimumSize(QSize(0, 50))
+
+        self.verticalLayout_6.addWidget(self.pushButton_3)
+
         self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_6.addItem(self.verticalSpacer_10)
@@ -1612,9 +1666,92 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.addWidget(self.line_6)
 
 
-        self.horizontalLayout_12.addWidget(self.frame_2)
+        self.horizontalLayout_24.addWidget(self.frame_2)
 
-        self.frame_3 = QFrame(self.page_admin)
+        self.stackedWidget_2.addWidget(self.page_4)
+        self.page_5 = QWidget()
+        self.page_5.setObjectName(u"page_5")
+        self.horizontalLayout_25 = QHBoxLayout(self.page_5)
+        self.horizontalLayout_25.setSpacing(0)
+        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
+        self.horizontalLayout_25.setContentsMargins(0, 0, 0, 0)
+        self.frame_18 = QFrame(self.page_5)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setMinimumSize(QSize(200, 0))
+        self.frame_18.setMaximumSize(QSize(280, 16777215))
+        self.frame_18.setStyleSheet(u"QFrame{\n"
+"	background-color: rgba(12, 26, 27,40);\n"
+"	\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"	background-color: rgb(178, 121, 36);/* Color de fondo */\n"
+"    font-weight: 400;\n"
+"    color: #000; /* Color del texto */\n"
+"    border: 1px solid transparent;\n"
+"    padding: 9px 18px; /* Padding */\n"
+"    font-size: 10px; /* Tama\u00f1o de la fuente */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    color: #fff; /* Color del texto al pasar el cursor */\n"
+"    background-color: rgba(178, 121, 36,80); /* Cambiar el color de fondo al pasar el mouse */\n"
+"    border-color:rgba(178, 121, 36,80);/* Cambiar el color del borde al pasar el mouse */\n"
+"}\n"
+"")
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_11 = QVBoxLayout(self.frame_18)
+        self.verticalLayout_11.setSpacing(0)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.verticalLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.Boton_adminUsuarios_3 = QPushButton(self.frame_18)
+        self.Boton_adminUsuarios_3.setObjectName(u"Boton_adminUsuarios_3")
+        self.Boton_adminUsuarios_3.setMinimumSize(QSize(0, 50))
+        self.Boton_adminUsuarios_3.setStyleSheet(u"")
+
+        self.verticalLayout_11.addWidget(self.Boton_adminUsuarios_3)
+
+        self.line_9 = QFrame(self.frame_18)
+        self.line_9.setObjectName(u"line_9")
+        self.line_9.setFrameShape(QFrame.HLine)
+        self.line_9.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_11.addWidget(self.line_9)
+
+        self.Boton_adminEventos_3 = QPushButton(self.frame_18)
+        self.Boton_adminEventos_3.setObjectName(u"Boton_adminEventos_3")
+        self.Boton_adminEventos_3.setMinimumSize(QSize(0, 50))
+        self.Boton_adminEventos_3.setStyleSheet(u"")
+
+        self.verticalLayout_11.addWidget(self.Boton_adminEventos_3)
+
+        self.botonAdmEvento_3 = QFrame(self.frame_18)
+        self.botonAdmEvento_3.setObjectName(u"botonAdmEvento_3")
+        self.botonAdmEvento_3.setFrameShape(QFrame.HLine)
+        self.botonAdmEvento_3.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_11.addWidget(self.botonAdmEvento_3)
+
+        self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_11.addItem(self.verticalSpacer_22)
+
+        self.line_10 = QFrame(self.frame_18)
+        self.line_10.setObjectName(u"line_10")
+        self.line_10.setFrameShape(QFrame.HLine)
+        self.line_10.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_11.addWidget(self.line_10)
+
+
+        self.horizontalLayout_25.addWidget(self.frame_18)
+
+        self.stackedWidget_2.addWidget(self.page_5)
+
+        self.horizontalLayout_12.addWidget(self.stackedWidget_2)
+
+        self.frame_3 = QFrame(self.page_adminCoordinador)
         self.frame_3.setObjectName(u"frame_3")
         sizePolicy.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
         self.frame_3.setSizePolicy(sizePolicy)
@@ -1626,15 +1763,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_7 = QVBoxLayout(self.frame_3)
         self.verticalLayout_7.setSpacing(0)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_7.setContentsMargins(0, 15, 0, 0)
         self.stackedWidget_admin = QStackedWidget(self.frame_3)
         self.stackedWidget_admin.setObjectName(u"stackedWidget_admin")
         sizePolicy.setHeightForWidth(self.stackedWidget_admin.sizePolicy().hasHeightForWidth())
         self.stackedWidget_admin.setSizePolicy(sizePolicy)
-        self.stackedWidget_admin.setStyleSheet(u"")
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.page.setStyleSheet(u"QFrame{\n"
+        self.stackedWidget_admin.setStyleSheet(u"background-color:transparent;")
+        self.paginaCrearEvento = QWidget()
+        self.paginaCrearEvento.setObjectName(u"paginaCrearEvento")
+        self.paginaCrearEvento.setStyleSheet(u"QFrame{\n"
 "background-color: rgba(243, 226, 188,70);\n"
 "}\n"
 " QPushButton {\n"
@@ -1659,12 +1796,8 @@ class Ui_MainWindow(object):
 "background-color: rgb(236, 240, 241);\n"
 "}\n"
 "")
-        self.verticalLayout_8 = QVBoxLayout(self.page)
+        self.verticalLayout_8 = QVBoxLayout(self.paginaCrearEvento)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalSpacer_11 = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.verticalLayout_8.addItem(self.verticalSpacer_11)
-
         self.gridLayout_8 = QGridLayout()
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setHorizontalSpacing(13)
@@ -1672,15 +1805,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addItem(self.verticalSpacer_13, 2, 1, 1, 1)
 
-        self.label_3 = QLabel(self.page)
+        self.label_3 = QLabel(self.paginaCrearEvento)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setStyleSheet(u"background-color:transparent;")
 
         self.gridLayout_8.addWidget(self.label_3, 1, 0, 1, 1)
 
-        self.combo_coordinadores = QComboBox(self.page)
+        self.combo_coordinadores = QComboBox(self.paginaCrearEvento)
         self.combo_coordinadores.setObjectName(u"combo_coordinadores")
         self.combo_coordinadores.setMinimumSize(QSize(0, 30))
+        self.combo_coordinadores.setSizeIncrement(QSize(0, 0))
         self.combo_coordinadores.setStyleSheet(u"/* Estilo para QComboBox */\n"
 "QComboBox {\n"
 "    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
@@ -1713,7 +1847,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addItem(self.horizontalSpacer_13, 1, 3, 1, 1)
 
-        self.tituloEvento = QLineEdit(self.page)
+        self.tituloEvento = QLineEdit(self.paginaCrearEvento)
         self.tituloEvento.setObjectName(u"tituloEvento")
         self.tituloEvento.setMinimumSize(QSize(0, 30))
         self.tituloEvento.setStyleSheet(u"QLineEdit{\n"
@@ -1728,7 +1862,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.tituloEvento, 1, 1, 1, 1)
 
-        self.label_6 = QLabel(self.page)
+        self.label_6 = QLabel(self.paginaCrearEvento)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setStyleSheet(u"background-color:transparent;")
 
@@ -1743,13 +1877,13 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addItem(self.horizontalSpacer_18)
 
-        self.label_15 = QLabel(self.page)
+        self.label_15 = QLabel(self.paginaCrearEvento)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setStyleSheet(u"background-color:transparent;")
 
         self.horizontalLayout_13.addWidget(self.label_15)
 
-        self.fechaEvento = QDateEdit(self.page)
+        self.fechaEvento = QDateEdit(self.paginaCrearEvento)
         self.fechaEvento.setObjectName(u"fechaEvento")
         self.fechaEvento.setMinimumSize(QSize(150, 30))
         self.fechaEvento.setMaximumSize(QSize(250, 16777215))
@@ -1772,13 +1906,13 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addItem(self.horizontalSpacer_16)
 
-        self.label_16 = QLabel(self.page)
+        self.label_16 = QLabel(self.paginaCrearEvento)
         self.label_16.setObjectName(u"label_16")
         self.label_16.setStyleSheet(u"background-color:transparent;")
 
         self.horizontalLayout_13.addWidget(self.label_16)
 
-        self.inicioEvento = QTimeEdit(self.page)
+        self.inicioEvento = QTimeEdit(self.paginaCrearEvento)
         self.inicioEvento.setObjectName(u"inicioEvento")
         self.inicioEvento.setMinimumSize(QSize(80, 30))
         self.inicioEvento.setMaximumSize(QSize(200, 16777215))
@@ -1816,13 +1950,13 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_16.addItem(self.horizontalSpacer_19)
 
-        self.label_26 = QLabel(self.page)
+        self.label_26 = QLabel(self.paginaCrearEvento)
         self.label_26.setObjectName(u"label_26")
         self.label_26.setStyleSheet(u"background-color:transparent;")
 
         self.horizontalLayout_16.addWidget(self.label_26)
 
-        self.finEvento = QTimeEdit(self.page)
+        self.finEvento = QTimeEdit(self.paginaCrearEvento)
         self.finEvento.setObjectName(u"finEvento")
         self.finEvento.setMinimumSize(QSize(80, 30))
         self.finEvento.setMaximumSize(QSize(200, 16777215))
@@ -1858,13 +1992,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addItem(self.verticalSpacer_121)
 
-        self.label_5 = QLabel(self.page)
+        self.label_5 = QLabel(self.paginaCrearEvento)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setStyleSheet(u"background-color:transparent;")
 
         self.verticalLayout_8.addWidget(self.label_5)
 
-        self.descripcionEvento = QPlainTextEdit(self.page)
+        self.descripcionEvento = QPlainTextEdit(self.paginaCrearEvento)
         self.descripcionEvento.setObjectName(u"descripcionEvento")
         self.descripcionEvento.setMinimumSize(QSize(0, 90))
         self.descripcionEvento.setMaximumSize(QSize(660, 90))
@@ -1889,7 +2023,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_14.addItem(self.horizontalSpacer_14)
 
-        self.Boton_guardarEvento = QPushButton(self.page)
+        self.Boton_guardarEvento = QPushButton(self.paginaCrearEvento)
         self.Boton_guardarEvento.setObjectName(u"Boton_guardarEvento")
         self.Boton_guardarEvento.setMinimumSize(QSize(130, 30))
         self.Boton_guardarEvento.setMaximumSize(QSize(180, 40))
@@ -1909,9 +2043,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addItem(self.verticalSpacer_3)
 
-        self.stackedWidget_admin.addWidget(self.page)
+        self.stackedWidget_admin.addWidget(self.paginaCrearEvento)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
+        self.page_2.setStyleSheet(u"QFrame{\n"
+"background-color: rgba(243, 226, 188,70);\n"
+"}")
         self.gridLayout_11 = QGridLayout(self.page_2)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.gridLayout_11.setHorizontalSpacing(0)
@@ -1919,42 +2056,498 @@ class Ui_MainWindow(object):
         self.gridLayout_11.setContentsMargins(0, 0, 0, 9)
         self.frame_11 = QFrame(self.page_2)
         self.frame_11.setObjectName(u"frame_11")
+        self.frame_11.setStyleSheet(u"QFrame{\n"
+"background-color:transparent;\n"
+"}")
         self.frame_11.setFrameShape(QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QFrame.Raised)
-        self.tableWidget = QTableWidget(self.frame_11)
-        if (self.tableWidget.columnCount() < 4):
-            self.tableWidget.setColumnCount(4)
-        __qtablewidgetitem = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        if (self.tableWidget.rowCount() < 1):
-            self.tableWidget.setRowCount(1)
-        __qtablewidgetitem4 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
-        brush = QBrush(QColor(0, 0, 0, 255))
-        brush.setStyle(Qt.DiagCrossPattern)
-        __qtablewidgetitem5 = QTableWidgetItem()
-        __qtablewidgetitem5.setForeground(brush);
-        self.tableWidget.setItem(0, 0, __qtablewidgetitem5)
-        self.tableWidget.setObjectName(u"tableWidget")
-        self.tableWidget.setGeometry(QRect(10, 10, 471, 251))
-        self.tableWidget.setStyleSheet(u"background-color:transparent;")
+        self.verticalLayout_10 = QVBoxLayout(self.frame_11)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.frame_17 = QFrame(self.frame_11)
+        self.frame_17.setObjectName(u"frame_17")
+        self.frame_17.setStyleSheet(u"QFrame{\n"
+"	color: rgb(109, 70, 3);\n"
+"	background-color: rgba(188, 94, 0,100);\n"
+"border-radius: 18px;\n"
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #2c3e50; /* Color del texto */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton */\n"
+"QPushButton {\n"
+"    border: 2px solid  rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #ffffff; /* Color del texto */\n"
+"    background-color:  rgb(109, 70, 3); /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando se presiona */\n"
+"QPushButton:pressed {\n"
+"    ba"
+                        "ckground-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
+"QPushButton:hover {\n"
+"    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */\n"
+"    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */\n"
+"}\n"
+"\n"
+"/* Estilo para QComboBox */\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #2c3e50; /* Color del texto */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QComboBox cuando se despliega */\n"
+"QComboBox::drop-down {\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: right;\n"
+"    width: 20px; /* Ancho del bot\u00f3n desplegable */\n"
+"    border-left-width: 0p"
+                        "x; /* Sin borde a la izquierda del bot\u00f3n */\n"
+"    border-top-right-radius: 5px; /* Radio de borde superior derecho */\n"
+"    border-bottom-right-radius: 5px; /* Radio de borde inferior derecho */\n"
+"    background-color: rgb(109, 70, 3); /* Color de fondo del bot\u00f3n desplegable */\n"
+"}\n"
+"\n"
+"/* Estilo para QComboBox cuando se despliega y se presiona */\n"
+"QComboBox::down-arrow {\n"
+"    width: 15px; /* Ancho del icono */\n"
+"    height: 15px; /* Alto del icono */\n"
+"    padding-right: 5px; /* Espaciado a la derecha del icono */\n"
+"}\n"
+"QLabel{\n"
+"color: #2c3e50; /* Color del texto */\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Negrita */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */\n"
+"}\n"
+"")
+        self.frame_17.setFrameShape(QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_4 = QVBoxLayout(self.frame_17)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.label_7 = QLabel(self.frame_17)
+        self.label_7.setObjectName(u"label_7")
+
+        self.verticalLayout_4.addWidget(self.label_7)
+
+        self.AsuntoEvento = QLineEdit(self.frame_17)
+        self.AsuntoEvento.setObjectName(u"AsuntoEvento")
+
+        self.verticalLayout_4.addWidget(self.AsuntoEvento)
+
+
+        self.verticalLayout_10.addWidget(self.frame_17)
+
+        self.frame_19 = QFrame(self.frame_11)
+        self.frame_19.setObjectName(u"frame_19")
+        self.frame_19.setMinimumSize(QSize(0, 50))
+        self.frame_19.setStyleSheet(u"QFrame{\n"
+"	color: rgb(109, 70, 3);\n"
+"	background-color: rgba(188, 94, 0,100);\n"
+"border-radius: 18px;\n"
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #2c3e50; /* Color del texto */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton */\n"
+"QPushButton {\n"
+"    border: 2px solid  rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #ffffff; /* Color del texto */\n"
+"    background-color:  rgb(109, 70, 3); /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando se presiona */\n"
+"QPushButton:pressed {\n"
+"    ba"
+                        "ckground-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
+"QPushButton:hover {\n"
+"    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */\n"
+"    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */\n"
+"}\n"
+"\n"
+"/* Estilo para QComboBox */\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #2c3e50; /* Color del texto */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QComboBox cuando se despliega */\n"
+"QComboBox::drop-down {\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: right;\n"
+"    width: 20px; /* Ancho del bot\u00f3n desplegable */\n"
+"    border-left-width: 0p"
+                        "x; /* Sin borde a la izquierda del bot\u00f3n */\n"
+"    border-top-right-radius: 5px; /* Radio de borde superior derecho */\n"
+"    border-bottom-right-radius: 5px; /* Radio de borde inferior derecho */\n"
+"    background-color: rgb(109, 70, 3); /* Color de fondo del bot\u00f3n desplegable */\n"
+"}\n"
+"\n"
+"/* Estilo para QComboBox cuando se despliega y se presiona */\n"
+"QComboBox::down-arrow {\n"
+"    width: 15px; /* Ancho del icono */\n"
+"    height: 15px; /* Alto del icono */\n"
+"    padding-right: 5px; /* Espaciado a la derecha del icono */\n"
+"}\n"
+"QLabel{\n"
+"color: #2c3e50; /* Color del texto */\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Negrita */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */\n"
+"}\n"
+"")
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_23 = QHBoxLayout(self.frame_19)
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.Boton_enviarInforme = QPushButton(self.frame_19)
+        self.Boton_enviarInforme.setObjectName(u"Boton_enviarInforme")
+
+        self.horizontalLayout_23.addWidget(self.Boton_enviarInforme)
+
+        self.horizontalSpacer_28 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_23.addItem(self.horizontalSpacer_28)
+
+
+        self.verticalLayout_10.addWidget(self.frame_19)
+
+        self.textoInforme = QPlainTextEdit(self.frame_11)
+        self.textoInforme.setObjectName(u"textoInforme")
+        self.textoInforme.setStyleSheet(u"\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #2c3e50; /* Color del texto */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"\n"
+"\n"
+"")
+        self.textoInforme.setCursorWidth(1)
+
+        self.verticalLayout_10.addWidget(self.textoInforme)
+
 
         self.gridLayout_11.addWidget(self.frame_11, 0, 0, 1, 1)
 
         self.stackedWidget_admin.addWidget(self.page_2)
+        self.paginaFrearCoordinador = QWidget()
+        self.paginaFrearCoordinador.setObjectName(u"paginaFrearCoordinador")
+        self.paginaFrearCoordinador.setStyleSheet(u"QFrame{\n"
+"background-color: rgba(243, 226, 188,70);\n"
+"}")
+        self.gridLayout_13 = QGridLayout(self.paginaFrearCoordinador)
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
+        self.frame_13 = QFrame(self.paginaFrearCoordinador)
+        self.frame_13.setObjectName(u"frame_13")
+        self.frame_13.setStyleSheet(u"QFrame{\n"
+"    background-color:transparent;\n"
+"}")
+        self.frame_13.setFrameShape(QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QFrame.Raised)
+        self.contenido_registro_3 = QFrame(self.frame_13)
+        self.contenido_registro_3.setObjectName(u"contenido_registro_3")
+        self.contenido_registro_3.setGeometry(QRect(130, 220, 400, 300))
+        self.contenido_registro_3.setMinimumSize(QSize(400, 300))
+        self.contenido_registro_3.setSizeIncrement(QSize(129, 90))
+        self.contenido_registro_3.setStyleSheet(u"QFrame{\n"
+"	color: rgb(109, 70, 3);\n"
+"	background-color: rgba(188, 94, 0,100);\n"
+"border-radius: 18px;\n"
+"}\n"
+"QLineEdit {\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #2c3e50; /* Color del texto */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton */\n"
+"QPushButton {\n"
+"    border: 2px solid  rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #ffffff; /* Color del texto */\n"
+"    background-color:  rgb(109, 70, 3); /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando se presiona */\n"
+"QPushButton:pressed {\n"
+"    ba"
+                        "ckground-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
+"QPushButton:hover {\n"
+"    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */\n"
+"    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */\n"
+"}\n"
+"\n"
+"/* Estilo para QComboBox */\n"
+"QComboBox {\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #2c3e50; /* Color del texto */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QComboBox cuando se despliega */\n"
+"QComboBox::drop-down {\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: right;\n"
+"    width: 20px; /* Ancho del bot\u00f3n desplegable */\n"
+"    border-left-width: 0p"
+                        "x; /* Sin borde a la izquierda del bot\u00f3n */\n"
+"    border-top-right-radius: 5px; /* Radio de borde superior derecho */\n"
+"    border-bottom-right-radius: 5px; /* Radio de borde inferior derecho */\n"
+"    background-color: rgb(109, 70, 3); /* Color de fondo del bot\u00f3n desplegable */\n"
+"}\n"
+"\n"
+"/* Estilo para QComboBox cuando se despliega y se presiona */\n"
+"QComboBox::down-arrow {\n"
+"    width: 15px; /* Ancho del icono */\n"
+"    height: 15px; /* Alto del icono */\n"
+"    padding-right: 5px; /* Espaciado a la derecha del icono */\n"
+"}\n"
+"QLabel{\n"
+"color: #2c3e50; /* Color del texto */\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Negrita */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */\n"
+"}\n"
+"")
+        self.contenido_registro_3.setFrameShape(QFrame.StyledPanel)
+        self.contenido_registro_3.setFrameShadow(QFrame.Raised)
+        self.gridLayout_14 = QGridLayout(self.contenido_registro_3)
+        self.gridLayout_14.setObjectName(u"gridLayout_14")
+        self.label_correo_6 = QLabel(self.contenido_registro_3)
+        self.label_correo_6.setObjectName(u"label_correo_6")
+        self.label_correo_6.setMinimumSize(QSize(0, 0))
+        self.label_correo_6.setMaximumSize(QSize(16777215, 16777215))
+        self.label_correo_6.setFont(font2)
+        self.label_correo_6.setLayoutDirection(Qt.RightToLeft)
+        self.label_correo_6.setStyleSheet(u"")
+        self.label_correo_6.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_14.addWidget(self.label_correo_6, 3, 0, 1, 1)
+
+        self.label_correo_7 = QLabel(self.contenido_registro_3)
+        self.label_correo_7.setObjectName(u"label_correo_7")
+        self.label_correo_7.setMinimumSize(QSize(0, 0))
+        self.label_correo_7.setMaximumSize(QSize(16777215, 16777215))
+        self.label_correo_7.setFont(font2)
+        self.label_correo_7.setLayoutDirection(Qt.RightToLeft)
+        self.label_correo_7.setStyleSheet(u"")
+        self.label_correo_7.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_14.addWidget(self.label_correo_7, 0, 0, 1, 1)
+
+        self.Nombre_Coordinador = QLineEdit(self.contenido_registro_3)
+        self.Nombre_Coordinador.setObjectName(u"Nombre_Coordinador")
+
+        self.gridLayout_14.addWidget(self.Nombre_Coordinador, 0, 1, 1, 1)
+
+        self.comboBox_3 = QComboBox(self.contenido_registro_3)
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.setObjectName(u"comboBox_3")
+        self.comboBox_3.setLayoutDirection(Qt.LeftToRight)
+
+        self.gridLayout_14.addWidget(self.comboBox_3, 2, 0, 1, 1)
+
+        self.Cedula_Coordinador = QLineEdit(self.contenido_registro_3)
+        self.Cedula_Coordinador.setObjectName(u"Cedula_Coordinador")
+
+        self.gridLayout_14.addWidget(self.Cedula_Coordinador, 2, 1, 1, 1)
+
+        self.Correo_Coordinador = QLineEdit(self.contenido_registro_3)
+        self.Correo_Coordinador.setObjectName(u"Correo_Coordinador")
+
+        self.gridLayout_14.addWidget(self.Correo_Coordinador, 3, 1, 1, 1)
+
+        self.label_4 = QLabel(self.contenido_registro_3)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"")
+        self.label_4.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_14.addWidget(self.label_4, 1, 0, 1, 1)
+
+        self.label_password_3 = QLabel(self.contenido_registro_3)
+        self.label_password_3.setObjectName(u"label_password_3")
+        self.label_password_3.setStyleSheet(u"")
+        self.label_password_3.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_14.addWidget(self.label_password_3, 4, 0, 1, 1)
+
+        self.password_Coordinador = QLineEdit(self.contenido_registro_3)
+        self.password_Coordinador.setObjectName(u"password_Coordinador")
+        self.password_Coordinador.setEchoMode(QLineEdit.Password)
+
+        self.gridLayout_14.addWidget(self.password_Coordinador, 4, 1, 1, 1)
+
+        self.boton_CrearCoodinador = QPushButton(self.contenido_registro_3)
+        self.boton_CrearCoodinador.setObjectName(u"boton_CrearCoodinador")
+
+        self.gridLayout_14.addWidget(self.boton_CrearCoodinador, 5, 1, 1, 1)
+
+        self.Apellido_Coordinador = QLineEdit(self.contenido_registro_3)
+        self.Apellido_Coordinador.setObjectName(u"Apellido_Coordinador")
+
+        self.gridLayout_14.addWidget(self.Apellido_Coordinador, 1, 1, 1, 1)
+
+        self.frame_14 = QFrame(self.frame_13)
+        self.frame_14.setObjectName(u"frame_14")
+        self.frame_14.setGeometry(QRect(90, 20, 481, 180))
+        self.frame_14.setMinimumSize(QSize(0, 180))
+        self.frame_14.setStyleSheet(u"background-color:transparent;")
+        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_22 = QHBoxLayout(self.frame_14)
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.horizontalSpacer_26 = QSpacerItem(273, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_22.addItem(self.horizontalSpacer_26)
+
+        self.frame_15 = QFrame(self.frame_14)
+        self.frame_15.setObjectName(u"frame_15")
+        self.frame_15.setMinimumSize(QSize(240, 0))
+        self.frame_15.setStyleSheet(u"")
+        self.frame_15.setFrameShape(QFrame.StyledPanel)
+        self.frame_15.setFrameShadow(QFrame.Raised)
+        self.Boton_CambiarFoto_2 = QToolButton(self.frame_15)
+        self.Boton_CambiarFoto_2.setObjectName(u"Boton_CambiarFoto_2")
+        self.Boton_CambiarFoto_2.setGeometry(QRect(180, 110, 54, 40))
+        self.Boton_CambiarFoto_2.setMinimumSize(QSize(54, 40))
+        self.Boton_CambiarFoto_2.setStyleSheet(u"/* Estilo para QPushButton */\n"
+"QToolButton {\n"
+"    border: 2px solid  rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #ffffff; /* Color del texto */\n"
+"    background-color:  rgb(109, 70, 3); /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando se presiona */\n"
+"QToolButton:pressed {\n"
+"    background-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
+"QToolButton:hover {\n"
+"    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */\n"
+"    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */\n"
+"}")
+        self.Boton_CambiarFoto_2.setIcon(icon2)
+        self.Boton_CambiarFoto_2.setIconSize(QSize(20, 20))
+        self.frame_16 = QFrame(self.frame_15)
+        self.frame_16.setObjectName(u"frame_16")
+        self.frame_16.setGeometry(QRect(0, 0, 150, 150))
+        self.frame_16.setMaximumSize(QSize(150, 150))
+        self.frame_16.setStyleSheet(u"border-radius:75px;\n"
+"")
+        self.frame_16.setFrameShape(QFrame.StyledPanel)
+        self.frame_16.setFrameShadow(QFrame.Raised)
+        self.gridLayout_15 = QGridLayout(self.frame_16)
+        self.gridLayout_15.setObjectName(u"gridLayout_15")
+        self.gridLayout_15.setContentsMargins(0, 0, -1, -1)
+        self.Foto_usuario_2 = QLabel(self.frame_16)
+        self.Foto_usuario_2.setObjectName(u"Foto_usuario_2")
+        self.Foto_usuario_2.setMinimumSize(QSize(150, 150))
+        self.Foto_usuario_2.setMaximumSize(QSize(150, 150))
+        self.Foto_usuario_2.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Negrita */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 15px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */")
+        self.Foto_usuario_2.setPixmap(QPixmap(u":/iconos/icons8-nombre-100.png"))
+        self.Foto_usuario_2.setScaledContents(True)
+
+        self.gridLayout_15.addWidget(self.Foto_usuario_2, 0, 0, 1, 1)
+
+
+        self.horizontalLayout_22.addWidget(self.frame_15)
+
+        self.horizontalSpacer_27 = QSpacerItem(272, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_22.addItem(self.horizontalSpacer_27)
+
+
+        self.gridLayout_13.addWidget(self.frame_13, 0, 0, 1, 1)
+
+        self.stackedWidget_admin.addWidget(self.paginaFrearCoordinador)
 
         self.verticalLayout_7.addWidget(self.stackedWidget_admin)
 
 
         self.horizontalLayout_12.addWidget(self.frame_3)
 
-        self.stackedWidget_principal.addWidget(self.page_admin)
+        self.stackedWidget_principal.addWidget(self.page_adminCoordinador)
 
         self.horizontalLayout_2.addWidget(self.stackedWidget_principal)
 
@@ -1965,7 +2558,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_principal.setCurrentIndex(0)
+        self.stackedWidget_principal.setCurrentIndex(6)
+        self.stackedWidget_2.setCurrentIndex(0)
+        self.stackedWidget_admin.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2061,6 +2656,10 @@ class Ui_MainWindow(object):
         self.Boton_cambiarContra.setText(QCoreApplication.translate("MainWindow", u"Cambiar Contase\u00f1a", None))
         self.Boton_adminUsuarios.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR USUARIOS", None))
         self.Boton_adminEventos.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR EVENTOS", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"COORDINADORES", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"MENSAJES", None))
+        self.Boton_adminUsuarios_3.setText(QCoreApplication.translate("MainWindow", u"ELABORAR UN INFORME", None))
+        self.Boton_adminEventos_3.setText(QCoreApplication.translate("MainWindow", u"PROGRAMAR EVENTO", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">T\u00edtulo del evento:</span></p></body></html>", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Encargado del evento:</span></p></body></html>", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -2075,18 +2674,29 @@ class Ui_MainWindow(object):
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Finalizaci\u00f3n:</span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Descripci\u00f3n:</span></p></body></html>", None))
         self.Boton_guardarEvento.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
-        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"ID", None));
-        ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"NOMBRE", None));
-        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"APELLIDO", None));
-        ___qtablewidgetitem3 = self.tableWidget.verticalHeaderItem(0)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"1", None));
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"NUEVO INFORME:", None))
+        self.AsuntoEvento.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ASUNTO DEL EVENTO", None))
+        self.Boton_enviarInforme.setText(QCoreApplication.translate("MainWindow", u"Enviar informe", None))
+        self.textoInforme.setDocumentTitle("")
+        self.textoInforme.setPlainText("")
+        self.label_correo_6.setText(QCoreApplication.translate("MainWindow", u"Correo:", None))
+        self.label_correo_7.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
+        self.Nombre_Coordinador.setInputMask("")
+        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"CC", None))
+        self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"TI", None))
+        self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"CE", None))
+        self.comboBox_3.setItemText(3, QCoreApplication.translate("MainWindow", u"RC", None))
 
-        __sortingEnabled = self.tableWidget.isSortingEnabled()
-        self.tableWidget.setSortingEnabled(False)
-        self.tableWidget.setSortingEnabled(__sortingEnabled)
-
+        self.Cedula_Coordinador.setInputMask("")
+        self.Cedula_Coordinador.setPlaceholderText(QCoreApplication.translate("MainWindow", u"123456789", None))
+        self.Correo_Coordinador.setInputMask("")
+        self.Correo_Coordinador.setPlaceholderText(QCoreApplication.translate("MainWindow", u"example@email.com", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Apellido:", None))
+        self.label_password_3.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a:", None))
+        self.password_Coordinador.setPlaceholderText(QCoreApplication.translate("MainWindow", u"************", None))
+        self.boton_CrearCoodinador.setText(QCoreApplication.translate("MainWindow", u"CREAR CUENTA", None))
+        self.Apellido_Coordinador.setInputMask("")
+        self.Apellido_Coordinador.setText("")
+        self.Boton_CambiarFoto_2.setText(QCoreApplication.translate("MainWindow", u"Cambiar imagen", None))
     # retranslateUi
 

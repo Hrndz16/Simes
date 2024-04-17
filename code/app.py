@@ -52,8 +52,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_CambiarFoto.clicked.connect(lambda:self.abrir_dialogo_archivo())
         self.Boto_cerrarsesion.clicked.connect(lambda:self.cerrar_sesion())
         self.fechaEvento.setCalendarPopup(True)
-        self.Boton_adminUsuarios.clicked.connect(lambda:self.mostrarTablaUsuarios()) # En la pagina del administrador muestra la pagina de administrar usuarios
-        self.Boton_adminEventos.clicked.connect(lambda:self.mostrarPaginaAdministrareventos())# En la pagina del administrador muestra la pagina de los eventos 
+        self.Boton_adminUsuarios.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(1)) # En la pagina del administrador muestra la pagina de administrar usuarios
+        self.Boton_adminEventos.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(0))# En la pagina del administrador muestra la pagina de los eventos 
         
         
     def botonIngresar(self):
@@ -294,11 +294,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             
         return b
         
-    def mostrarTablaUsuarios(self):
-        self.stackedWidget_admin.setCurrentIndex(1)
         
-    def mostrarPaginaAdministrareventos(self):
-        self.stackedWidget_admin.setCurrentIndex(0)
     
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)

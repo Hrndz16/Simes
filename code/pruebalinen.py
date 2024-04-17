@@ -1,54 +1,103 @@
+from PySide6.QtWidgets import QApplication, QMainWindow, QTextEdit, QPushButton, QVBoxLayout, QWidget
+from PySide6.QtGui import QTextCharFormat, QFont
 import sys
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QTableWidget, QTableWidgetItem, QPushButton
 
-
-class TableWithButtons(QWidget):
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Tabla con Botones")
-        self.setGeometry(100, 100, 600, 400)
+        # Creamos un QTextEdit y dos botones
+        self.textEdit = QTextEdit()
+        self.boldButton = QPushButton("Negrita")
+        self.italicButton = QPushButton("Cursiva")
 
+        # Conectamos los botones a sus respectivas funciones
+        self.boldButton.clicked.connect(self.makeBold)
+        self.italicButton.clicked.connect(self.makeItalic)
+
+        # Creamos un layout y añadimos los widgets
         layout = QVBoxLayout()
-        self.table = QTableWidget()
+        layout.addWidget(self.textEdit)
+        layout.addWidget(self.boldButton)
+        layout.addWidget(self.italicButton)
 
-        # Establecer el número de filas y columnas
-        self.table.setRowCount(3)
-        self.table.setColumnCount(2)
+        # Creamos un widget central para la ventana
+        centralWidget = QWidget()
+        centralWidget.setLayout(layout)
+        self.setCentralWidget(centralWidget)
 
-        # Encabezados
-        self.table.setHorizontalHeaderLabels(["Nombre", "Acción"])
+    def makeBold(self):
+        # Esta función hace que el texto seleccionado se vuelva negrita
+        format = QTextCharFormat()
+        format.setFontWeight(QFont.Bold)
 
-        # Insertar botones en la tabla
-        self.insert_buttons()
+        # Aplicamos el formato al texto seleccionado
+        self.textEdit.mergeCurrentCharFormat(format)
 
-        layout.addWidget(self.table)
-        self.setLayout(layout)
+    def makeItalic(self):
+        # Esta función hace que el texto seleccionado se vuelva cursiva
+        format = QTextCharFormat()
+        format.setFontItalic(True)
 
-    def insert_buttons(self):
-        for row in range(self.table.rowCount()):
-            name_item = QTableWidgetItem(f"Item {row}")
-            self.table.setItem(row, 0, name_item)
+        # Aplicamos el formato al texto seleccionado
+        self.textEdit.mergeCurrentCharFormat(format)
 
-            button = QPushButton("Hacer algo")
-            button.clicked.connect(self.button_clicked)
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+sys.exit(app.exec())
 
-            self.table.setCellWidget(row, 1, button)
-
-    def button_clicked(self):
-        button = self.sender()
-        if button:
-            index = self.table.indexAt(button.pos())
-            if index.isValid():
-                row = index.row()
-                print(f"Botón en la fila {row} clickeado.")
+# import sys
+# from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QTableWidget, QTableWidgetItem, QPushButton
 
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = TableWithButtons()
-    window.show()
-    sys.exit(app.exec())
+# class TableWithButtons(QWidget):
+#     def __init__(self):
+#         super().__init__()
+
+#         self.setWindowTitle("Tabla con Botones")
+#         self.setGeometry(100, 100, 600, 400)
+
+#         layout = QVBoxLayout()
+#         self.table = QTableWidget()
+
+#         # Establecer el número de filas y columnas
+#         self.table.setRowCount(3)
+#         self.table.setColumnCount(2)
+
+#         # Encabezados
+#         self.table.setHorizontalHeaderLabels(["Nombre", "Acción"])
+
+#         # Insertar botones en la tabla
+#         self.insert_buttons()
+
+#         layout.addWidget(self.table)
+#         self.setLayout(layout)
+
+#     def insert_buttons(self):
+#         for row in range(self.table.rowCount()):
+#             name_item = QTableWidgetItem(f"Item {row}")
+#             self.table.setItem(row, 0, name_item)
+
+#             button = QPushButton("Hacer algo")
+#             button.clicked.connect(self.button_clicked)
+
+#             self.table.setCellWidget(row, 1, button)
+
+#     def button_clicked(self):
+#         button = self.sender()
+#         if button:
+#             index = self.table.indexAt(button.pos())
+#             if index.isValid():
+#                 row = index.row()
+#                 print(f"Botón en la fila {row} clickeado.")
+
+
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     window = TableWithButtons()
+#     window.show()
+#     sys.exit(app.exec())
 #################################################################################################################
 # import sys
 # from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem
