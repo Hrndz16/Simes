@@ -2,12 +2,15 @@
 import sys,os
 ruta = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(f'{ruta}\\imgs')
-from PySide6.QtWidgets import QMainWindow,QApplication,QSpacerItem,QMessageBox,QLineEdit,QFileDialog,QSizePolicy
+from PySide6.QtWidgets import (QMainWindow,QApplication,QSpacerItem,
+                               QMessageBox,QLineEdit,QFileDialog,
+                               QSizePolicy,QDialog)
 from Ui_mainwindow import Ui_MainWindow as MW
 from PySide6.QtCore import Qt,QDate,QTime
 from PySide6.QtGui import QFont,QPixmap
 from eventos import FrameEvento
 from database import DataBase
+from Ui_nuevaContraseña import Ui_Dialog
 
 
 
@@ -52,10 +55,13 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_CambiarFoto.clicked.connect(lambda:self.abrir_dialogo_archivo())
         self.Boto_cerrarsesion.clicked.connect(lambda:self.cerrar_sesion())
         self.fechaEvento.setCalendarPopup(True)
-        self.Boton_adminUsuarios.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(1)) # En la pagina del administrador muestra la pagina de administrar usuarios
         self.Boton_adminEventos.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(0))# En la pagina del administrador muestra la pagina de los eventos 
-        
-        
+        self.Boton_cambiarContra.clicked.connect(lambda: self.cambiar_contraseña())# me conecta con el dialog de cambiar la contraseña
+        self.Boton_ElaborarInforme.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(1))
+        self.Boton_CoorEventos.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(0))
+        self.boton_appendCoordinador.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(2))
+
+                
     def botonIngresar(self):
         self.Correo_2.clear()
         self.password_2.clear()
@@ -72,9 +78,17 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         if self.tipo_usuario == 0 or self.tipo_usuario==3 :
             self.stackedWidget_principal.setCurrentIndex(0) #coloca en la ventana de inicio segun el tipo de usuario 
          #coloca en la ventana de inicio segun el tipo de usuario
-        else:
-            self.stackedWidget_principal.setCurrentIndex(5)
+        elif self.tipo_usuario == 1:
+            self.stackedWidget_principal.setCurrentIndex(6)
+            self.stackedWidget_admin.setCurrentIndex(0) # Lo posiciona en el stackedWidget de crear un evento
+            self.stackedWidget_MenuAdCor.setCurrentIndex(0)# Lo posisiona en el menu del administrador
             self.perfilAdministrador()# Aqui se inicializa la interfaz del perfil del administrador
+        else:
+            self.stackedWidget_principal.setCurrentIndex(6)
+            self.stackedWidget_admin.setCurrentIndex(0) 
+            self.stackedWidget_MenuAdCor.setCurrentIndex(1)
+            self.perfilAdministrador()# Aqui se inicializa la interfaz del perfil del administrador
+            
     def botonRegistrarse(self):
         self.stackedWidget_principal.setCurrentIndex(3)#coloca en la ventana de registro
     def botonProxEvento(self):
@@ -294,8 +308,49 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             
         return b
         
+    def cambiar_contraseña(self):
+        # Crear una instancia del diálogo
+        self.dialog = QDialog()
+
+        # Crear una instancia de la interfaz de usuario del diálogo
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self.dialog)
+        self.ui.pushButton.clicked.connect(lambda:self.validarNuevacontraseña())
+        # self.ui.lineEdit.setEchoMode(QLineEdit.Password)
+        # self.ui.lineEdit_2.setEchoMode(QLineEdit.Password)
+        # self.ui.lineEdit_3.setEchoMode(QLineEdit.Password)
+        self.ui.pushButton_2.pressed.connect(lambda:self.mostrar_lines())
+        self.ui.pushButton_2.released.connect(lambda:self.ocultar_lines())
+
+        # Mostrar el diálogo
+        self.dialog.show()     
         
+    def ocultar_lines(self):  
+        self.ui.lineEdit.setEchoMode(QLineEdit.Password)
+        self.ui.lineEdit_2.setEchoMode(QLineEdit.Password)
+        self.ui.lineEdit_3.setEchoMode(QLineEdit.Password)
+        
+    def mostrar_lines(self):
+        self.ui.lineEdit.setEchoMode(QLineEdit.Normal)
+        self.ui.lineEdit_2.setEchoMode(QLineEdit.Normal)
+        self.ui.lineEdit_3.setEchoMode(QLineEdit.Normal)
     
+    def validarNuevacontraseña(self):
+        
+        Vcon = self.ui.lineEdit.text()
+        Ncon = self.ui.lineEdit_2.text()
+        Ncon2 = self.ui.lineEdit_3.text()
+        if self.db.cambio_contraseña(Vcon) > 0:
+            if Ncon == Ncon2:
+                self.db.nueva_con(Ncon,self.Usu_activo)
+                self.mensaje.setText("Su cambio de contraseña se hizo con exito")
+                self.mensaje.exec_()
+            else:
+                self.mensaje.setText("Verifique la contraseña")
+                self.mensaje.exec_()
+        else:print('algo paso')
+                
+                    
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()

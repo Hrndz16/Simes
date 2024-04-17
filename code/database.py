@@ -161,12 +161,21 @@ class DataBase():
         horas=self.cur.fetchall()
         return horas
       
-# a=DataBase()
-# evento=a.cargarEventos()
-# print(type(evento[0][1]))
     
-    def guardar_evento(self,nomevento,fechevento,encargadoevento,descripcionevento,horaevento):
+    def guardar_evento(self,nomevento,fechevento,encargadoevento,descripcionevento,horaevento): 
         consulta =f"""insert into eventos (nomevento,fechevento,encargadoevento,descripcionevento,horaevento) values (%s,%s,%s,%s,%s)"""
         datos = (nomevento,fechevento,encargadoevento,descripcionevento,horaevento)
         self.cur.execute(consulta,datos)
         self.conn.commit()
+        
+    def cambio_contraseña(self,con):
+        tup = (con,)
+        cons = f"""select count(*) from usuarios where contrausuario = %s"""
+        self.cur.execute(cons,tup)
+        con = self.cur.fetchone()[0]
+        return con
+        
+    def nueva_con(self,con,correo):
+        tup = (con,correo)
+        cons = f"""update usuarios set contrausuario = %s where correousuario = %s"""
+        self.cur.execute(cons,tup)

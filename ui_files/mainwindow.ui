@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>874</width>
+    <width>841</width>
     <height>643</height>
    </rect>
   </property>
@@ -1549,7 +1549,7 @@ alternate-background-color: rgb(255, 162, 115);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>870</width>
+                <width>837</width>
                 <height>560</height>
                </rect>
               </property>
@@ -2787,7 +2787,7 @@ background-color: transparent;
             <number>0</number>
            </property>
            <item>
-            <widget class="QStackedWidget" name="stackedWidget_2">
+            <widget class="QStackedWidget" name="stackedWidget_MenuAdCor">
              <property name="maximumSize">
               <size>
                <width>250</width>
@@ -2795,7 +2795,7 @@ background-color: transparent;
               </size>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="page_4">
               <layout class="QHBoxLayout" name="horizontalLayout_24">
@@ -2873,29 +2873,6 @@ QPushButton:hover {
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QPushButton" name="Boton_adminUsuarios">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>50</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                    <property name="text">
-                     <string>ADMINISTAR USUARIOS</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="Line" name="line_5">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
                    <widget class="QPushButton" name="Boton_adminEventos">
                     <property name="minimumSize">
                      <size>
@@ -2919,7 +2896,7 @@ QPushButton:hover {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pushButton">
+                   <widget class="QPushButton" name="boton_appendCoordinador">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -2948,6 +2925,29 @@ QPushButton:hover {
                     </property>
                     <property name="text">
                      <string>MENSAJES</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="Line" name="line_5">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="Boton_adminUsuarios">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>ADMINISTAR USUARIOS</string>
                     </property>
                    </widget>
                   </item>
@@ -3052,7 +3052,7 @@ QPushButton:hover {
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QPushButton" name="Boton_adminUsuarios_3">
+                   <widget class="QPushButton" name="Boton_ElaborarInforme">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -3075,7 +3075,7 @@ QPushButton:hover {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="Boton_adminEventos_3">
+                   <widget class="QPushButton" name="Boton_CoorEventos">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -3171,7 +3171,7 @@ QPushButton:hover {
                  <string notr="true">background-color:transparent;</string>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="paginaCrearEvento">
                  <property name="styleSheet">
@@ -3459,6 +3459,9 @@ QTimeEdit::up-button {
     height: 12px; /* Ajusta la altura según sea necesario */
 }</string>
                       </property>
+                      <property name="displayFormat">
+                       <string>hh:mm AP</string>
+                      </property>
                      </widget>
                     </item>
                     <item>
@@ -3540,6 +3543,9 @@ QTimeEdit::up-button {
     width: 25px; /* Ajusta el ancho según sea necesario */
     height: 12px; /* Ajusta la altura según sea necesario */
 }</string>
+                      </property>
+                      <property name="displayFormat">
+                       <string>hh:mm AP</string>
                       </property>
                      </widget>
                     </item>
@@ -3841,7 +3847,7 @@ color: #2c3e50; /* Color del texto */
                         <item>
                          <widget class="QLineEdit" name="AsuntoEvento">
                           <property name="placeholderText">
-                           <string>ASUNTO DEL EVENTO</string>
+                           <string>ASUNTO </string>
                           </property>
                          </widget>
                         </item>
@@ -4015,331 +4021,46 @@ background-color: rgba(243, 226, 188,70);
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <widget class="QFrame" name="contenido_registro_3">
-                     <property name="geometry">
-                      <rect>
-                       <x>130</x>
-                       <y>220</y>
-                       <width>400</width>
-                       <height>300</height>
-                      </rect>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>400</width>
-                       <height>300</height>
-                      </size>
-                     </property>
-                     <property name="sizeIncrement">
-                      <size>
-                       <width>129</width>
-                       <height>90</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">QFrame{
-	color: rgb(109, 70, 3);
-	background-color: rgba(188, 94, 0,100);
-border-radius: 18px;
-}
-QLineEdit {
-    border: 2px solid rgb(109, 70, 3); /* Borde */
-    border-radius: 13px; /* Radio de borde */
-    padding: 5px; /* Espaciado interno */
-    font-size: 14px; /* Tamaño de fuente */
-    font-family: Arial, sans-serif; /* Fuente */
-    color: #2c3e50; /* Color del texto */
-    background-color: #ecf0f1; /* Color de fondo */
-}
-
-/* Estilo para QPushButton */
-QPushButton {
-    border: 2px solid  rgb(109, 70, 3); /* Borde */
-    border-radius: 13px; /* Radio de borde */
-    padding: 5px 10px; /* Espaciado interno */
-    font-size: 14px; /* Tamaño de fuente */
-    font-family: Arial, sans-serif; /* Fuente */
-    color: #ffffff; /* Color del texto */
-    background-color:  rgb(109, 70, 3); /* Color de fondo */
-}
-
-/* Estilo para QPushButton cuando se presiona */
-QPushButton:pressed {
-    background-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */
-}
-
-/* Estilo para QPushButton cuando el cursor está encima */
-QPushButton:hover {
-    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */
-    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */
-}
-
-/* Estilo para QComboBox */
-QComboBox {
-    border: 2px solid rgb(109, 70, 3); /* Borde */
-    border-radius: 13px; /* Radio de borde */
-    padding: 5px; /* Espaciado interno */
-    font-size: 14px; /* Tamaño de fuente */
-    font-family: Arial, sans-serif; /* Fuente */
-    color: #2c3e50; /* Color del texto */
-    background-color: #ecf0f1; /* Color de fondo */
-}
-
-/* Estilo para QComboBox cuando se despliega */
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: right;
-    width: 20px; /* Ancho del botón desplegable */
-    border-left-width: 0px; /* Sin borde a la izquierda del botón */
-    border-top-right-radius: 5px; /* Radio de borde superior derecho */
-    border-bottom-right-radius: 5px; /* Radio de borde inferior derecho */
-    background-color: rgb(109, 70, 3); /* Color de fondo del botón desplegable */
-}
-
-/* Estilo para QComboBox cuando se despliega y se presiona */
-QComboBox::down-arrow {
-    width: 15px; /* Ancho del icono */
-    height: 15px; /* Alto del icono */
-    padding-right: 5px; /* Espaciado a la derecha del icono */
-}
-QLabel{
-color: #2c3e50; /* Color del texto */
-    font-size: 18px; /* Tamaño de fuente */
-    font-weight: bold; /* Negrita */
-    font-family: Arial, sans-serif; /* Fuente */
-    background-color: #ecf0f1; /* Color de fondo */
-    border: 2px solid rgb(109, 70, 3); /* Borde */
-    border-radius: 13px; /* Radio de borde */
-    padding: 5px 10px; /* Espaciado interno */
-}
-</string>
-                     </property>
-                     <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
-                     </property>
-                     <property name="frameShadow">
-                      <enum>QFrame::Raised</enum>
-                     </property>
-                     <layout class="QGridLayout" name="gridLayout_14">
-                      <item row="3" column="0">
-                       <widget class="QLabel" name="label_correo_6">
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>0</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>16777215</width>
-                          <height>16777215</height>
-                         </size>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <family>Arial</family>
-                          <pointsize>-1</pointsize>
-                          <bold>true</bold>
-                         </font>
-                        </property>
-                        <property name="layoutDirection">
-                         <enum>Qt::RightToLeft</enum>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <property name="text">
-                         <string>Correo:</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="0">
-                       <widget class="QLabel" name="label_correo_7">
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>0</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>16777215</width>
-                          <height>16777215</height>
-                         </size>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <family>Arial</family>
-                          <pointsize>-1</pointsize>
-                          <bold>true</bold>
-                         </font>
-                        </property>
-                        <property name="layoutDirection">
-                         <enum>Qt::RightToLeft</enum>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <property name="text">
-                         <string>Nombre:</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="1">
-                       <widget class="QLineEdit" name="Nombre_Coordinador">
-                        <property name="inputMask">
-                         <string/>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="2" column="0">
-                       <widget class="QComboBox" name="comboBox_3">
-                        <property name="layoutDirection">
-                         <enum>Qt::LeftToRight</enum>
-                        </property>
-                        <item>
-                         <property name="text">
-                          <string>CC</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>TI</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>CE</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>RC</string>
-                         </property>
-                        </item>
-                       </widget>
-                      </item>
-                      <item row="2" column="1">
-                       <widget class="QLineEdit" name="Cedula_Coordinador">
-                        <property name="inputMask">
-                         <string/>
-                        </property>
-                        <property name="placeholderText">
-                         <string>123456789</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="3" column="1">
-                       <widget class="QLineEdit" name="Correo_Coordinador">
-                        <property name="inputMask">
-                         <string/>
-                        </property>
-                        <property name="placeholderText">
-                         <string>example@email.com</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="1" column="0">
-                       <widget class="QLabel" name="label_4">
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <property name="text">
-                         <string>Apellido:</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="4" column="0">
-                       <widget class="QLabel" name="label_password_3">
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <property name="text">
-                         <string>Contraseña:</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="4" column="1">
-                       <widget class="QLineEdit" name="password_Coordinador">
-                        <property name="echoMode">
-                         <enum>QLineEdit::Password</enum>
-                        </property>
-                        <property name="placeholderText">
-                         <string>************</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="5" column="1">
-                       <widget class="QPushButton" name="boton_CrearCoodinador">
-                        <property name="text">
-                         <string>CREAR CUENTA</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="1" column="1">
-                       <widget class="QLineEdit" name="Apellido_Coordinador">
-                        <property name="inputMask">
-                         <string/>
-                        </property>
-                        <property name="text">
-                         <string/>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                    <widget class="QFrame" name="frame_14">
-                     <property name="geometry">
-                      <rect>
-                       <x>90</x>
-                       <y>20</y>
-                       <width>481</width>
-                       <height>180</height>
-                      </rect>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>180</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color:transparent;</string>
-                     </property>
-                     <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
-                     </property>
-                     <property name="frameShadow">
-                      <enum>QFrame::Raised</enum>
-                     </property>
-                     <layout class="QHBoxLayout" name="horizontalLayout_22">
-                      <item>
-                       <spacer name="horizontalSpacer_26">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>273</width>
-                          <height>20</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                      <item>
+                    <layout class="QGridLayout" name="gridLayout_17">
+                     <item row="0" column="0">
+                      <spacer name="horizontalSpacer_26">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>91</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="0" column="1" rowspan="2">
+                      <widget class="QFrame" name="frame_14">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>180</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color:transparent;</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
                        <widget class="QFrame" name="frame_15">
+                        <property name="geometry">
+                         <rect>
+                          <x>121</x>
+                          <y>10</y>
+                          <width>240</width>
+                          <height>160</height>
+                         </rect>
+                        </property>
                         <property name="minimumSize">
                          <size>
                           <width>240</width>
@@ -4474,22 +4195,327 @@ QToolButton:hover {
                          </layout>
                         </widget>
                        </widget>
-                      </item>
-                      <item>
-                       <spacer name="horizontalSpacer_27">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>272</width>
-                          <height>20</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                     </layout>
-                    </widget>
+                      </widget>
+                     </item>
+                     <item row="1" column="2">
+                      <spacer name="horizontalSpacer_27">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>90</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="2" column="0">
+                      <spacer name="horizontalSpacer_29">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>91</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QFrame" name="contenido_registro_3">
+                       <property name="minimumSize">
+                        <size>
+                         <width>400</width>
+                         <height>300</height>
+                        </size>
+                       </property>
+                       <property name="sizeIncrement">
+                        <size>
+                         <width>129</width>
+                         <height>90</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QFrame{
+	color: rgb(109, 70, 3);
+	background-color: rgba(188, 94, 0,100);
+border-radius: 18px;
+}
+QLineEdit {
+    border: 2px solid rgb(109, 70, 3); /* Borde */
+    border-radius: 13px; /* Radio de borde */
+    padding: 5px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-family: Arial, sans-serif; /* Fuente */
+    color: #2c3e50; /* Color del texto */
+    background-color: #ecf0f1; /* Color de fondo */
+}
+
+/* Estilo para QPushButton */
+QPushButton {
+    border: 2px solid  rgb(109, 70, 3); /* Borde */
+    border-radius: 13px; /* Radio de borde */
+    padding: 5px 10px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-family: Arial, sans-serif; /* Fuente */
+    color: #ffffff; /* Color del texto */
+    background-color:  rgb(109, 70, 3); /* Color de fondo */
+}
+
+/* Estilo para QPushButton cuando se presiona */
+QPushButton:pressed {
+    background-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */
+}
+
+/* Estilo para QPushButton cuando el cursor está encima */
+QPushButton:hover {
+    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */
+    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */
+}
+
+/* Estilo para QComboBox */
+QComboBox {
+    border: 2px solid rgb(109, 70, 3); /* Borde */
+    border-radius: 13px; /* Radio de borde */
+    padding: 5px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-family: Arial, sans-serif; /* Fuente */
+    color: #2c3e50; /* Color del texto */
+    background-color: #ecf0f1; /* Color de fondo */
+}
+
+/* Estilo para QComboBox cuando se despliega */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: right;
+    width: 20px; /* Ancho del botón desplegable */
+    border-left-width: 0px; /* Sin borde a la izquierda del botón */
+    border-top-right-radius: 5px; /* Radio de borde superior derecho */
+    border-bottom-right-radius: 5px; /* Radio de borde inferior derecho */
+    background-color: rgb(109, 70, 3); /* Color de fondo del botón desplegable */
+}
+
+/* Estilo para QComboBox cuando se despliega y se presiona */
+QComboBox::down-arrow {
+    width: 15px; /* Ancho del icono */
+    height: 15px; /* Alto del icono */
+    padding-right: 5px; /* Espaciado a la derecha del icono */
+}
+QLabel{
+color: #2c3e50; /* Color del texto */
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    font-family: Arial, sans-serif; /* Fuente */
+    background-color: #ecf0f1; /* Color de fondo */
+    border: 2px solid rgb(109, 70, 3); /* Borde */
+    border-radius: 13px; /* Radio de borde */
+    padding: 5px 10px; /* Espaciado interno */
+}
+</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_14">
+                        <item row="3" column="0">
+                         <widget class="QLabel" name="label_correo_6">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Arial</family>
+                            <pointsize>-1</pointsize>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="layoutDirection">
+                           <enum>Qt::RightToLeft</enum>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                          <property name="text">
+                           <string>Correo:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_correo_7">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <family>Arial</family>
+                            <pointsize>-1</pointsize>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="layoutDirection">
+                           <enum>Qt::RightToLeft</enum>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                          <property name="text">
+                           <string>Nombre:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QLineEdit" name="Nombre_Coordinador">
+                          <property name="inputMask">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QComboBox" name="comboBox_3">
+                          <property name="layoutDirection">
+                           <enum>Qt::LeftToRight</enum>
+                          </property>
+                          <item>
+                           <property name="text">
+                            <string>CC</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>TI</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>CE</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>RC</string>
+                           </property>
+                          </item>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="QLineEdit" name="Cedula_Coordinador">
+                          <property name="inputMask">
+                           <string/>
+                          </property>
+                          <property name="placeholderText">
+                           <string>123456789</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="1">
+                         <widget class="QLineEdit" name="Correo_Coordinador">
+                          <property name="inputMask">
+                           <string/>
+                          </property>
+                          <property name="placeholderText">
+                           <string>example@email.com</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="label_4">
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                          <property name="text">
+                           <string>Apellido:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="0">
+                         <widget class="QLabel" name="label_password_3">
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                          <property name="text">
+                           <string>Contraseña:</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="1">
+                         <widget class="QLineEdit" name="password_Coordinador">
+                          <property name="echoMode">
+                           <enum>QLineEdit::Password</enum>
+                          </property>
+                          <property name="placeholderText">
+                           <string>************</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="5" column="1">
+                         <widget class="QPushButton" name="boton_CrearCoodinador">
+                          <property name="text">
+                           <string>CREAR CUENTA</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QLineEdit" name="Apellido_Coordinador">
+                          <property name="inputMask">
+                           <string/>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="2" column="2">
+                      <spacer name="horizontalSpacer_30">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>90</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
                    </widget>
                   </item>
                  </layout>

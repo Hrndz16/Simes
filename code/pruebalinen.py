@@ -1,3 +1,38 @@
+# import sys
+# from PySide6.QtWidgets import QApplication, QDialog, QVBoxLayout, QLabel, QLineEdit, QPushButton
+
+# class MyDialog(QDialog):
+#     def __init__(self):
+#         super().__init__()
+
+#         self.setWindowTitle("Mi Diálogo")
+#         layout = QVBoxLayout(self)
+
+#         # Agregar etiquetas
+#         label1 = QLabel("Nombre:", self)
+#         layout.addWidget(label1)
+
+#         # Agregar campo de entrada
+#         line_edit1 = QLineEdit(self)
+#         layout.addWidget(line_edit1)
+
+#         # Agregar más etiquetas y campos de entrada si es necesario
+#         # ...
+
+#         # Agregar botón
+#         button = QPushButton("Aceptar", self)
+#         button.clicked.connect(self.accept)  # Cierra el cuadro de diálogo cuando se hace clic en el botón
+#         layout.addWidget(button)
+
+#         # Configurar el diseño del cuadro de diálogo
+#         self.setLayout(layout)
+
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     dialog = MyDialog()
+#     dialog.exec()
+#     sys.exit(app.exec())
+###############################################################################
 from PySide6.QtWidgets import QApplication, QMainWindow, QTextEdit, QPushButton, QVBoxLayout, QWidget
 from PySide6.QtGui import QTextCharFormat, QFont
 import sys
