@@ -319,7 +319,6 @@ class Ui_MainWindow(object):
         self.label_10.setStyleSheet(u"QLabel{\n"
 "font: 10pt \"MS Sans Serif\";\n"
 "	color: rgb(255, 255, 255);\n"
-"background-color:rgba(0,0,0,0,)\n"
 "\n"
 "}")
 
@@ -657,7 +656,6 @@ class Ui_MainWindow(object):
 "/* Estilo para QPushButton cuando se presiona */\n"
 "QPushButton:pressed {\n"
 "    background-color:  rgba(109, 70, 3,180); /* Cambio de color al presionar */\n"
-"	border-radious:15 px\n"
 "}\n"
 "\n"
 "/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"

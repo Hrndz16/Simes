@@ -170,3 +170,34 @@ class DataBase():
         datos = (nomevento,fechevento,encargadoevento,descripcionevento,horaevento)
         self.cur.execute(consulta,datos)
         self.conn.commit()
+    
+    def registrarEvento(self,usuario,evento):
+        consulta =f'insert into registro_eventos (idusuario, idevento) values (%s,%s)'
+        self.cur.execute(consulta,(usuario,evento,))
+        self.conn.commit()
+    
+    def consultarCedula(self,correo):
+        consulta =f'select idusuario from usuarios where correousuario = %s '
+        self.cur.execute(consulta,(correo,))
+        cedula=self.cur.fetchone()[0]
+        return cedula
+    
+    def consultarRegistro(self,usuario,evento):
+        consulta = f'select count(*) from registro_eventos where idusuario = %s and idevento = %s'
+        self.cur.execute(consulta,(usuario,evento,))
+        cedula=self.cur.fetchone()[0]
+        return cedula>0
+    def eliminarRegistro(self,usuario,evento):
+        consulta =f'delete from registro_eventos where idusuario = %s and idevento = %s'
+        self.cur.execute(consulta,(usuario,evento,))
+        self.conn.commit()
+    def consultarRegistros(self,usuario):
+        consulta = f'select * from registro_eventos where idusuario = %s'
+        self.cur.execute(consulta,(usuario,))
+        resultado=self.cur.fetchall()
+        return resultado
+    def consultarusuarioRegistro(self,usuario):
+        consulta = f'select count(*) from registro_eventos where idusuario = %s'
+        self.cur.execute(consulta,(usuario,))
+        cedula=self.cur.fetchone()[0]
+        return cedula>0

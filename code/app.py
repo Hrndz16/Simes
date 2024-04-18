@@ -35,7 +35,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
                 }
             """)
         self.db=DataBase()
-        self.tipo_usuario=0#variable para saber que usuario esta activo acutalmente 0=Usuario sin cuenta 1=Administrador 2=Cordinador 3=Usuario con cuenta
+        self.tipo_usuario=0 #variable para saber que usuario esta activo acutalmente 0=Usuario sin cuenta 1=Administrador 2=Cordinador 3=Usuario con cuenta
+        self.cedulaU = 0
         super().__init__()
         self.setupUi(self)#Carga el ui de qtdesigner
         self.stackedWidget_principal.setCurrentIndex(0)#pone la ventana principal
@@ -53,7 +54,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boto_cerrarsesion.clicked.connect(lambda:self.cerrar_sesion())
         self.fechaEvento.setCalendarPopup(True)
         self.Boton_adminUsuarios.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(1)) # En la pagina del administrador muestra la pagina de administrar usuarios
-        self.Boton_adminEventos.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(0))# En la pagina del administrador muestra la pagina de los eventos 
+        self.Boton_adminEventos.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(0)) # En la pagina del administrador muestra la pagina de los eventos 
         
         
     def botonIngresar(self):
@@ -73,7 +74,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.stackedWidget_principal.setCurrentIndex(0) #coloca en la ventana de inicio segun el tipo de usuario 
          #coloca en la ventana de inicio segun el tipo de usuario
         else:
-            self.stackedWidget_principal.setCurrentIndex(5)
+            self.stackedWidget_principal.setCurrentIndex(6)
             self.perfilAdministrador()# Aqui se inicializa la interfaz del perfil del administrador
     def botonRegistrarse(self):
         self.stackedWidget_principal.setCurrentIndex(3)#coloca en la ventana de registro
@@ -84,8 +85,10 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def iniciarSesion(self):
         self.Usu_activo = correo=self.Correo_2.text()
         contraseña=self.password_2.text()
+        
         if self.db.isExist('usuarios','correo',correo) and self.db.isExist('usuarios','contra',contraseña):
             self.tipo_usuario = self.db.consultarTipoU(correo)
+            self.cedulaU=self.db.consultarCedula(correo)
             self.botonInicio()
             self.Boton_ingresar.setText('  MI PERFIL') #INICIAR SESION\n           O\n  REGISTRARSE
             self.Boton_ingresar.setFont(QFont('Arial Narrow', 15))
@@ -147,7 +150,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def obtenerDatos(self):
         self.Boton_EditarDatos.setText('Editar Datos')
         nombre = self.perfil_nombre.text()
-        cc = self.perfil_cedula.text()
+        self.cedulaU = cc = self.perfil_cedula.text()
         apellido = self.perfil_apellido.text()
         correo = self.perfil_correo.text()
         lis = [cc,nombre,apellido,correo]
@@ -204,14 +207,18 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.agregarFotoPerfil(ruta)
             
     def cargarEventos(self):
-       eventos=self.db.cargarEventos()
-       i=0
-       for evento in eventos:
-           fecha=evento[0]
-           item=FrameEvento(fecha)
-           self.verticalLayout_5.insertWidget(i,item)
-           i+=1
+        eventos = self.db.cargarEventos()
+        i = 0
+        for evento in eventos:
+            fecha = evento[0]
+            item = FrameEvento(fecha, self.cedulaU)
+            self.verticalLayout_5.insertWidget(i, item)
+            i += 1
+            
+
         
+
+            
     def eliminar_widgets(self,layout):
         while layout.count() > 1:  # Deja al menos un widget en el layout
             widget = layout.takeAt(0).widget()
