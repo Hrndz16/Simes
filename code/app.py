@@ -12,9 +12,6 @@ from eventos import FrameEvento
 from database import DataBase
 from Ui_nuevaContraseña import Ui_Dialog
 
-
-
-
 class MainWindow(QMainWindow,MW):#Creacion de main Window
     def __init__(self):
         self.mensaje = QMessageBox()
@@ -306,6 +303,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def cerrar_sesion(self):
         self.tipo_usuario = 0
         self.Usu_activo = 0
+        self.cedulaU = 0
         self.stackedWidget_principal.setCurrentIndex(0)
         self.Boton_ingresar.setText('INICIAR SESIÓN')
         pass        
@@ -468,11 +466,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
                     \no elimine las cuentas que no le parecen necesarias en la seccion de
                     \nAdministrar usuarios"""
                     self.Box_mensaje(men)
-            
-            
-                    
-                   
-                    
+                         
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()
