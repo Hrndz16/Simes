@@ -306,6 +306,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def cerrar_sesion(self):
         self.tipo_usuario = 0
         self.Usu_activo = 0
+        self.cedulaU = 0
         self.stackedWidget_principal.setCurrentIndex(0)
         self.Boton_ingresar.setText('INICIAR SESIÓN')
         pass        
