@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(841, 643)
+        MainWindow.resize(858, 643)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -319,6 +319,7 @@ class Ui_MainWindow(object):
         self.label_10.setStyleSheet(u"QLabel{\n"
 "font: 10pt \"MS Sans Serif\";\n"
 "	color: rgb(255, 255, 255);\n"
+"background-color:rgba(0,0,0,0,)\n"
 "\n"
 "}")
 
@@ -656,6 +657,7 @@ class Ui_MainWindow(object):
 "/* Estilo para QPushButton cuando se presiona */\n"
 "QPushButton:pressed {\n"
 "    background-color:  rgba(109, 70, 3,180); /* Cambio de color al presionar */\n"
+"	border-radious:15 px\n"
 "}\n"
 "\n"
 "/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
@@ -1871,7 +1873,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13 = QHBoxLayout()
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.horizontalSpacer_18 = QSpacerItem(80, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+        self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
         self.horizontalLayout_13.addItem(self.horizontalSpacer_18)
 
@@ -1883,20 +1885,47 @@ class Ui_MainWindow(object):
 
         self.fechaEvento = QDateEdit(self.paginaCrearEvento)
         self.fechaEvento.setObjectName(u"fechaEvento")
-        self.fechaEvento.setMinimumSize(QSize(150, 30))
+        self.fechaEvento.setMinimumSize(QSize(180, 30))
         self.fechaEvento.setMaximumSize(QSize(250, 16777215))
         self.fechaEvento.setStyleSheet(u"QDateEdit{\n"
+"	\n"
 "background-color: rgb(236, 240, 241);\n"
 "border:2px solid #a77c32;\n"
 "border-radius:13px;\n"
 "width:13px;\n"
 "}\n"
 "\n"
-"QDateEdit::down-button {\n"
+"QDateEdit::button {\n"
 "	image: url(:/iconos/calendario.jpg);  /* Cambia esto a la ruta de tu imagen */\n"
 "    width: 25px; /* Ajusta el ancho seg\u00fan sea necesario */\n"
 "    height: 25px; /* Ajusta la altura seg\u00fan sea necesario */\n"
+"}\n"
+"/* Estilos para el QCalendarWidget (calendario emergente) */\n"
+"QCalendarWidget {\n"
+"    background-color: green;\n"
+"    border: 1px solid #a77c32;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"/* Estilos para las celdas del calendario */\n"
+"QCalendarWidget QAbstractItemView {\n"
+"   background-color: #ecf0f1; ;\n"
+"}\n"
+"/* Estilos para los d\u00edas de la semana */\n"
+"QCalendarWidget QWidget { /* d\u00edas de la semana */\n"
+"    background-	color: rgb(178, 121, 36);\n"
+"   /* color: red;*/\n"
+"}\n"
+"/* Estilos para los d\u00edas de la semana */\n"
+"\n"
+"QCalendarPopu{\n"
+"	background-color: rgb(218, 218, 218);\n"
+"  "
+                        "  border:2px solid #59cc1b;\n"
+"	color: rgb(89, 204, 27);\n"
 "}")
+        self.fechaEvento.setLocale(QLocale(QLocale.Spanish, QLocale.Spain))
+        self.fechaEvento.setCalendarPopup(True)
 
         self.horizontalLayout_13.addWidget(self.fechaEvento)
 
@@ -2008,6 +2037,7 @@ class Ui_MainWindow(object):
 "            padding: 6px; /* Espaciado interno */\n"
 "            color: black; /* Color del texto */\n"
 "        }")
+        self.descripcionEvento.setLocale(QLocale(QLocale.Spanish, QLocale.Spain))
 
         self.verticalLayout_8.addWidget(self.descripcionEvento)
 
@@ -2568,7 +2598,7 @@ class Ui_MainWindow(object):
 
         self.stackedWidget_principal.setCurrentIndex(6)
         self.stackedWidget_MenuAdCor.setCurrentIndex(0)
-        self.stackedWidget_admin.setCurrentIndex(2)
+        self.stackedWidget_admin.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

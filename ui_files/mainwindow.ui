@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>841</width>
+    <width>858</width>
     <height>643</height>
    </rect>
   </property>
@@ -3171,7 +3171,7 @@ QPushButton:hover {
                  <string notr="true">background-color:transparent;</string>
                 </property>
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="paginaCrearEvento">
                  <property name="styleSheet">
@@ -3346,7 +3346,7 @@ border: 2px solid rgb(109, 70, 3); /* Borde */
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
-                        <width>80</width>
+                        <width>40</width>
                         <height>20</height>
                        </size>
                       </property>
@@ -3373,7 +3373,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                      <widget class="QDateEdit" name="fechaEvento">
                       <property name="minimumSize">
                        <size>
-                        <width>150</width>
+                        <width>180</width>
                         <height>30</height>
                        </size>
                       </property>
@@ -3385,17 +3385,47 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       </property>
                       <property name="styleSheet">
                        <string notr="true">QDateEdit{
+	
 background-color: rgb(236, 240, 241);
 border:2px solid #a77c32;
 border-radius:13px;
 width:13px;
 }
 
-QDateEdit::down-button {
+QDateEdit::button {
 	image: url(:/iconos/calendario.jpg);  /* Cambia esto a la ruta de tu imagen */
     width: 25px; /* Ajusta el ancho según sea necesario */
     height: 25px; /* Ajusta la altura según sea necesario */
+}
+/* Estilos para el QCalendarWidget (calendario emergente) */
+QCalendarWidget {
+    background-color: green;
+    border: 1px solid #a77c32;
+    border-radius: 5px;
+}
+
+/* Estilos para las celdas del calendario */
+QCalendarWidget QAbstractItemView {
+   background-color: #ecf0f1; ;
+}
+/* Estilos para los días de la semana */
+QCalendarWidget QWidget { /* días de la semana */
+    background-	color: rgb(178, 121, 36);
+   /* color: red;*/
+}
+/* Estilos para los días de la semana */
+
+QCalendarPopu{
+	background-color: rgb(218, 218, 218);
+    border:2px solid #59cc1b;
+	color: rgb(89, 204, 27);
 }</string>
+                      </property>
+                      <property name="locale">
+                       <locale language="Spanish" country="Spain"/>
+                      </property>
+                      <property name="calendarPopup">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -3613,6 +3643,9 @@ QTimeEdit::up-button {
             padding: 6px; /* Espaciado interno */
             color: black; /* Color del texto */
         }</string>
+                    </property>
+                    <property name="locale">
+                     <locale language="Spanish" country="Spain"/>
                     </property>
                    </widget>
                   </item>
