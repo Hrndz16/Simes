@@ -1549,8 +1549,8 @@ alternate-background-color: rgb(255, 162, 115);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>837</width>
-                <height>560</height>
+                <width>98</width>
+                <height>28</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -2795,7 +2795,7 @@ background-color: transparent;
               </size>
              </property>
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="page_4">
               <layout class="QHBoxLayout" name="horizontalLayout_24">
@@ -3171,7 +3171,7 @@ QPushButton:hover {
                  <string notr="true">background-color:transparent;</string>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="paginaCrearEvento">
                  <property name="styleSheet">
@@ -4400,7 +4400,7 @@ color: #2c3e50; /* Color del texto */
                          </widget>
                         </item>
                         <item row="2" column="0">
-                         <widget class="QComboBox" name="comboBox_3">
+                         <widget class="QComboBox" name="tipId_coordinador">
                           <property name="layoutDirection">
                            <enum>Qt::LeftToRight</enum>
                           </property>

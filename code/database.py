@@ -40,6 +40,13 @@ class DataBase():
         us = self.cur.fetchall()
         return us
     
+    def consultarPorcedula(self,cedula):
+        """Retorna todo el registro del usuario y lo sonsulta por el correo"""
+        consulta = 'select * from usuarios where idusuario = %s'
+        self.cur.execute(consulta,(cedula,))
+        us = self.cur.fetchall()
+        return us
+    
     def tipoUsuario(self,tipo): 
         """Clasifica el tipo usuario en un strig 1 = "administrador", 2 = "Coordinador" 3 = "Visitante" """
         tipo = int(tipo)
@@ -179,3 +186,21 @@ class DataBase():
         tup = (con,correo)
         cons = f"""update usuarios set contrausuario = %s where correousuario = %s"""
         self.cur.execute(cons,tup)
+        
+    def incertar_Coordinador(self,remplazo,cc,nom,apellido,correo,contra,tpid):
+        tup = (cc,tpid,2,nom,apellido,correo,contra,self.fotoCoordinador)
+        
+        if remplazo:# Si el coordinador ya tenia una cuenta previa como usuario esta se remplaza como cuenta del coordinador
+            insert = f"""update usuarios set idusuario = %s,
+            tipoid = %s, tipousuario = %s, nomusuario = %s, apeusuario = %s, correousuario = %s, contrausuario = %s, fotousuario = %s
+            where idusuario = '{cc}' or correousuario = '{correo}'"""
+            self.cur.execute(insert,tup)
+            self.conn.commit()
+        else:# Si el coordinador no tiene una cuenta previa esta se crea en la base de datos
+            insert = f"""insert into usuarios values (%s,%s,%s,%s,%s,%s,%s,%s)"""
+            self.cur.execute(insert,tup)
+            self.conn.commit()
+        
+    def Perfil_cordinador(self,foto = None):
+        self.fotoCoordinador = foto
+        

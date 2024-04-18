@@ -847,7 +847,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 837, 560))
+        self.Area_eventos.setGeometry(QRect(0, 0, 98, 28))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -2490,15 +2490,15 @@ class Ui_MainWindow(object):
 
         self.gridLayout_14.addWidget(self.Nombre_Coordinador, 0, 1, 1, 1)
 
-        self.comboBox_3 = QComboBox(self.contenido_registro_3)
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.setObjectName(u"comboBox_3")
-        self.comboBox_3.setLayoutDirection(Qt.LeftToRight)
+        self.tipId_coordinador = QComboBox(self.contenido_registro_3)
+        self.tipId_coordinador.addItem("")
+        self.tipId_coordinador.addItem("")
+        self.tipId_coordinador.addItem("")
+        self.tipId_coordinador.addItem("")
+        self.tipId_coordinador.setObjectName(u"tipId_coordinador")
+        self.tipId_coordinador.setLayoutDirection(Qt.LeftToRight)
 
-        self.gridLayout_14.addWidget(self.comboBox_3, 2, 0, 1, 1)
+        self.gridLayout_14.addWidget(self.tipId_coordinador, 2, 0, 1, 1)
 
         self.Cedula_Coordinador = QLineEdit(self.contenido_registro_3)
         self.Cedula_Coordinador.setObjectName(u"Cedula_Coordinador")
@@ -2569,8 +2569,8 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget_principal.setCurrentIndex(6)
-        self.stackedWidget_MenuAdCor.setCurrentIndex(1)
-        self.stackedWidget_admin.setCurrentIndex(0)
+        self.stackedWidget_MenuAdCor.setCurrentIndex(0)
+        self.stackedWidget_admin.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2695,10 +2695,10 @@ class Ui_MainWindow(object):
         self.label_correo_6.setText(QCoreApplication.translate("MainWindow", u"Correo:", None))
         self.label_correo_7.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.Nombre_Coordinador.setInputMask("")
-        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"CC", None))
-        self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"TI", None))
-        self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"CE", None))
-        self.comboBox_3.setItemText(3, QCoreApplication.translate("MainWindow", u"RC", None))
+        self.tipId_coordinador.setItemText(0, QCoreApplication.translate("MainWindow", u"CC", None))
+        self.tipId_coordinador.setItemText(1, QCoreApplication.translate("MainWindow", u"TI", None))
+        self.tipId_coordinador.setItemText(2, QCoreApplication.translate("MainWindow", u"CE", None))
+        self.tipId_coordinador.setItemText(3, QCoreApplication.translate("MainWindow", u"RC", None))
 
         self.Cedula_Coordinador.setInputMask("")
         self.Cedula_Coordinador.setPlaceholderText(QCoreApplication.translate("MainWindow", u"123456789", None))
