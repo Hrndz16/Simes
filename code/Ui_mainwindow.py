@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(858, 643)
+        MainWindow.resize(839, 643)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
         self.Area_1.setWidgetResizable(True)
         self.Contenido1 = QWidget()
         self.Contenido1.setObjectName(u"Contenido1")
-        self.Contenido1.setGeometry(QRect(0, 0, 1122, 886))
+        self.Contenido1.setGeometry(QRect(0, 0, 1036, 886))
         self.verticalLayout_2 = QVBoxLayout(self.Contenido1)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -319,7 +319,7 @@ class Ui_MainWindow(object):
         self.label_10.setStyleSheet(u"QLabel{\n"
 "font: 10pt \"MS Sans Serif\";\n"
 "	color: rgb(255, 255, 255);\n"
-"background-color:rgba(0,0,0,0,)\n"
+"background-color:rgba(0,0,0,0)\n"
 "\n"
 "}")
 
@@ -657,7 +657,7 @@ class Ui_MainWindow(object):
 "/* Estilo para QPushButton cuando se presiona */\n"
 "QPushButton:pressed {\n"
 "    background-color:  rgba(109, 70, 3,180); /* Cambio de color al presionar */\n"
-"	border-radious:15 px\n"
+"	border-radius:15 px\n"
 "}\n"
 "\n"
 "/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
@@ -739,7 +739,7 @@ class Ui_MainWindow(object):
         self.label_correo_2.setMinimumSize(QSize(0, 0))
         self.label_correo_2.setMaximumSize(QSize(100, 32))
         font2 = QFont()
-        font2.setFamilies([u"Arial"])
+        font2.setFamilies([u"Arial,sans-serif"])
         font2.setBold(True)
         self.label_correo_2.setFont(font2)
         self.label_correo_2.setLayoutDirection(Qt.RightToLeft)
@@ -1801,16 +1801,6 @@ class Ui_MainWindow(object):
         self.gridLayout_8 = QGridLayout()
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setHorizontalSpacing(13)
-        self.verticalSpacer_13 = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout_8.addItem(self.verticalSpacer_13, 2, 1, 1, 1)
-
-        self.label_3 = QLabel(self.paginaCrearEvento)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setStyleSheet(u"background-color:transparent;")
-
-        self.gridLayout_8.addWidget(self.label_3, 1, 0, 1, 1)
-
         self.combo_coordinadores = QComboBox(self.paginaCrearEvento)
         self.combo_coordinadores.setObjectName(u"combo_coordinadores")
         self.combo_coordinadores.setMinimumSize(QSize(0, 30))
@@ -1842,6 +1832,16 @@ class Ui_MainWindow(object):
         self.verticalSpacer_14 = QSpacerItem(30, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
         self.gridLayout_8.addItem(self.verticalSpacer_14, 7, 1, 1, 1)
+
+        self.label_3 = QLabel(self.paginaCrearEvento)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"background-color:transparent;")
+
+        self.gridLayout_8.addWidget(self.label_3, 1, 0, 1, 1)
+
+        self.verticalSpacer_13 = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout_8.addItem(self.verticalSpacer_13, 2, 1, 1, 1)
 
         self.horizontalSpacer_13 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -2596,8 +2596,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_principal.setCurrentIndex(6)
-        self.stackedWidget_MenuAdCor.setCurrentIndex(0)
+        self.stackedWidget_principal.setCurrentIndex(0)
+        self.stackedWidget_MenuAdCor.setCurrentIndex(1)
         self.stackedWidget_admin.setCurrentIndex(0)
 
 
