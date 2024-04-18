@@ -2,12 +2,15 @@
 import sys,os
 ruta = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(f'{ruta}\\imgs')
-from PySide6.QtWidgets import QMainWindow,QApplication,QSpacerItem,QMessageBox,QLineEdit,QFileDialog,QSizePolicy
+from PySide6.QtWidgets import (QMainWindow,QApplication,QSpacerItem,
+                               QMessageBox,QLineEdit,QFileDialog,
+                               QSizePolicy,QDialog)
 from Ui_mainwindow import Ui_MainWindow as MW
 from PySide6.QtCore import Qt,QDate,QTime
 from PySide6.QtGui import QFont,QPixmap
 from eventos import FrameEvento
 from database import DataBase
+from Ui_nuevaContraseña import Ui_Dialog
 
 
 
@@ -53,10 +56,14 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_CambiarFoto.clicked.connect(lambda:self.abrir_dialogo_archivo())
         self.Boto_cerrarsesion.clicked.connect(lambda:self.cerrar_sesion())
         self.fechaEvento.setCalendarPopup(True)
-        self.Boton_adminUsuarios.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(1)) # En la pagina del administrador muestra la pagina de administrar usuarios
         self.Boton_adminEventos.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(0)) # En la pagina del administrador muestra la pagina de los eventos 
-        
-        
+        self.Boton_cambiarContra.clicked.connect(lambda: self.cambiar_contraseña())# me conecta con el dialog de cambiar la contraseña
+        self.Boton_ElaborarInforme.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(1))
+        self.Boton_CoorEventos.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(0))
+        self.boton_appendCoordinador.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(2))
+        self.boton_CrearCoodinador.clicked.connect(lambda:self.crear_CuentaCoordinador())
+        self.Boton_CambiarFoto_2.clicked.connect(lambda:self.agregarFotoCoodinador())
+                
     def botonIngresar(self):
         self.Correo_2.clear()
         self.password_2.clear()
@@ -73,9 +80,17 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         if self.tipo_usuario == 0 or self.tipo_usuario==3 :
             self.stackedWidget_principal.setCurrentIndex(0) #coloca en la ventana de inicio segun el tipo de usuario 
          #coloca en la ventana de inicio segun el tipo de usuario
+        elif self.tipo_usuario == 1:
+            self.stackedWidget_principal.setCurrentIndex(6)
+            self.stackedWidget_admin.setCurrentIndex(0) # Lo posiciona en el stackedWidget de crear un evento
+            self.stackedWidget_MenuAdCor.setCurrentIndex(0)# Lo posisiona en el menu del administrador
+            self.perfilAdministrador()# Aqui se inicializa la interfaz del perfil del administrador
         else:
             self.stackedWidget_principal.setCurrentIndex(6)
+            self.stackedWidget_admin.setCurrentIndex(0) 
+            self.stackedWidget_MenuAdCor.setCurrentIndex(1)
             self.perfilAdministrador()# Aqui se inicializa la interfaz del perfil del administrador
+            
     def botonRegistrarse(self):
         self.stackedWidget_principal.setCurrentIndex(3)#coloca en la ventana de registro
     def botonProxEvento(self):
@@ -100,10 +115,36 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def RegistrarUsuario(self):
         nombre=self.Nombre.text()
         tipoCC=self.comboBox.currentText()
-        cc=int(self.Cedula.text())
         apellido=self.Apellido.text()
         correo=self.Correo.text()
         contra=self.password.text()
+        cc=self.Cedula.text()
+        lis = [cc,contra,nombre,tipoCC,apellido,correo]
+        try:
+            if bool(self.verificar_valoresObligatorios(lis)) == True:
+                cc=int(cc) #Valida si la cedula es un entero
+                self.guardarRegistrousuario(cc=cc,correo=correo,tipoCC=tipoCC,nombre=nombre,apellido=apellido,contra=contra)# Se validan los datos y se guarda el registro
+            else: self.Box_mensaje('¡¡¡Todos los datos son obligatorios!!!')
+        except ValueError:
+            self.Box_mensaje('¡¡¡La cedula debe de ser un número!!!')
+            self.Cedula.clear()
+            pass
+        
+    def verificar_valoresObligatorios(self,lis):
+        '''Me ayuda a comprobar que todos los datos en el registro de un nuevo usuario tengan algun valor'''
+        b = True
+        for line in lis:
+            if line == '':
+                b = False
+                break
+        return b
+    
+    def Box_mensaje(self,mensaje):
+        '''Recibe un string y me arroja un mensaje en pantalla'''
+        self.mensaje.setText(mensaje)
+        self.mensaje.exec_()
+        
+    def guardarRegistrousuario(self,cc,correo,nombre,tipoCC,apellido,contra):
         if self.db.isExist('usuarios','id',cc)==False:
             if self.db.isExist('usuarios','correo',correo)==False:
                 self.db.registarUsuario(nombre,tipoCC,cc,apellido,correo,contra)
@@ -126,6 +167,14 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             if isinstance(widget, QLineEdit):
                 # Limpiamos el texto del QLineEdit
                 widget.clear()            
+     
+    def habilitar_o_deshabilitarDatos(self,b): ## Habilita o deshabilita los datos del stackedWidget Nro 4
+        """Recibe un booleano y habilita(True) o deshabilita(False) los lineedits del stackedWidget Nro 4"""
+        self.perfil_nombre.setReadOnly(b)
+        self.perfil_correo.setReadOnly(b)
+        self.perfil_apellido.setReadOnly(b)
+        self.perfil_cedula.setReadOnly(b)
+        self.visible_us() 
                 
     def habilitar_cambio_datos(self): 
         """Este metodo se encarga del proceso de cambar y guardar los datos de un Usuario"""
@@ -135,13 +184,6 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.guardarCambioDatos()
         return None
         
-    def habilitar_o_deshabilitarDatos(self,b): ## Habilita o deshabilita los datos del stackedWidget Nro 4
-        """Recibe un booleano y habilita(True) o deshabilita(False) los lineedits del stackedWidget Nro 4"""
-        self.perfil_nombre.setReadOnly(b)
-        self.perfil_correo.setReadOnly(b)
-        self.perfil_apellido.setReadOnly(b)
-        self.perfil_cedula.setReadOnly(b)
-        self.visible_us()
                 
     def guardarCambioDatos(self):
         ##tipoU = self.Line_tipoUsuario.text()
@@ -153,9 +195,26 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.cedulaU = cc = self.perfil_cedula.text()
         apellido = self.perfil_apellido.text()
         correo = self.perfil_correo.text()
-        lis = [cc,nombre,apellido,correo]
-        if self.db.incertar_datos(self.Usu_activo,lis) == False:
-            self.mensaje.setText('¡Correo o Cedula ya existen!\n Ingrese otros datos por favor')
+        cc = self.perfil_cedula.text()
+        try:
+            if cc != '':
+                cc = int(cc)
+            lis = [cc,nombre,apellido,correo]
+            self.cambiar_datos(lis,correo)
+        except ValueError: 
+            self.Box_mensaje('¡La cedula debe de ser un número!')
+            self.perfil_cedula.clear()
+            self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())
+        
+    def cambiar_datos(self,lis,correo):#Este metodo termina de evaluar los datos y los guarda en el caso de que todo este correcto
+        if self.verificar_none(lis):
+            self.mensaje.setText('Casillas vacias')
+            self.mensaje.exec_()
+            self.Boton_EditarDatos.clicked.disconnect()
+            self.habilitar_o_deshabilitarDatos(True)
+            self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())
+        elif self.db.incertar_datos(self.Usu_activo,lis) == False:
+            self.mensaje.setText('¡Correo o Cedula ya existen!\nIngrese otros datos por favor')
             self.mensaje.exec_()
             self.limpiar_lineedits()
             self.Boton_EditarDatos.clicked.disconnect()
@@ -170,6 +229,13 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.Boton_EditarDatos.clicked.disconnect()
             self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())
             
+    def verificar_none(self,lis):
+        b = True
+        for i in lis:
+            if i is not None:
+                b = False
+                return b
+    
     def cambiar_correo(self,correo):
         if correo != '':
             self.Usu_activo = correo
@@ -191,7 +257,6 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         opciones |= QFileDialog.DontUseNativeDialog
         archivo, _ = QFileDialog.getOpenFileName(self, "Seleccionar archivo", "", "Archivos de imagen (*.png *.jpg *.jpeg *.gif);;Todos los archivos (*)", options=opciones)
         if archivo:
-            print("Archivo seleccionado:", archivo)
             self.agregarFotoPerfil(archivo)
             self.db.rutaFotoUsuario(self.Usu_activo,archivo)
             
@@ -205,6 +270,18 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             ruta = str(us[0][7])
             ruta = self.db.convertirByteaIMG(us[0][7],self.Usu_activo)
             self.agregarFotoPerfil(ruta)
+            
+    def agregarFotoCoodinador(self):
+        opciones = QFileDialog.Options()
+        opciones |= QFileDialog.DontUseNativeDialog
+        archivo, _ = QFileDialog.getOpenFileName(self, "Seleccionar archivo", "", "Archivos de imagen (*.png *.jpg *.jpeg *.gif);;Todos los archivos (*)", options=opciones)
+        if archivo:
+            self.agregarFotoPerfilCoordinador(archivo)
+            self.db.Perfil_cordinador(archivo)
+            
+    def agregarFotoPerfilCoordinador(self,ruta):
+        foto = QPixmap(os.path.join(ruta))
+        self.Foto_usuario_2.setPixmap(foto)
             
     def cargarEventos(self):
         eventos = self.db.cargarEventos()
@@ -273,7 +350,6 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.mensaje.setText('¡El evento se guardo con exito!')
             self.mensaje.exec_()
             pass
-        print(nomevento,encargado,fech,horainicio,horafin,descripcion)
     
     
     def validarDatosEvento(self,nomevento,encargado,horainicio,horafin):
@@ -301,8 +377,102 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             
         return b
         
+    def cambiar_contraseña(self):
+        # Crear una instancia del diálogo
+        self.dialog = QDialog()
+
+        # Crear una instancia de la interfaz de usuario del diálogo
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self.dialog)
+        self.ui.pushButton.clicked.connect(lambda:self.validarNuevacontraseña())
+        self.ocultar_lines()## OCULTA LAS LOS VALORES DE LOS LINE EDITS
+        self.ui.pushButton_2.pressed.connect(lambda:self.mostrar_lines()) # SE MUESTRAN LOS VALORES DE LOS LINE EDITS
+        self.ui.pushButton_2.released.connect(lambda:self.ocultar_lines())
+
+        # Mostrar el diálogo
+        self.dialog.show()     
         
+    def ocultar_lines(self):  
+        self.ui.lineEdit.setEchoMode(QLineEdit.Password)
+        self.ui.lineEdit_2.setEchoMode(QLineEdit.Password)
+        self.ui.lineEdit_3.setEchoMode(QLineEdit.Password)
+        
+    def mostrar_lines(self):
+        self.ui.lineEdit.setEchoMode(QLineEdit.Normal)
+        self.ui.lineEdit_2.setEchoMode(QLineEdit.Normal)
+        self.ui.lineEdit_3.setEchoMode(QLineEdit.Normal)
     
+    def validarNuevacontraseña(self):# En este metodo se validan todas la entradas para el cambio de contraseña
+        
+        Vcon = self.ui.lineEdit.text()
+        Ncon = self.ui.lineEdit_2.text()
+        Ncon2 = self.ui.lineEdit_3.text()
+        if self.db.cambio_contraseña(Vcon) > 0:
+            if Ncon == Ncon2:
+                if Vcon != Ncon:
+                    self.db.nueva_con(Ncon,self.Usu_activo)
+                    self.mensaje.setText("Su cambio de contraseña se hizo con exito")
+                    self.mensaje.exec_()
+                else:
+                    self.mensaje.setText("La nueva contraseña no puede ser igual a al anterior ")
+                    self.mensaje.exec_()
+            else:
+                self.mensaje.setText("Contraseñar ")
+                self.mensaje.exec_()
+        else:
+            self.mensaje.setText("Contraseña incorrecta")
+            self.mensaje.exec_()
+            
+    def crear_CuentaCoordinador(self): 
+        """Main para las funciones necesarias para crear el perfil del cordinador"""
+        nombre = self.Nombre_Coordinador.text()
+        apellido = self.Apellido_Coordinador.text()
+        correo = self.Correo_Coordinador.text()
+        cc = self.Cedula_Coordinador.text()
+        contra = self.password_Coordinador.text()
+        tpid = self.tipId_coordinador.currentText()
+        # if cc != '':
+        #         cc = int(cc)
+        # lis = [cc,nombre,apellido,correo,contra,tpid]
+        # self.datos_cuentaCoordinador(lis,correo,cc)
+        try:
+            if cc != '':
+                cc = int(cc)
+            lis = [cc,nombre,apellido,correo,contra,tpid]
+            self.datos_cuentaCoordinador(lis,correo,cc)
+        except ValueError: 
+            self.Box_mensaje('¡La cedula debe de ser un número!')
+            self.Cedula_Coordinador.clear()
+        
+    def datos_cuentaCoordinador(self,lis,correo,cc):#Este metodo termina de evaluar los datos y los guarda en el caso de que todo este correcto
+        self.db.Perfil_cordinador()      
+        if self.verificar_valoresObligatorios(lis) == False:
+            self.mensaje.setText('¡Todos los datos son obligatorios!')
+            self.mensaje.exec_()
+        else:
+            Cr = self.db.consultarPorcedula(cc)
+            Concrr = self.db.CosultarDatosU(correo)
+            if  Cr == [] and Concrr == []:
+                self.db.incertar_Coordinador(False,lis[0],lis[1],lis[2],lis[3],lis[4],lis[5])
+                self.Box_mensaje('Se creo un nuevo coordinador')
+                self.limpiar_lineedits()
+            else:
+                if Cr[0] == Concrr[0]:
+                    self.db.incertar_Coordinador(True,lis[0],lis[1],lis[2],lis[3],lis[4],lis[5])
+                    self.Box_mensaje(f'EL usuario {Cr[0][3]} {Cr[0][4]} se ascendio a Coordinador')
+                    self.limpiar_lineedits()
+                else:
+                    men = f"""El usuario coincide con dos registros\n1. CC:{Cr[0][0]} {Cr[0][3]} {Cr[4]} correo: {Cr[0][5]}
+                    \n2.  CC:{Concrr[0][0]} {Concrr[0][3]} {Concrr[0][4]} correo: {Concrr[0][5]}
+                    \nPara solucionarlo ingrese cedula y correo no reigistrados
+                    \no elimine las cuentas que no le parecen necesarias en la seccion de
+                    \nAdministrar usuarios"""
+                    self.Box_mensaje(men)
+            
+            
+                    
+                   
+                    
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()

@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(874, 643)
+        MainWindow.resize(841, 643)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -845,7 +845,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 870, 560))
+        self.Area_eventos.setGeometry(QRect(0, 0, 98, 28))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -1566,9 +1566,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12.setSpacing(0)
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.horizontalLayout_12.setContentsMargins(0, 0, 0, 0)
-        self.stackedWidget_2 = QStackedWidget(self.page_adminCoordinador)
-        self.stackedWidget_2.setObjectName(u"stackedWidget_2")
-        self.stackedWidget_2.setMaximumSize(QSize(250, 16777215))
+        self.stackedWidget_MenuAdCor = QStackedWidget(self.page_adminCoordinador)
+        self.stackedWidget_MenuAdCor.setObjectName(u"stackedWidget_MenuAdCor")
+        self.stackedWidget_MenuAdCor.setMaximumSize(QSize(250, 16777215))
         self.page_4 = QWidget()
         self.page_4.setObjectName(u"page_4")
         self.horizontalLayout_24 = QHBoxLayout(self.page_4)
@@ -1605,20 +1605,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setSpacing(0)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.Boton_adminUsuarios = QPushButton(self.frame_2)
-        self.Boton_adminUsuarios.setObjectName(u"Boton_adminUsuarios")
-        self.Boton_adminUsuarios.setMinimumSize(QSize(0, 50))
-        self.Boton_adminUsuarios.setStyleSheet(u"")
-
-        self.verticalLayout_6.addWidget(self.Boton_adminUsuarios)
-
-        self.line_5 = QFrame(self.frame_2)
-        self.line_5.setObjectName(u"line_5")
-        self.line_5.setFrameShape(QFrame.HLine)
-        self.line_5.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_6.addWidget(self.line_5)
-
         self.Boton_adminEventos = QPushButton(self.frame_2)
         self.Boton_adminEventos.setObjectName(u"Boton_adminEventos")
         self.Boton_adminEventos.setMinimumSize(QSize(0, 50))
@@ -1633,11 +1619,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.botonAdmEvento)
 
-        self.pushButton = QPushButton(self.frame_2)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(0, 50))
+        self.boton_appendCoordinador = QPushButton(self.frame_2)
+        self.boton_appendCoordinador.setObjectName(u"boton_appendCoordinador")
+        self.boton_appendCoordinador.setMinimumSize(QSize(0, 50))
 
-        self.verticalLayout_6.addWidget(self.pushButton)
+        self.verticalLayout_6.addWidget(self.boton_appendCoordinador)
 
         self.line_2 = QFrame(self.frame_2)
         self.line_2.setObjectName(u"line_2")
@@ -1651,6 +1637,20 @@ class Ui_MainWindow(object):
         self.pushButton_3.setMinimumSize(QSize(0, 50))
 
         self.verticalLayout_6.addWidget(self.pushButton_3)
+
+        self.line_5 = QFrame(self.frame_2)
+        self.line_5.setObjectName(u"line_5")
+        self.line_5.setFrameShape(QFrame.HLine)
+        self.line_5.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_6.addWidget(self.line_5)
+
+        self.Boton_adminUsuarios = QPushButton(self.frame_2)
+        self.Boton_adminUsuarios.setObjectName(u"Boton_adminUsuarios")
+        self.Boton_adminUsuarios.setMinimumSize(QSize(0, 50))
+        self.Boton_adminUsuarios.setStyleSheet(u"")
+
+        self.verticalLayout_6.addWidget(self.Boton_adminUsuarios)
 
         self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1666,7 +1666,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_24.addWidget(self.frame_2)
 
-        self.stackedWidget_2.addWidget(self.page_4)
+        self.stackedWidget_MenuAdCor.addWidget(self.page_4)
         self.page_5 = QWidget()
         self.page_5.setObjectName(u"page_5")
         self.horizontalLayout_25 = QHBoxLayout(self.page_5)
@@ -1703,12 +1703,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_11.setSpacing(0)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.verticalLayout_11.setContentsMargins(0, 0, 0, 0)
-        self.Boton_adminUsuarios_3 = QPushButton(self.frame_18)
-        self.Boton_adminUsuarios_3.setObjectName(u"Boton_adminUsuarios_3")
-        self.Boton_adminUsuarios_3.setMinimumSize(QSize(0, 50))
-        self.Boton_adminUsuarios_3.setStyleSheet(u"")
+        self.Boton_ElaborarInforme = QPushButton(self.frame_18)
+        self.Boton_ElaborarInforme.setObjectName(u"Boton_ElaborarInforme")
+        self.Boton_ElaborarInforme.setMinimumSize(QSize(0, 50))
+        self.Boton_ElaborarInforme.setStyleSheet(u"")
 
-        self.verticalLayout_11.addWidget(self.Boton_adminUsuarios_3)
+        self.verticalLayout_11.addWidget(self.Boton_ElaborarInforme)
 
         self.line_9 = QFrame(self.frame_18)
         self.line_9.setObjectName(u"line_9")
@@ -1717,12 +1717,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_11.addWidget(self.line_9)
 
-        self.Boton_adminEventos_3 = QPushButton(self.frame_18)
-        self.Boton_adminEventos_3.setObjectName(u"Boton_adminEventos_3")
-        self.Boton_adminEventos_3.setMinimumSize(QSize(0, 50))
-        self.Boton_adminEventos_3.setStyleSheet(u"")
+        self.Boton_CoorEventos = QPushButton(self.frame_18)
+        self.Boton_CoorEventos.setObjectName(u"Boton_CoorEventos")
+        self.Boton_CoorEventos.setMinimumSize(QSize(0, 50))
+        self.Boton_CoorEventos.setStyleSheet(u"")
 
-        self.verticalLayout_11.addWidget(self.Boton_adminEventos_3)
+        self.verticalLayout_11.addWidget(self.Boton_CoorEventos)
 
         self.botonAdmEvento_3 = QFrame(self.frame_18)
         self.botonAdmEvento_3.setObjectName(u"botonAdmEvento_3")
@@ -1745,9 +1745,9 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_25.addWidget(self.frame_18)
 
-        self.stackedWidget_2.addWidget(self.page_5)
+        self.stackedWidget_MenuAdCor.addWidget(self.page_5)
 
-        self.horizontalLayout_12.addWidget(self.stackedWidget_2)
+        self.horizontalLayout_12.addWidget(self.stackedWidget_MenuAdCor)
 
         self.frame_3 = QFrame(self.page_adminCoordinador)
         self.frame_3.setObjectName(u"frame_3")
@@ -2290,9 +2290,93 @@ class Ui_MainWindow(object):
 "}")
         self.frame_13.setFrameShape(QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Raised)
+        self.gridLayout_17 = QGridLayout(self.frame_13)
+        self.gridLayout_17.setObjectName(u"gridLayout_17")
+        self.horizontalSpacer_26 = QSpacerItem(91, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_26, 0, 0, 1, 1)
+
+        self.frame_14 = QFrame(self.frame_13)
+        self.frame_14.setObjectName(u"frame_14")
+        self.frame_14.setMinimumSize(QSize(0, 180))
+        self.frame_14.setStyleSheet(u"background-color:transparent;")
+        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QFrame.Raised)
+        self.frame_15 = QFrame(self.frame_14)
+        self.frame_15.setObjectName(u"frame_15")
+        self.frame_15.setGeometry(QRect(121, 10, 240, 160))
+        self.frame_15.setMinimumSize(QSize(240, 0))
+        self.frame_15.setStyleSheet(u"")
+        self.frame_15.setFrameShape(QFrame.StyledPanel)
+        self.frame_15.setFrameShadow(QFrame.Raised)
+        self.Boton_CambiarFoto_2 = QToolButton(self.frame_15)
+        self.Boton_CambiarFoto_2.setObjectName(u"Boton_CambiarFoto_2")
+        self.Boton_CambiarFoto_2.setGeometry(QRect(180, 110, 54, 40))
+        self.Boton_CambiarFoto_2.setMinimumSize(QSize(54, 40))
+        self.Boton_CambiarFoto_2.setStyleSheet(u"/* Estilo para QPushButton */\n"
+"QToolButton {\n"
+"    border: 2px solid  rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #ffffff; /* Color del texto */\n"
+"    background-color:  rgb(109, 70, 3); /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando se presiona */\n"
+"QToolButton:pressed {\n"
+"    background-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
+"QToolButton:hover {\n"
+"    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */\n"
+"    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */\n"
+"}")
+        self.Boton_CambiarFoto_2.setIcon(icon2)
+        self.Boton_CambiarFoto_2.setIconSize(QSize(20, 20))
+        self.frame_16 = QFrame(self.frame_15)
+        self.frame_16.setObjectName(u"frame_16")
+        self.frame_16.setGeometry(QRect(0, 0, 150, 150))
+        self.frame_16.setMaximumSize(QSize(150, 150))
+        self.frame_16.setStyleSheet(u"border-radius:75px;\n"
+"")
+        self.frame_16.setFrameShape(QFrame.StyledPanel)
+        self.frame_16.setFrameShadow(QFrame.Raised)
+        self.gridLayout_15 = QGridLayout(self.frame_16)
+        self.gridLayout_15.setObjectName(u"gridLayout_15")
+        self.gridLayout_15.setContentsMargins(0, 0, -1, -1)
+        self.Foto_usuario_2 = QLabel(self.frame_16)
+        self.Foto_usuario_2.setObjectName(u"Foto_usuario_2")
+        self.Foto_usuario_2.setMinimumSize(QSize(150, 150))
+        self.Foto_usuario_2.setMaximumSize(QSize(150, 150))
+        self.Foto_usuario_2.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
+"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Negrita */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    background-color: #ecf0f1; /* Color de fondo */\n"
+"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 15px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */")
+        self.Foto_usuario_2.setPixmap(QPixmap(u":/iconos/icons8-nombre-100.png"))
+        self.Foto_usuario_2.setScaledContents(True)
+
+        self.gridLayout_15.addWidget(self.Foto_usuario_2, 0, 0, 1, 1)
+
+
+        self.gridLayout_17.addWidget(self.frame_14, 0, 1, 2, 1)
+
+        self.horizontalSpacer_27 = QSpacerItem(90, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_27, 1, 2, 1, 1)
+
+        self.horizontalSpacer_29 = QSpacerItem(91, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_17.addItem(self.horizontalSpacer_29, 2, 0, 1, 1)
+
         self.contenido_registro_3 = QFrame(self.frame_13)
         self.contenido_registro_3.setObjectName(u"contenido_registro_3")
-        self.contenido_registro_3.setGeometry(QRect(130, 220, 400, 300))
         self.contenido_registro_3.setMinimumSize(QSize(400, 300))
         self.contenido_registro_3.setSizeIncrement(QSize(129, 90))
         self.contenido_registro_3.setStyleSheet(u"QFrame{\n"
@@ -2404,15 +2488,15 @@ class Ui_MainWindow(object):
 
         self.gridLayout_14.addWidget(self.Nombre_Coordinador, 0, 1, 1, 1)
 
-        self.comboBox_3 = QComboBox(self.contenido_registro_3)
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.setObjectName(u"comboBox_3")
-        self.comboBox_3.setLayoutDirection(Qt.LeftToRight)
+        self.tipId_coordinador = QComboBox(self.contenido_registro_3)
+        self.tipId_coordinador.addItem("")
+        self.tipId_coordinador.addItem("")
+        self.tipId_coordinador.addItem("")
+        self.tipId_coordinador.addItem("")
+        self.tipId_coordinador.setObjectName(u"tipId_coordinador")
+        self.tipId_coordinador.setLayoutDirection(Qt.LeftToRight)
 
-        self.gridLayout_14.addWidget(self.comboBox_3, 2, 0, 1, 1)
+        self.gridLayout_14.addWidget(self.tipId_coordinador, 2, 0, 1, 1)
 
         self.Cedula_Coordinador = QLineEdit(self.contenido_registro_3)
         self.Cedula_Coordinador.setObjectName(u"Cedula_Coordinador")
@@ -2454,86 +2538,12 @@ class Ui_MainWindow(object):
 
         self.gridLayout_14.addWidget(self.Apellido_Coordinador, 1, 1, 1, 1)
 
-        self.frame_14 = QFrame(self.frame_13)
-        self.frame_14.setObjectName(u"frame_14")
-        self.frame_14.setGeometry(QRect(90, 20, 481, 180))
-        self.frame_14.setMinimumSize(QSize(0, 180))
-        self.frame_14.setStyleSheet(u"background-color:transparent;")
-        self.frame_14.setFrameShape(QFrame.StyledPanel)
-        self.frame_14.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_22 = QHBoxLayout(self.frame_14)
-        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.horizontalSpacer_26 = QSpacerItem(273, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_22.addItem(self.horizontalSpacer_26)
+        self.gridLayout_17.addWidget(self.contenido_registro_3, 2, 1, 1, 1)
 
-        self.frame_15 = QFrame(self.frame_14)
-        self.frame_15.setObjectName(u"frame_15")
-        self.frame_15.setMinimumSize(QSize(240, 0))
-        self.frame_15.setStyleSheet(u"")
-        self.frame_15.setFrameShape(QFrame.StyledPanel)
-        self.frame_15.setFrameShadow(QFrame.Raised)
-        self.Boton_CambiarFoto_2 = QToolButton(self.frame_15)
-        self.Boton_CambiarFoto_2.setObjectName(u"Boton_CambiarFoto_2")
-        self.Boton_CambiarFoto_2.setGeometry(QRect(180, 110, 54, 40))
-        self.Boton_CambiarFoto_2.setMinimumSize(QSize(54, 40))
-        self.Boton_CambiarFoto_2.setStyleSheet(u"/* Estilo para QPushButton */\n"
-"QToolButton {\n"
-"    border: 2px solid  rgb(109, 70, 3); /* Borde */\n"
-"    border-radius: 13px; /* Radio de borde */\n"
-"    padding: 5px 10px; /* Espaciado interno */\n"
-"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
-"    font-family: Arial, sans-serif; /* Fuente */\n"
-"    color: #ffffff; /* Color del texto */\n"
-"    background-color:  rgb(109, 70, 3); /* Color de fondo */\n"
-"}\n"
-"\n"
-"/* Estilo para QPushButton cuando se presiona */\n"
-"QToolButton:pressed {\n"
-"    background-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */\n"
-"}\n"
-"\n"
-"/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
-"QToolButton:hover {\n"
-"    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */\n"
-"    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */\n"
-"}")
-        self.Boton_CambiarFoto_2.setIcon(icon2)
-        self.Boton_CambiarFoto_2.setIconSize(QSize(20, 20))
-        self.frame_16 = QFrame(self.frame_15)
-        self.frame_16.setObjectName(u"frame_16")
-        self.frame_16.setGeometry(QRect(0, 0, 150, 150))
-        self.frame_16.setMaximumSize(QSize(150, 150))
-        self.frame_16.setStyleSheet(u"border-radius:75px;\n"
-"")
-        self.frame_16.setFrameShape(QFrame.StyledPanel)
-        self.frame_16.setFrameShadow(QFrame.Raised)
-        self.gridLayout_15 = QGridLayout(self.frame_16)
-        self.gridLayout_15.setObjectName(u"gridLayout_15")
-        self.gridLayout_15.setContentsMargins(0, 0, -1, -1)
-        self.Foto_usuario_2 = QLabel(self.frame_16)
-        self.Foto_usuario_2.setObjectName(u"Foto_usuario_2")
-        self.Foto_usuario_2.setMinimumSize(QSize(150, 150))
-        self.Foto_usuario_2.setMaximumSize(QSize(150, 150))
-        self.Foto_usuario_2.setStyleSheet(u"color: #2c3e50; /* Color del texto */\n"
-"    font-size: 18px; /* Tama\u00f1o de fuente */\n"
-"    font-weight: bold; /* Negrita */\n"
-"    font-family: Arial, sans-serif; /* Fuente */\n"
-"    background-color: #ecf0f1; /* Color de fondo */\n"
-"    border: 2px solid rgb(109, 70, 3); /* Borde */\n"
-"    border-radius: 15px; /* Radio de borde */\n"
-"    padding: 5px 10px; /* Espaciado interno */")
-        self.Foto_usuario_2.setPixmap(QPixmap(u":/iconos/icons8-nombre-100.png"))
-        self.Foto_usuario_2.setScaledContents(True)
+        self.horizontalSpacer_30 = QSpacerItem(90, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_15.addWidget(self.Foto_usuario_2, 0, 0, 1, 1)
-
-
-        self.horizontalLayout_22.addWidget(self.frame_15)
-
-        self.horizontalSpacer_27 = QSpacerItem(272, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_22.addItem(self.horizontalSpacer_27)
+        self.gridLayout_17.addItem(self.horizontalSpacer_30, 2, 2, 1, 1)
 
 
         self.gridLayout_13.addWidget(self.frame_13, 0, 0, 1, 1)
@@ -2557,8 +2567,8 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget_principal.setCurrentIndex(6)
-        self.stackedWidget_2.setCurrentIndex(0)
-        self.stackedWidget_admin.setCurrentIndex(1)
+        self.stackedWidget_MenuAdCor.setCurrentIndex(0)
+        self.stackedWidget_admin.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2652,12 +2662,12 @@ class Ui_MainWindow(object):
         self.Boto_cerrarsesion.setShortcut("")
 #endif // QT_CONFIG(shortcut)
         self.Boton_cambiarContra.setText(QCoreApplication.translate("MainWindow", u"Cambiar Contase\u00f1a", None))
-        self.Boton_adminUsuarios.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR USUARIOS", None))
         self.Boton_adminEventos.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR EVENTOS", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"COORDINADORES", None))
+        self.boton_appendCoordinador.setText(QCoreApplication.translate("MainWindow", u"COORDINADORES", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"MENSAJES", None))
-        self.Boton_adminUsuarios_3.setText(QCoreApplication.translate("MainWindow", u"ELABORAR UN INFORME", None))
-        self.Boton_adminEventos_3.setText(QCoreApplication.translate("MainWindow", u"PROGRAMAR EVENTO", None))
+        self.Boton_adminUsuarios.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR USUARIOS", None))
+        self.Boton_ElaborarInforme.setText(QCoreApplication.translate("MainWindow", u"ELABORAR UN INFORME", None))
+        self.Boton_CoorEventos.setText(QCoreApplication.translate("MainWindow", u"PROGRAMAR EVENTO", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">T\u00edtulo del evento:</span></p></body></html>", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Encargado del evento:</span></p></body></html>", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -2669,21 +2679,24 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Fecha:</span></p></body></html>", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Hora inicio:</span></p></body></html>", None))
+        self.inicioEvento.setDisplayFormat(QCoreApplication.translate("MainWindow", u"hh:mm AP", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Finalizaci\u00f3n:</span></p></body></html>", None))
+        self.finEvento.setDisplayFormat(QCoreApplication.translate("MainWindow", u"hh:mm AP", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Descripci\u00f3n:</span></p></body></html>", None))
         self.Boton_guardarEvento.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"NUEVO INFORME:", None))
-        self.AsuntoEvento.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ASUNTO DEL EVENTO", None))
+        self.AsuntoEvento.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ASUNTO ", None))
         self.Boton_enviarInforme.setText(QCoreApplication.translate("MainWindow", u"Enviar informe", None))
         self.textoInforme.setDocumentTitle("")
         self.textoInforme.setPlainText("")
+        self.Boton_CambiarFoto_2.setText(QCoreApplication.translate("MainWindow", u"Cambiar imagen", None))
         self.label_correo_6.setText(QCoreApplication.translate("MainWindow", u"Correo:", None))
         self.label_correo_7.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.Nombre_Coordinador.setInputMask("")
-        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"CC", None))
-        self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"TI", None))
-        self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"CE", None))
-        self.comboBox_3.setItemText(3, QCoreApplication.translate("MainWindow", u"RC", None))
+        self.tipId_coordinador.setItemText(0, QCoreApplication.translate("MainWindow", u"CC", None))
+        self.tipId_coordinador.setItemText(1, QCoreApplication.translate("MainWindow", u"TI", None))
+        self.tipId_coordinador.setItemText(2, QCoreApplication.translate("MainWindow", u"CE", None))
+        self.tipId_coordinador.setItemText(3, QCoreApplication.translate("MainWindow", u"RC", None))
 
         self.Cedula_Coordinador.setInputMask("")
         self.Cedula_Coordinador.setPlaceholderText(QCoreApplication.translate("MainWindow", u"123456789", None))
@@ -2695,6 +2708,5 @@ class Ui_MainWindow(object):
         self.boton_CrearCoodinador.setText(QCoreApplication.translate("MainWindow", u"CREAR CUENTA", None))
         self.Apellido_Coordinador.setInputMask("")
         self.Apellido_Coordinador.setText("")
-        self.Boton_CambiarFoto_2.setText(QCoreApplication.translate("MainWindow", u"Cambiar imagen", None))
     # retranslateUi
 

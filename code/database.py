@@ -40,6 +40,13 @@ class DataBase():
         us = self.cur.fetchall()
         return us
     
+    def consultarPorcedula(self,cedula):
+        """Retorna todo el registro del usuario y lo sonsulta por el correo"""
+        consulta = 'select * from usuarios where idusuario = %s'
+        self.cur.execute(consulta,(cedula,))
+        us = self.cur.fetchall()
+        return us
+    
     def tipoUsuario(self,tipo): 
         """Clasifica el tipo usuario en un strig 1 = "administrador", 2 = "Coordinador" 3 = "Visitante" """
         tipo = int(tipo)
@@ -161,15 +168,42 @@ class DataBase():
         horas=self.cur.fetchall()
         return horas
       
-# a=DataBase()
-# evento=a.cargarEventos()
-# print(type(evento[0][1]))
     
-    def guardar_evento(self,nomevento,fechevento,encargadoevento,descripcionevento,horaevento):
+    def guardar_evento(self,nomevento,fechevento,encargadoevento,descripcionevento,horaevento): 
         consulta =f"""insert into eventos (nomevento,fechevento,encargadoevento,descripcionevento,horaevento) values (%s,%s,%s,%s,%s)"""
         datos = (nomevento,fechevento,encargadoevento,descripcionevento,horaevento)
         self.cur.execute(consulta,datos)
         self.conn.commit()
+        
+    def cambio_contraseña(self,con):
+        tup = (con,)
+        cons = f"""select count(*) from usuarios where contrausuario = %s"""
+        self.cur.execute(cons,tup)
+        con = self.cur.fetchone()[0]
+        return con
+        
+    def nueva_con(self,con,correo):
+        tup = (con,correo)
+        cons = f"""update usuarios set contrausuario = %s where correousuario = %s"""
+        self.cur.execute(cons,tup)
+        
+    def incertar_Coordinador(self,remplazo,cc,nom,apellido,correo,contra,tpid):
+        tup = (cc,tpid,2,nom,apellido,correo,contra,self.fotoCoordinador)
+        
+        if remplazo:# Si el coordinador ya tenia una cuenta previa como usuario esta se remplaza como cuenta del coordinador
+            insert = f"""update usuarios set idusuario = %s,
+            tipoid = %s, tipousuario = %s, nomusuario = %s, apeusuario = %s, correousuario = %s, contrausuario = %s, fotousuario = %s
+            where idusuario = '{cc}' or correousuario = '{correo}'"""
+            self.cur.execute(insert,tup)
+            self.conn.commit()
+        else:# Si el coordinador no tiene una cuenta previa esta se crea en la base de datos
+            insert = f"""insert into usuarios values (%s,%s,%s,%s,%s,%s,%s,%s)"""
+            self.cur.execute(insert,tup)
+            self.conn.commit()
+        
+    def Perfil_cordinador(self,foto = None):
+        self.fotoCoordinador = foto
+        
     
     def registrarEvento(self,usuario,evento):
         consulta =f'insert into registro_eventos (idusuario, idevento) values (%s,%s)'
