@@ -11,22 +11,22 @@ class FrameEvento(frame,QMainWindow):
                 QMessageBox {
                     background-color: #f0f0f0;
                     border: 2px solid darkgray;
-                    border-radius: 10px;
+                    border-radius: 100%;
                 }
                 QMessageBox QLabel {
                     color: #333;
                 }
                 QMessageBox QPushButton {
-                    background-color: #007bff;
+                    background-color: #c57007;
                     color: white;
                     border-radius: 5px;
                     padding: 5px 10px;
                 }
                 QMessageBox QPushButton:hover {
-                    background-color: #0056b3;
+                    background-color:#f49011;
                 }
             """)
-        self.mensaje.setIcon(QMessageBox.Information)
+        
         self.mensaje.setStandardButtons(QMessageBox.Ok)
         self.mensaje.setWindowFlags(Qt.FramelessWindowHint)
         self.mensaje2 = QMessageBox()
@@ -34,22 +34,22 @@ class FrameEvento(frame,QMainWindow):
                 QMessageBox {
                     background-color: #f0f0f0;
                     border: 2px solid darkgray;
-                    border-radius: 10px;
+                    border-radius: 100%;
                 }
                 QMessageBox QLabel {
                     color: #333;
                 }
                 QMessageBox QPushButton {
-                    background-color: #007bff;
+                    background-color: #c57007;
                     color: white;
                     border-radius: 5px;
                     padding: 5px 10px;
                 }
                 QMessageBox QPushButton:hover {
-                    background-color: #0056b3;
+                    background-color:#f49011;
                 }
             """)
-        self.mensaje2.setIcon(QMessageBox.Information)
+    
         self.mensaje2.addButton(QMessageBox.Yes)
         self.mensaje2.addButton(QMessageBox.No)
         self.mensaje2.setWindowFlags(Qt.FramelessWindowHint)

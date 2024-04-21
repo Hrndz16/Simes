@@ -19,21 +19,23 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
                 QMessageBox {
                     background-color: #f0f0f0;
                     border: 2px solid darkgray;
-                    border-radius: 10px;
+                    border-radius: 100%;
                 }
                 QMessageBox QLabel {
                     color: #333;
                 }
                 QMessageBox QPushButton {
-                    background-color: #007bff;
+                    background-color: #c57007;
                     color: white;
                     border-radius: 5px;
                     padding: 5px 10px;
                 }
                 QMessageBox QPushButton:hover {
-                    background-color: #0056b3;
+                    background-color:#f49011;
                 }
             """)
+        self.mensaje.setStandardButtons(QMessageBox.Ok)
+        self.mensaje.setWindowFlags(Qt.FramelessWindowHint)
         self.db=DataBase()
         self.tipo_usuario=0 #variable para saber que usuario esta activo acutalmente 0=Usuario sin cuenta 1=Administrador 2=Cordinador 3=Usuario con cuenta
         self.cedulaU = 0
@@ -46,9 +48,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Bonton_proxEvento.clicked.connect(lambda:self.botonProxEvento())#configura el boton de proximo evento
         self.acceder_2.clicked.connect(lambda:self.iniciarSesion())
         self.acceder.clicked.connect(lambda:self.RegistrarUsuario())
-        self.mensaje.setIcon(QMessageBox.Information)
-        self.mensaje.setStandardButtons(QMessageBox.Ok)
-        self.mensaje.setWindowFlags(Qt.FramelessWindowHint)
+
         self.Boton_EditarDatos.clicked.connect(lambda: self.habilitar_cambio_datos())#habilita el cambio de datos de perfil del usuario
         self.Boton_CambiarFoto.clicked.connect(lambda:self.abrir_dialogo_archivo())
         self.Boto_cerrarsesion.clicked.connect(lambda:self.cerrar_sesion())

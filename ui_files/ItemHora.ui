@@ -195,7 +195,7 @@
         <property name="styleSheet">
          <string notr="true">/* Estilo para QPushButton */
 .QPushButton {
-    background-color: #0078D4; /* Color de fondo */
+    background-color: #c57007; /* Color de fondo */
     color: white; /* Color de texto */
     border: none; /* Sin borde */
     border-radius: 5px; /* Esquinas redondeadas */
@@ -205,12 +205,15 @@
 }
 
 .QPushButton:hover {
-    background-color: #005499; /* Cambia el color de fondo al pasar el mouse */
+     color: #fff; /* Color del texto al pasar el cursor */
+    background-color:#f49011 ;/* Cambiar el color de fondo al pasar el mouse */
+    border-color:#f49011;/* Cambia el color de fondo al pasar el mouse */
 }
 
-.QPushButton:pressed {
-    background-color: #003366; /* Cambia el color de fondo al hacer clic */
-}</string>
+QPushButton:presset{
+	 background-color: #c57007;
+}
+</string>
         </property>
         <property name="text">
          <string>Suscribirse</string>
