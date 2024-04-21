@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>839</width>
+    <width>858</width>
     <height>643</height>
    </rect>
   </property>
@@ -146,7 +146,6 @@ QPushButton#Boton_inicio:hover {
          <property name="font">
           <font>
            <pointsize>-1</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -286,7 +285,7 @@ background-color: rgba(255, 255, 255,0);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1036</width>
+                <width>1122</width>
                 <height>886</height>
                </rect>
               </property>
@@ -581,7 +580,7 @@ font: 10pt &quot;MS Sans Serif&quot;;
                               <string notr="true">QLabel{
 font: 10pt &quot;MS Sans Serif&quot;;
 	color: rgb(255, 255, 255);
-background-color:rgba(0,0,0,0)
+background-color:rgba(0,0,0,0,)
 
 }</string>
                              </property>
@@ -1171,7 +1170,7 @@ QPushButton {
 /* Estilo para QPushButton cuando se presiona */
 QPushButton:pressed {
     background-color:  rgba(109, 70, 3,180); /* Cambio de color al presionar */
-	border-radius:15 px
+	border-radious:15 px
 }
 
 /* Estilo para QPushButton cuando el cursor está encima */
@@ -1316,9 +1315,8 @@ border-color: rgb(170, 170, 255);</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>Arial,sans-serif</family>
+                    <family>Arial</family>
                     <pointsize>-1</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -1727,9 +1725,8 @@ color: #2c3e50; /* Color del texto */
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial,sans-serif</family>
+                  <family>Arial</family>
                   <pointsize>-1</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1763,9 +1760,8 @@ color: #2c3e50; /* Color del texto */
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial,sans-serif</family>
+                  <family>Arial</family>
                   <pointsize>-1</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -2412,9 +2408,8 @@ QToolButton:hover {
                       </property>
                       <property name="font">
                        <font>
-                        <family>Arial,sans-serif</family>
+                        <family>Arial</family>
                         <pointsize>-1</pointsize>
-                        <weight>75</weight>
                         <bold>true</bold>
                        </font>
                       </property>
@@ -2493,9 +2488,8 @@ QToolButton:hover {
                       </property>
                       <property name="font">
                        <font>
-                        <family>Arial,sans-serif</family>
+                        <family>Arial</family>
                         <pointsize>-1</pointsize>
-                        <weight>75</weight>
                         <bold>true</bold>
                        </font>
                       </property>
@@ -2801,7 +2795,7 @@ background-color: transparent;
               </size>
              </property>
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="page_4">
               <layout class="QHBoxLayout" name="horizontalLayout_24">
@@ -3177,7 +3171,7 @@ QPushButton:hover {
                  <string notr="true">background-color:transparent;</string>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="paginaCrearEvento">
                  <property name="styleSheet">
@@ -3213,6 +3207,32 @@ background-color: rgb(236, 240, 241);
                     <property name="horizontalSpacing">
                      <number>13</number>
                     </property>
+                    <item row="2" column="1">
+                     <spacer name="verticalSpacer_13">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeType">
+                       <enum>QSizePolicy::Fixed</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="label_3">
+                      <property name="styleSheet">
+                       <string notr="true">background-color:transparent;</string>
+                      </property>
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Título del evento:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
                     <item row="3" column="1">
                      <widget class="QComboBox" name="combo_coordinadores">
                       <property name="minimumSize">
@@ -3263,32 +3283,6 @@ QComboBox::drop-down {
                       <property name="sizeHint" stdset="0">
                        <size>
                         <width>30</width>
-                        <height>30</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QLabel" name="label_3">
-                      <property name="styleSheet">
-                       <string notr="true">background-color:transparent;</string>
-                      </property>
-                      <property name="text">
-                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Título del evento:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="1">
-                     <spacer name="verticalSpacer_13">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
                         <height>30</height>
                        </size>
                       </property>
@@ -3894,6 +3888,32 @@ color: #2c3e50; /* Color del texto */
                       </widget>
                      </item>
                      <item>
+                      <widget class="QPlainTextEdit" name="textoInforme">
+                       <property name="styleSheet">
+                        <string notr="true">
+    border: 2px solid rgb(109, 70, 3); /* Borde */
+    border-radius: 13px; /* Radio de borde */
+    padding: 5px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-family: Arial, sans-serif; /* Fuente */
+    color: #2c3e50; /* Color del texto */
+    background-color: #ecf0f1; /* Color de fondo */
+
+
+</string>
+                       </property>
+                       <property name="documentTitle">
+                        <string/>
+                       </property>
+                       <property name="plainText">
+                        <string/>
+                       </property>
+                       <property name="cursorWidth">
+                        <number>1</number>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
                       <widget class="QFrame" name="frame_19">
                        <property name="minimumSize">
                         <size>
@@ -4007,32 +4027,6 @@ color: #2c3e50; /* Color del texto */
                          </spacer>
                         </item>
                        </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPlainTextEdit" name="textoInforme">
-                       <property name="styleSheet">
-                        <string notr="true">
-    border: 2px solid rgb(109, 70, 3); /* Borde */
-    border-radius: 13px; /* Radio de borde */
-    padding: 5px; /* Espaciado interno */
-    font-size: 14px; /* Tamaño de fuente */
-    font-family: Arial, sans-serif; /* Fuente */
-    color: #2c3e50; /* Color del texto */
-    background-color: #ecf0f1; /* Color de fondo */
-
-
-</string>
-                       </property>
-                       <property name="documentTitle">
-                        <string/>
-                       </property>
-                       <property name="plainText">
-                        <string/>
-                       </property>
-                       <property name="cursorWidth">
-                        <number>1</number>
-                       </property>
                       </widget>
                      </item>
                     </layout>
@@ -4377,9 +4371,8 @@ color: #2c3e50; /* Color del texto */
                           </property>
                           <property name="font">
                            <font>
-                            <family>Arial,sans-serif</family>
+                            <family>Arial</family>
                             <pointsize>-1</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -4413,9 +4406,8 @@ color: #2c3e50; /* Color del texto */
                           </property>
                           <property name="font">
                            <font>
-                            <family>Arial,sans-serif</family>
+                            <family>Arial</family>
                             <pointsize>-1</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>

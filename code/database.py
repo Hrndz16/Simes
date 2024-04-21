@@ -235,3 +235,9 @@ class DataBase():
         self.cur.execute(consulta,(usuario,))
         cedula=self.cur.fetchone()[0]
         return cedula>0
+    
+    def guardar_informe(self, asunto, texto, encargado):
+        tup = (asunto,texto,encargado)
+        consulta = f"""insert into informes (asunto,descrip_informe,encargado) values (%s,%s,%s)""" 
+        self.cur.execute(consulta,tup)
+        self.conn.commit()
