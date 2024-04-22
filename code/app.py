@@ -60,6 +60,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.boton_appendCoordinador.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(2))
         self.boton_CrearCoodinador.clicked.connect(lambda:self.crear_CuentaCoordinador())
         self.Boton_CambiarFoto_2.clicked.connect(lambda:self.agregarFotoCoodinador())
+        self.Boton_objetos.clicked.connect(lambda:self.crear_LE())
+        self.boton_prox_ev_LE.clicked.connect(lambda:self.botonProxEvento())
                 
     def botonIngresar(self):
         self.Correo_2.clear()
@@ -91,7 +93,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
     def botonRegistrarse(self):
         self.stackedWidget_principal.setCurrentIndex(3)#coloca en la ventana de registro
     def botonProxEvento(self):
-        self.eliminar_widgets(self.verticalLayout_5)
+        self.eliminar_widgets(self.verticalLayout_5,1)
         self.stackedWidget_principal.setCurrentIndex(2)#coloca en la ventana de proximo evento
         self.cargarEventos()
     def iniciarSesion(self):
@@ -293,8 +295,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         
 
             
-    def eliminar_widgets(self,layout):
-        while layout.count() > 1:  # Deja al menos un widget en el layout
+    def eliminar_widgets(self,layout,deja):
+        while layout.count() > deja:  # Deja al menos un widget en el layout
             widget = layout.takeAt(0).widget()
             if widget is not None:
                 widget.deleteLater()
@@ -466,9 +468,27 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
                     \no elimine las cuentas que no le parecen necesarias en la seccion de
                     \nAdministrar usuarios"""
                     self.Box_mensaje(men)
+    
+    def crear_LE(self):
+        self.eliminar_widgets(self.verticalLayout_12,2)
+        self.stackedWidget_principal.setCurrentIndex(7)
+        eventos = self.db.consultarEventosUsuario(self.cedulaU)
+        i = 0
+        if len(eventos)>0:
+            
+            self.label_lista_eventos.setVisible(False)
+            for evento in eventos:
+                fecha = evento[0]
+                item = FrameEvento(fecha, self.cedulaU)
+                self.verticalLayout_12.insertWidget(i, item)
+                i += 1
+        else:
+            self.label_lista_eventos.setVisible(True)
+        
+        
                          
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()
     window.showMaximized()
-    sys.exit(app.exec())
+    sys.exit(app.exec()) 
