@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(858, 643)
+        MainWindow.resize(836, 643)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -847,7 +847,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 98, 28))
+        self.Area_eventos.setGeometry(QRect(0, 0, 832, 560))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -1592,7 +1592,7 @@ class Ui_MainWindow(object):
 "    color: #000; /* Color del texto */\n"
 "    border: 1px solid transparent;\n"
 "    padding: 9px 18px; /* Padding */\n"
-"    font-size: 10px; /* Tama\u00f1o de la fuente */\n"
+"    font-size: 12px; /* Tama\u00f1o de la fuente */\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -1690,7 +1690,7 @@ class Ui_MainWindow(object):
 "    color: #000; /* Color del texto */\n"
 "    border: 1px solid transparent;\n"
 "    padding: 9px 18px; /* Padding */\n"
-"    font-size: 10px; /* Tama\u00f1o de la fuente */\n"
+"    font-size: 12px; /* Tama\u00f1o de la fuente */\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
@@ -2579,6 +2579,40 @@ class Ui_MainWindow(object):
         self.gridLayout_13.addWidget(self.frame_13, 0, 0, 1, 1)
 
         self.stackedWidget_admin.addWidget(self.paginaFrearCoordinador)
+        self.lista_usuarios = QWidget()
+        self.lista_usuarios.setObjectName(u"lista_usuarios")
+        self.layout_usuarios = QVBoxLayout(self.lista_usuarios)
+        self.layout_usuarios.setObjectName(u"layout_usuarios")
+        self.layout_usuarios.setContentsMargins(0, 9, 0, 0)
+        self.frame_20 = QFrame(self.lista_usuarios)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_12 = QVBoxLayout(self.frame_20)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_Lis_Coordinadores = QVBoxLayout()
+        self.verticalLayout_Lis_Coordinadores.setObjectName(u"verticalLayout_Lis_Coordinadores")
+        self.scrollArea_2 = QScrollArea(self.frame_20)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setEnabled(False)
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setEnabled(False)
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 608, 512))
+        self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_Lis_Coordinadores.addWidget(self.scrollArea_2)
+
+
+        self.verticalLayout_12.addLayout(self.verticalLayout_Lis_Coordinadores)
+
+
+        self.layout_usuarios.addWidget(self.frame_20)
+
+        self.stackedWidget_admin.addWidget(self.lista_usuarios)
 
         self.verticalLayout_7.addWidget(self.stackedWidget_admin)
 
@@ -2597,8 +2631,8 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget_principal.setCurrentIndex(6)
-        self.stackedWidget_MenuAdCor.setCurrentIndex(0)
-        self.stackedWidget_admin.setCurrentIndex(1)
+        self.stackedWidget_MenuAdCor.setCurrentIndex(1)
+        self.stackedWidget_admin.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

@@ -147,11 +147,18 @@ class DataBase():
             img.close()
         return rutaFoto
     
-    def listaCoordinadores(self):
-        """Retorna la lista de Coordinadores"""
-        consulta = f"""select idusuario,nomusuario,apeusuario from usuarios where tipousuario = '2'"""
-        self.cur.execute(consulta)
-        coordinadores = self.cur.fetchall()
+    def listaCoordinadores(self,conCorreo=None):
+        if conCorreo == None:
+            """Retorna la lista de Coordinadores"""
+            consulta = f"""select idusuario,nomusuario,apeusuario from usuarios where tipousuario = '2'"""
+            self.cur.execute(consulta)
+            coordinadores = self.cur.fetchall()
+        else:
+            """Retorna la lista de Coordinadores"""
+            consulta = f"""select tipousuario,nomusuario,apeusuario,correousuario,fotousuario from usuarios where tipousuario = '2'"""
+            self.cur.execute(consulta)
+            coordinadores = self.cur.fetchall()
+            
         return coordinadores
     
     def cargarEventos(self):

@@ -11,6 +11,7 @@ from PySide6.QtGui import QFont,QPixmap
 from eventos import FrameEvento
 from database import DataBase
 from Ui_nuevaContraseña import Ui_Dialog
+from usuarios import FrameUsuario
 
 class MainWindow(QMainWindow,MW):#Creacion de main Window
     def __init__(self):
@@ -60,6 +61,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.boton_appendCoordinador.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(2))
         self.boton_CrearCoodinador.clicked.connect(lambda:self.crear_CuentaCoordinador())
         self.Boton_CambiarFoto_2.clicked.connect(lambda:self.agregarFotoCoodinador())
+        self.Boton_enviarInforme.clicked.connect(lambda:self.guardar_informe())
+        self.Boton_adminUsuarios.clicked.connect(lambda:self.mostrar_coordinadores())# Coloca al perfil del administrador en la lista de cordinadores
                 
     def botonIngresar(self):
         self.Correo_2.clear()
@@ -289,9 +292,6 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.verticalLayout_5.insertWidget(i, item)
             i += 1
             
-
-        
-
             
     def eliminar_widgets(self,layout):
         while layout.count() > 1:  # Deja al menos un widget en el layout
@@ -467,6 +467,30 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
                     \nAdministrar usuarios"""
                     self.Box_mensaje(men)
                          
+    def guardar_informe(self):
+        #1 se recopilan los datos en variables
+        print('si llego') 
+        asunto = self.AsuntoEvento.text()
+        texto = self.textoInforme.toPlainText()
+        encargado = self.Usu_activo
+        if asunto != '' and texto != '':
+            self.db.guardar_informe(asunto,texto,encargado)
+            self.Box_mensaje('¡Se envio con exito!')
+        else:
+            self.Box_mensaje('¡En el informe todos los datos son necesarios!')
+            
+    def mostrar_coordinadores(self):
+        self.stackedWidget_admin.setCurrentIndex(3)
+        lis_coordinadores = self.db.listaCoordinadores('Si')
+        print(lis_coordinadores)
+        i = 0
+        if lis_coordinadores != []:
+            for registro in lis_coordinadores:
+                item = FrameUsuario(registro[0],registro[1],registro[2],registro[3],registro[4])
+                self.verticalLayout_Lis_Coordinadores.insertWidget(i,item)
+                i = i + 1
+            
+            
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()

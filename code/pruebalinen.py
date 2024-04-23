@@ -1,3 +1,23 @@
+
+from PySide6.QtWidgets import QApplication, QLabel,QMainWindow, QTextEdit, QPushButton, QVBoxLayout, QWidget,QHBoxLayout
+from PySide6.QtGui import QTextCharFormat, QFont
+from usuarios import FrameUsuario as frame
+import sys
+
+class MainWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.h_layout = QVBoxLayout(self)
+        self.frame1 = frame('frame')
+        self.frame2 = frame('frame2')
+        self.h_layout.insertWidget(0,self.frame1)
+        self.h_layout.insertWidget(1,self.frame2)
+        
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+sys.exit(app.exec())
+
 # import sys
 # from PySide6.QtWidgets import QApplication, QDialog, QVBoxLayout, QLabel, QLineEdit, QPushButton
 
@@ -33,54 +53,54 @@
 #     dialog.exec()
 #     sys.exit(app.exec())
 ###############################################################################
-from PySide6.QtWidgets import QApplication, QMainWindow, QTextEdit, QPushButton, QVBoxLayout, QWidget
-from PySide6.QtGui import QTextCharFormat, QFont
-import sys
+# from PySide6.QtWidgets import QApplication, QMainWindow, QTextEdit, QPushButton, QVBoxLayout, QWidget
+# from PySide6.QtGui import QTextCharFormat, QFont
+# import sys
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
 
-        # Creamos un QTextEdit y dos botones
-        self.textEdit = QTextEdit()
-        self.boldButton = QPushButton("Negrita")
-        self.italicButton = QPushButton("Cursiva")
+#         # Creamos un QTextEdit y dos botones
+#         self.textEdit = QTextEdit()
+#         self.boldButton = QPushButton("Negrita")
+#         self.italicButton = QPushButton("Cursiva")
 
-        # Conectamos los botones a sus respectivas funciones
-        self.boldButton.clicked.connect(self.makeBold)
-        self.italicButton.clicked.connect(self.makeItalic)
+#         # Conectamos los botones a sus respectivas funciones
+#         self.boldButton.clicked.connect(self.makeBold)
+#         self.italicButton.clicked.connect(self.makeItalic)
 
-        # Creamos un layout y añadimos los widgets
-        layout = QVBoxLayout()
-        layout.addWidget(self.textEdit)
-        layout.addWidget(self.boldButton)
-        layout.addWidget(self.italicButton)
+#         # Creamos un layout y añadimos los widgets
+#         layout = QVBoxLayout()
+#         layout.addWidget(self.textEdit)
+#         layout.addWidget(self.boldButton)
+#         layout.addWidget(self.italicButton)
 
-        # Creamos un widget central para la ventana
-        centralWidget = QWidget()
-        centralWidget.setLayout(layout)
-        self.setCentralWidget(centralWidget)
+#         # Creamos un widget central para la ventana
+#         centralWidget = QWidget()
+#         centralWidget.setLayout(layout)
+#         self.setCentralWidget(centralWidget)
 
-    def makeBold(self):
-        # Esta función hace que el texto seleccionado se vuelva negrita
-        format = QTextCharFormat()
-        format.setFontWeight(QFont.Bold)
+#     def makeBold(self):
+#         # Esta función hace que el texto seleccionado se vuelva negrita
+#         format = QTextCharFormat()
+#         format.setFontWeight(QFont.Bold)
 
-        # Aplicamos el formato al texto seleccionado
-        self.textEdit.mergeCurrentCharFormat(format)
+#         # Aplicamos el formato al texto seleccionado
+#         self.textEdit.mergeCurrentCharFormat(format)
 
-    def makeItalic(self):
-        # Esta función hace que el texto seleccionado se vuelva cursiva
-        format = QTextCharFormat()
-        format.setFontItalic(True)
+#     def makeItalic(self):
+#         # Esta función hace que el texto seleccionado se vuelva cursiva
+#         format = QTextCharFormat()
+#         format.setFontItalic(True)
 
-        # Aplicamos el formato al texto seleccionado
-        self.textEdit.mergeCurrentCharFormat(format)
+#         # Aplicamos el formato al texto seleccionado
+#         self.textEdit.mergeCurrentCharFormat(format)
 
-app = QApplication(sys.argv)
-window = MainWindow()
-window.show()
-sys.exit(app.exec())
+# app = QApplication(sys.argv)
+# window = MainWindow()
+# window.show()
+# sys.exit(app.exec())
 
 # import sys
 # from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QTableWidget, QTableWidgetItem, QPushButton

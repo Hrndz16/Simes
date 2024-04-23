@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>858</width>
+    <width>836</width>
     <height>643</height>
    </rect>
   </property>
@@ -1549,8 +1549,8 @@ alternate-background-color: rgb(255, 162, 115);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>98</width>
-                <height>28</height>
+                <width>832</width>
+                <height>560</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -2795,7 +2795,7 @@ background-color: transparent;
               </size>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="page_4">
               <layout class="QHBoxLayout" name="horizontalLayout_24">
@@ -2840,7 +2840,7 @@ QPushButton{
     color: #000; /* Color del texto */
     border: 1px solid transparent;
     padding: 9px 18px; /* Padding */
-    font-size: 10px; /* Tamaño de la fuente */
+    font-size: 12px; /* Tamaño de la fuente */
 }
 
 QPushButton:hover {
@@ -3019,7 +3019,7 @@ QPushButton{
     color: #000; /* Color del texto */
     border: 1px solid transparent;
     padding: 9px 18px; /* Padding */
-    font-size: 10px; /* Tamaño de la fuente */
+    font-size: 12px; /* Tamaño de la fuente */
 }
 
 QPushButton:hover {
@@ -3171,7 +3171,7 @@ QPushButton:hover {
                  <string notr="true">background-color:transparent;</string>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>3</number>
                 </property>
                 <widget class="QWidget" name="paginaCrearEvento">
                  <property name="styleSheet">
@@ -4547,6 +4547,62 @@ color: #2c3e50; /* Color del texto */
                         </size>
                        </property>
                       </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="lista_usuarios">
+                 <layout class="QVBoxLayout" name="layout_usuarios">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>9</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QFrame" name="frame_20">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_12">
+                     <item>
+                      <layout class="QVBoxLayout" name="verticalLayout_Lis_Coordinadores">
+                       <item>
+                        <widget class="QScrollArea" name="scrollArea_2">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="widgetResizable">
+                          <bool>true</bool>
+                         </property>
+                         <widget class="QWidget" name="scrollAreaWidgetContents">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="geometry">
+                           <rect>
+                            <x>0</x>
+                            <y>0</y>
+                            <width>608</width>
+                            <height>512</height>
+                           </rect>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_15"/>
+                         </widget>
+                        </widget>
+                       </item>
+                      </layout>
                      </item>
                     </layout>
                    </widget>
