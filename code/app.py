@@ -62,7 +62,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_CambiarFoto_2.clicked.connect(lambda:self.agregarFotoCoodinador())
         self.Boton_objetos.clicked.connect(lambda:self.crear_LE())
         self.boton_prox_ev_LE.clicked.connect(lambda:self.botonProxEvento())
-                
+        self.Boton_adminUsuarios.clicked.connect(lambda:self.mostrar_coordinadores())        
+        
     def botonIngresar(self):
         self.Correo_2.clear()
         self.password_2.clear()

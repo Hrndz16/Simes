@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -844,11 +844,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        
-        self.Area_eventos.setGeometry(QRect(0, 0, 832, 560))
-        
-        
-               
+        self.Area_eventos.setGeometry(QRect(0, 0, 0, 560))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -2628,20 +2624,20 @@ class Ui_MainWindow(object):
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
         self.horizontalLayout_22.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.horizontalLayout_22.setContentsMargins(0, 0, 0, 0)
-        self.scrollArea_2 = QScrollArea(self.page_listaEventos)
-        self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
+        self.scrollArea_21 = QScrollArea(self.page_listaEventos)
+        self.scrollArea_21.setObjectName(u"scrollArea_21")
+        self.scrollArea_21.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
-        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollArea_21.setWidgetResizable(True)
         self.Area_eventos_2 = QWidget()
         self.Area_eventos_2.setObjectName(u"Area_eventos_2")
         self.Area_eventos_2.setGeometry(QRect(0, 0, 854, 560))
         self.Area_eventos_2.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
-        self.verticalLayout_12 = QVBoxLayout(self.Area_eventos_2)
-        self.verticalLayout_12.setSpacing(0)
-        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_121 = QVBoxLayout(self.Area_eventos_2)
+        self.verticalLayout_121.setSpacing(0)
+        self.verticalLayout_121.setObjectName(u"verticalLayout_121")
+        self.verticalLayout_121.setContentsMargins(0, 0, 0, 0)
         self.frame_header_LE = QFrame(self.Area_eventos_2)
         self.frame_header_LE.setObjectName(u"frame_header_LE")
         self.frame_header_LE.setMinimumSize(QSize(0, 137))
@@ -2705,15 +2701,15 @@ class Ui_MainWindow(object):
         self.gridLayout_18.addItem(self.horizontalSpacer_33, 1, 2, 1, 1)
 
 
-        self.verticalLayout_12.addWidget(self.frame_header_LE)
+        self.verticalLayout_121.addWidget(self.frame_header_LE)
 
         self.verticalSpacer_21 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_12.addItem(self.verticalSpacer_21)
+        self.verticalLayout_121.addItem(self.verticalSpacer_21)
 
-        self.scrollArea_2.setWidget(self.Area_eventos_2)
+        self.scrollArea_21.setWidget(self.Area_eventos_2)
 
-        self.horizontalLayout_22.addWidget(self.scrollArea_2)
+        self.horizontalLayout_22.addWidget(self.scrollArea_21)
 
         self.stackedWidget_principal.addWidget(self.page_listaEventos)
 
@@ -2726,15 +2722,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-
-        self.stackedWidget_principal.setCurrentIndex(6)
-        self.stackedWidget_MenuAdCor.setCurrentIndex(1)
-        self.stackedWidget_admin.setCurrentIndex(3)
-        
         self.stackedWidget_principal.setCurrentIndex(0)
-        self.stackedWidget_MenuAdCor.setCurrentIndex(0)
+        self.stackedWidget_MenuAdCor.setCurrentIndex(1)
         self.stackedWidget_admin.setCurrentIndex(0)
-        
 
 
         QMetaObject.connectSlotsByName(MainWindow)

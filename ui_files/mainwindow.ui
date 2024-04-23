@@ -1538,11 +1538,7 @@ alternate-background-color: rgb(255, 162, 115);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-<<<<<<< HEAD
-                <width>832</width>
-=======
-                <width>854</width>
->>>>>>> fc08be06501f94c68daa6c275ee776cb68442082
+
                 <height>560</height>
                </rect>
               </property>
@@ -3168,11 +3164,7 @@ QPushButton:hover {
                  <string notr="true">background-color:transparent;</string>
                 </property>
                 <property name="currentIndex">
-<<<<<<< HEAD
-                 <number>3</number>
-=======
-                 <number>0</number>
->>>>>>> fc08be06501f94c68daa6c275ee776cb68442082
+    
                 </property>
                 <widget class="QWidget" name="paginaCrearEvento">
                  <property name="styleSheet">
