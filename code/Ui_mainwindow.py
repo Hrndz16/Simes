@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,10 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QFrame,
-    QGridLayout, QHBoxLayout, QLabel, QLineEdit,
-    QMainWindow, QPlainTextEdit, QPushButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QStackedWidget, QTimeEdit,
-    QToolButton, QVBoxLayout, QWidget)
+    QGridLayout, QHBoxLayout, QLabel, QLayout,
+    QLineEdit, QMainWindow, QPlainTextEdit, QPushButton,
+    QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
+    QTimeEdit, QToolButton, QVBoxLayout, QWidget)
 import Recursos_rc
 
 class Ui_MainWindow(object):
@@ -60,6 +60,7 @@ class Ui_MainWindow(object):
         self.Frame_menu.setFrameShape(QFrame.StyledPanel)
         self.Frame_menu.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.Frame_menu)
+        self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.Boton_inicio = QPushButton(self.Frame_menu)
         self.Boton_inicio.setObjectName(u"Boton_inicio")
@@ -169,7 +170,7 @@ class Ui_MainWindow(object):
         self.Area_1.setWidgetResizable(True)
         self.Contenido1 = QWidget()
         self.Contenido1.setObjectName(u"Contenido1")
-        self.Contenido1.setGeometry(QRect(0, 0, 1122, 886))
+        self.Contenido1.setGeometry(QRect(0, 0, 1036, 886))
         self.verticalLayout_2 = QVBoxLayout(self.Contenido1)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -319,7 +320,7 @@ class Ui_MainWindow(object):
         self.label_10.setStyleSheet(u"QLabel{\n"
 "font: 10pt \"MS Sans Serif\";\n"
 "	color: rgb(255, 255, 255);\n"
-"background-color:rgba(0,0,0,0,)\n"
+"background-color:rgba(0,0,0,0)\n"
 "\n"
 "}")
 
@@ -436,10 +437,6 @@ class Ui_MainWindow(object):
 "}")
 
         self.horizontalLayout_5.addWidget(self.Bonton_proxEvento)
-
-        self.horizontalSpacer_25 = QSpacerItem(70, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
-
-        self.horizontalLayout_5.addItem(self.horizontalSpacer_25)
 
         self.Boton_objetos = QPushButton(self.frame_10)
         self.Boton_objetos.setObjectName(u"Boton_objetos")
@@ -657,7 +654,7 @@ class Ui_MainWindow(object):
 "/* Estilo para QPushButton cuando se presiona */\n"
 "QPushButton:pressed {\n"
 "    background-color:  rgba(109, 70, 3,180); /* Cambio de color al presionar */\n"
-"	border-radious:15 px\n"
+"	border-radius:15 px\n"
 "}\n"
 "\n"
 "/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
@@ -739,7 +736,7 @@ class Ui_MainWindow(object):
         self.label_correo_2.setMinimumSize(QSize(0, 0))
         self.label_correo_2.setMaximumSize(QSize(100, 32))
         font2 = QFont()
-        font2.setFamilies([u"Arial"])
+        font2.setFamilies([u"Arial,sans-serif"])
         font2.setBold(True)
         self.label_correo_2.setFont(font2)
         self.label_correo_2.setLayoutDirection(Qt.RightToLeft)
@@ -847,7 +844,11 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
+<<<<<<< HEAD
         self.Area_eventos.setGeometry(QRect(0, 0, 832, 560))
+=======
+        self.Area_eventos.setGeometry(QRect(0, 0, 854, 560))
+>>>>>>> fc08be06501f94c68daa6c275ee776cb68442082
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -2620,6 +2621,101 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12.addWidget(self.frame_3)
 
         self.stackedWidget_principal.addWidget(self.page_adminCoordinador)
+        self.page_listaEventos = QWidget()
+        self.page_listaEventos.setObjectName(u"page_listaEventos")
+        self.horizontalLayout_22 = QHBoxLayout(self.page_listaEventos)
+        self.horizontalLayout_22.setSpacing(0)
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.horizontalLayout_22.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.horizontalLayout_22.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea_2 = QScrollArea(self.page_listaEventos)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
+"alternate-background-color: rgb(255, 162, 115);")
+        self.scrollArea_2.setWidgetResizable(True)
+        self.Area_eventos_2 = QWidget()
+        self.Area_eventos_2.setObjectName(u"Area_eventos_2")
+        self.Area_eventos_2.setGeometry(QRect(0, 0, 854, 560))
+        self.Area_eventos_2.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
+"alternate-background-color: rgb(255, 162, 115);")
+        self.verticalLayout_12 = QVBoxLayout(self.Area_eventos_2)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.frame_header_LE = QFrame(self.Area_eventos_2)
+        self.frame_header_LE.setObjectName(u"frame_header_LE")
+        self.frame_header_LE.setMinimumSize(QSize(0, 137))
+        self.frame_header_LE.setFrameShape(QFrame.StyledPanel)
+        self.frame_header_LE.setFrameShadow(QFrame.Raised)
+        self.gridLayout_18 = QGridLayout(self.frame_header_LE)
+        self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.horizontalSpacer_25 = QSpacerItem(244, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_18.addItem(self.horizontalSpacer_25, 0, 0, 1, 1)
+
+        self.label_lista_eventos = QLabel(self.frame_header_LE)
+        self.label_lista_eventos.setObjectName(u"label_lista_eventos")
+        font3 = QFont()
+        font3.setFamilies([u"Nirmala UI"])
+        font3.setPointSize(14)
+        self.label_lista_eventos.setFont(font3)
+        self.label_lista_eventos.setWordWrap(True)
+
+        self.gridLayout_18.addWidget(self.label_lista_eventos, 0, 1, 1, 1)
+
+        self.horizontalSpacer_32 = QSpacerItem(244, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_18.addItem(self.horizontalSpacer_32, 0, 2, 1, 1)
+
+        self.horizontalSpacer_31 = QSpacerItem(244, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_18.addItem(self.horizontalSpacer_31, 1, 0, 1, 1)
+
+        self.boton_prox_ev_LE = QPushButton(self.frame_header_LE)
+        self.boton_prox_ev_LE.setObjectName(u"boton_prox_ev_LE")
+        self.boton_prox_ev_LE.setMinimumSize(QSize(0, 0))
+        self.boton_prox_ev_LE.setMaximumSize(QSize(353, 16777215))
+        self.boton_prox_ev_LE.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(244, 144, 17);\n"
+"	\n"
+"	background-color: rgb(207, 118, 7); /* Color de fondo */\n"
+"    color: white; /* Color del texto */\n"
+"    border: solid transparent;\n"
+"    border-color:rgb(168, 13, 13);  /* Color del borde */\n"
+"    border-radius: 10px; /* Radio de borde para esquinas redondeadas */\n"
+"    padding: 8px 16px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Peso de la fuente */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#f49011 ;/* Cambiar el color de fondo al pasar el mouse */\n"
+"    border-color:#f49011;/* Cambiar el color del borde al pasar el mouse */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #f38704; /* Cambiar el color de fondo al hacer clic */\n"
+"    border-color:#f38704;/* Cambiar el color del borde al hacer clic */\n"
+"}")
+
+        self.gridLayout_18.addWidget(self.boton_prox_ev_LE, 1, 1, 1, 1)
+
+        self.horizontalSpacer_33 = QSpacerItem(244, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_18.addItem(self.horizontalSpacer_33, 1, 2, 1, 1)
+
+
+        self.verticalLayout_12.addWidget(self.frame_header_LE)
+
+        self.verticalSpacer_21 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_12.addItem(self.verticalSpacer_21)
+
+        self.scrollArea_2.setWidget(self.Area_eventos_2)
+
+        self.horizontalLayout_22.addWidget(self.scrollArea_2)
+
+        self.stackedWidget_principal.addWidget(self.page_listaEventos)
 
         self.horizontalLayout_2.addWidget(self.stackedWidget_principal)
 
@@ -2630,9 +2726,15 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+<<<<<<< HEAD
         self.stackedWidget_principal.setCurrentIndex(6)
         self.stackedWidget_MenuAdCor.setCurrentIndex(1)
         self.stackedWidget_admin.setCurrentIndex(3)
+=======
+        self.stackedWidget_principal.setCurrentIndex(0)
+        self.stackedWidget_MenuAdCor.setCurrentIndex(0)
+        self.stackedWidget_admin.setCurrentIndex(0)
+>>>>>>> fc08be06501f94c68daa6c275ee776cb68442082
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2660,7 +2762,7 @@ class Ui_MainWindow(object):
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Ten en cuenta que nuestros horarios", None))
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"Tel\u00e9fono", None))
         self.Bonton_proxEvento.setText(QCoreApplication.translate("MainWindow", u"Proximos eventos", None))
-        self.Boton_objetos.setText(QCoreApplication.translate("MainWindow", u"Objetos del museo", None))
+        self.Boton_objetos.setText(QCoreApplication.translate("MainWindow", u"Lista de eventos", None))
         self.titulo_cartel_1.setText(QCoreApplication.translate("MainWindow", u"Programa tu visita al museo", None))
         self.imagen_cartel_1.setText("")
         self.cuerpo_cartel_1.setText(QCoreApplication.translate("MainWindow", u"El Museo del Oro del Banco de la Rep\u00fablica \n"
@@ -2772,5 +2874,7 @@ class Ui_MainWindow(object):
         self.boton_CrearCoodinador.setText(QCoreApplication.translate("MainWindow", u"CREAR CUENTA", None))
         self.Apellido_Coordinador.setInputMask("")
         self.Apellido_Coordinador.setText("")
+        self.label_lista_eventos.setText(QCoreApplication.translate("MainWindow", u"Aun no te has suscrito a ningun evento", None))
+        self.boton_prox_ev_LE.setText(QCoreApplication.translate("MainWindow", u"Proximos eventos", None))
     # retranslateUi
 

@@ -167,6 +167,12 @@ class DataBase():
         evento = self.cur.fetchall()
         return evento
     
+    def consultarEventosUsuario(self,cedula):
+        consulta =f'select distinct fechevento from eventos join registro_eventos on eventos.idevento=registro_eventos.idevento where idusuario = %s'
+        self.cur.execute(consulta,(cedula,))
+        evento = self.cur.fetchall()
+        return evento
+    
     
     
     def consultarHoras(self,fecha):

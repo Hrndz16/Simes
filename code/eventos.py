@@ -26,7 +26,6 @@ class FrameEvento(frame,QMainWindow):
                     background-color:#f49011;
                 }
             """)
-        
         self.mensaje.setStandardButtons(QMessageBox.Ok)
         self.mensaje.setWindowFlags(Qt.FramelessWindowHint)
         self.mensaje2 = QMessageBox()
@@ -49,7 +48,6 @@ class FrameEvento(frame,QMainWindow):
                     background-color:#f49011;
                 }
             """)
-    
         self.mensaje2.addButton(QMessageBox.Yes)
         self.mensaje2.addButton(QMessageBox.No)
         self.mensaje2.setWindowFlags(Qt.FramelessWindowHint)

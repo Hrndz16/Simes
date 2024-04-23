@@ -81,6 +81,9 @@ background-color: white;
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QPushButton" name="Boton_inicio">
          <property name="maximumSize">
@@ -146,6 +149,7 @@ QPushButton#Boton_inicio:hover {
          <property name="font">
           <font>
            <pointsize>-1</pointsize>
+           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -249,7 +253,7 @@ border-color:transparent;</string>
           <number>1</number>
          </property>
          <property name="currentIndex">
-          <number>6</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page_1_inicio">
           <property name="styleSheet">
@@ -285,7 +289,7 @@ background-color: rgba(255, 255, 255,0);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1122</width>
+                <width>1036</width>
                 <height>886</height>
                </rect>
               </property>
@@ -580,7 +584,7 @@ font: 10pt &quot;MS Sans Serif&quot;;
                               <string notr="true">QLabel{
 font: 10pt &quot;MS Sans Serif&quot;;
 	color: rgb(255, 255, 255);
-background-color:rgba(0,0,0,0,)
+background-color:rgba(0,0,0,0)
 
 }</string>
                              </property>
@@ -761,22 +765,6 @@ QPushButton:pressed {
                             </widget>
                            </item>
                            <item>
-                            <spacer name="horizontalSpacer_25">
-                             <property name="orientation">
-                              <enum>Qt::Horizontal</enum>
-                             </property>
-                             <property name="sizeType">
-                              <enum>QSizePolicy::Fixed</enum>
-                             </property>
-                             <property name="sizeHint" stdset="0">
-                              <size>
-                               <width>70</width>
-                               <height>20</height>
-                              </size>
-                             </property>
-                            </spacer>
-                           </item>
-                           <item>
                             <widget class="QPushButton" name="Boton_objetos">
                              <property name="minimumSize">
                               <size>
@@ -812,7 +800,7 @@ QPushButton:pressed {
 }</string>
                              </property>
                              <property name="text">
-                              <string>Objetos del museo</string>
+                              <string>Lista de eventos</string>
                              </property>
                             </widget>
                            </item>
@@ -1170,7 +1158,7 @@ QPushButton {
 /* Estilo para QPushButton cuando se presiona */
 QPushButton:pressed {
     background-color:  rgba(109, 70, 3,180); /* Cambio de color al presionar */
-	border-radious:15 px
+	border-radius:15 px
 }
 
 /* Estilo para QPushButton cuando el cursor está encima */
@@ -1315,8 +1303,9 @@ border-color: rgb(170, 170, 255);</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>Arial</family>
+                    <family>Arial,sans-serif</family>
                     <pointsize>-1</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -1549,7 +1538,11 @@ alternate-background-color: rgb(255, 162, 115);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
+<<<<<<< HEAD
                 <width>832</width>
+=======
+                <width>854</width>
+>>>>>>> fc08be06501f94c68daa6c275ee776cb68442082
                 <height>560</height>
                </rect>
               </property>
@@ -1725,8 +1718,9 @@ color: #2c3e50; /* Color del texto */
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1760,8 +1754,9 @@ color: #2c3e50; /* Color del texto */
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>Arial,sans-serif</family>
                   <pointsize>-1</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -2408,8 +2403,9 @@ QToolButton:hover {
                       </property>
                       <property name="font">
                        <font>
-                        <family>Arial</family>
+                        <family>Arial,sans-serif</family>
                         <pointsize>-1</pointsize>
+                        <weight>75</weight>
                         <bold>true</bold>
                        </font>
                       </property>
@@ -2488,8 +2484,9 @@ QToolButton:hover {
                       </property>
                       <property name="font">
                        <font>
-                        <family>Arial</family>
+                        <family>Arial,sans-serif</family>
                         <pointsize>-1</pointsize>
+                        <weight>75</weight>
                         <bold>true</bold>
                        </font>
                       </property>
@@ -3171,7 +3168,11 @@ QPushButton:hover {
                  <string notr="true">background-color:transparent;</string>
                 </property>
                 <property name="currentIndex">
+<<<<<<< HEAD
                  <number>3</number>
+=======
+                 <number>0</number>
+>>>>>>> fc08be06501f94c68daa6c275ee776cb68442082
                 </property>
                 <widget class="QWidget" name="paginaCrearEvento">
                  <property name="styleSheet">
@@ -4371,8 +4372,9 @@ color: #2c3e50; /* Color del texto */
                           </property>
                           <property name="font">
                            <font>
-                            <family>Arial</family>
+                            <family>Arial,sans-serif</family>
                             <pointsize>-1</pointsize>
+                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -4406,8 +4408,9 @@ color: #2c3e50; /* Color del texto */
                           </property>
                           <property name="font">
                            <font>
-                            <family>Arial</family>
+                            <family>Arial,sans-serif</family>
                             <pointsize>-1</pointsize>
+                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -4612,6 +4615,212 @@ color: #2c3e50; /* Color del texto */
                </widget>
               </item>
              </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_listaEventos">
+          <layout class="QHBoxLayout" name="horizontalLayout_22" stretch="0">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="sizeConstraint">
+            <enum>QLayout::SetDefaultConstraint</enum>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QScrollArea" name="scrollArea_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(241, 241, 241);
+alternate-background-color: rgb(255, 162, 115);</string>
+             </property>
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="Area_eventos_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>854</width>
+                <height>560</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(241, 241, 241);
+alternate-background-color: rgb(255, 162, 115);</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_12">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QFrame" name="frame_header_LE">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>137</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_18">
+                  <item row="0" column="0">
+                   <spacer name="horizontalSpacer_25">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>244</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_lista_eventos">
+                    <property name="font">
+                     <font>
+                      <family>Nirmala UI</family>
+                      <pointsize>14</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Aun no te has suscrito a ningun evento</string>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_32">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>244</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="1" column="0">
+                   <spacer name="horizontalSpacer_31">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>244</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QPushButton" name="boton_prox_ev_LE">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>353</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton {
+	color: rgb(244, 144, 17);
+	
+	background-color: rgb(207, 118, 7); /* Color de fondo */
+    color: white; /* Color del texto */
+    border: solid transparent;
+    border-color:rgb(168, 13, 13);  /* Color del borde */
+    border-radius: 10px; /* Radio de borde para esquinas redondeadas */
+    padding: 8px 16px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: bold; /* Peso de la fuente */
+}
+
+QPushButton:hover {
+    background-color:#f49011 ;/* Cambiar el color de fondo al pasar el mouse */
+    border-color:#f49011;/* Cambiar el color del borde al pasar el mouse */
+}
+
+QPushButton:pressed {
+    background-color: #f38704; /* Cambiar el color de fondo al hacer clic */
+    border-color:#f38704;/* Cambiar el color del borde al hacer clic */
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Proximos eventos</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <spacer name="horizontalSpacer_33">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>244</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_21">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
           </layout>
