@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(836, 643)
+        MainWindow.resize(851, 643)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -170,7 +170,7 @@ class Ui_MainWindow(object):
         self.Area_1.setWidgetResizable(True)
         self.Contenido1 = QWidget()
         self.Contenido1.setObjectName(u"Contenido1")
-        self.Contenido1.setGeometry(QRect(0, 0, 1036, 886))
+        self.Contenido1.setGeometry(QRect(0, 0, 1122, 886))
         self.verticalLayout_2 = QVBoxLayout(self.Contenido1)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -736,7 +736,7 @@ class Ui_MainWindow(object):
         self.label_correo_2.setMinimumSize(QSize(0, 0))
         self.label_correo_2.setMaximumSize(QSize(100, 32))
         font2 = QFont()
-        font2.setFamilies([u"Arial,sans-serif"])
+        font2.setFamilies([u"Arial"])
         font2.setBold(True)
         self.label_correo_2.setFont(font2)
         self.label_correo_2.setLayoutDirection(Qt.RightToLeft)
@@ -844,11 +844,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        
-        self.Area_eventos.setGeometry(QRect(0, 0, 832, 560))
-        
-        
-               
+        self.Area_eventos.setGeometry(QRect(0, 0, 847, 560))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -2589,26 +2585,28 @@ class Ui_MainWindow(object):
         self.frame_20.setObjectName(u"frame_20")
         self.frame_20.setFrameShape(QFrame.StyledPanel)
         self.frame_20.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_12 = QVBoxLayout(self.frame_20)
-        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-        self.verticalLayout_Lis_Coordinadores = QVBoxLayout()
-        self.verticalLayout_Lis_Coordinadores.setObjectName(u"verticalLayout_Lis_Coordinadores")
-        self.scrollArea_2 = QScrollArea(self.frame_20)
-        self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setEnabled(False)
-        self.scrollArea_2.setWidgetResizable(True)
+        self.verticalLayout_13 = QVBoxLayout(self.frame_20)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.scrollArea_3 = QScrollArea(self.frame_20)
+        self.scrollArea_3.setObjectName(u"scrollArea_3")
+        self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setEnabled(False)
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 608, 512))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 610, 514))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents)
+        self.verticalLayout_Lis_Coordinadores = QVBoxLayout()
+        self.verticalLayout_Lis_Coordinadores.setObjectName(u"verticalLayout_Lis_Coordinadores")
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_Lis_Coordinadores.addWidget(self.scrollArea_2)
+        self.verticalLayout_Lis_Coordinadores.addItem(self.verticalSpacer_4)
 
 
-        self.verticalLayout_12.addLayout(self.verticalLayout_Lis_Coordinadores)
+        self.verticalLayout_15.addLayout(self.verticalLayout_Lis_Coordinadores)
+
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_13.addWidget(self.scrollArea_3)
 
 
         self.layout_usuarios.addWidget(self.frame_20)
@@ -2635,7 +2633,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.Area_eventos_2 = QWidget()
         self.Area_eventos_2.setObjectName(u"Area_eventos_2")
-        self.Area_eventos_2.setGeometry(QRect(0, 0, 854, 560))
+        self.Area_eventos_2.setGeometry(QRect(0, 0, 847, 560))
         self.Area_eventos_2.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_12 = QVBoxLayout(self.Area_eventos_2)
@@ -2726,15 +2724,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-
         self.stackedWidget_principal.setCurrentIndex(6)
-        self.stackedWidget_MenuAdCor.setCurrentIndex(1)
-        self.stackedWidget_admin.setCurrentIndex(3)
-        
-        self.stackedWidget_principal.setCurrentIndex(0)
         self.stackedWidget_MenuAdCor.setCurrentIndex(0)
-        self.stackedWidget_admin.setCurrentIndex(0)
-        
+        self.stackedWidget_admin.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

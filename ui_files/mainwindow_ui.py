@@ -170,7 +170,7 @@ class Ui_MainWindow(object):
         self.Area_1.setWidgetResizable(True)
         self.Contenido1 = QWidget()
         self.Contenido1.setObjectName(u"Contenido1")
-        self.Contenido1.setGeometry(QRect(0, 0, 1036, 886))
+        self.Contenido1.setGeometry(QRect(0, 0, 1122, 886))
         self.verticalLayout_2 = QVBoxLayout(self.Contenido1)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -736,7 +736,7 @@ class Ui_MainWindow(object):
         self.label_correo_2.setMinimumSize(QSize(0, 0))
         self.label_correo_2.setMaximumSize(QSize(100, 32))
         font2 = QFont()
-        font2.setFamilies([u"Arial,sans-serif"])
+        font2.setFamilies([u"Arial"])
         font2.setBold(True)
         self.label_correo_2.setFont(font2)
         self.label_correo_2.setLayoutDirection(Qt.RightToLeft)
@@ -844,7 +844,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 0, 560))
+        self.Area_eventos.setGeometry(QRect(0, 0, 832, 560))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -1618,11 +1618,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.botonAdmEvento)
 
-        self.boton_appendCoordinador = QPushButton(self.frame_2)
-        self.boton_appendCoordinador.setObjectName(u"boton_appendCoordinador")
-        self.boton_appendCoordinador.setMinimumSize(QSize(0, 50))
+        self.Boton_adminUsuarios = QPushButton(self.frame_2)
+        self.Boton_adminUsuarios.setObjectName(u"Boton_adminUsuarios")
+        self.Boton_adminUsuarios.setMinimumSize(QSize(0, 50))
+        self.Boton_adminUsuarios.setStyleSheet(u"")
 
-        self.verticalLayout_6.addWidget(self.boton_appendCoordinador)
+        self.verticalLayout_6.addWidget(self.Boton_adminUsuarios)
 
         self.line_2 = QFrame(self.frame_2)
         self.line_2.setObjectName(u"line_2")
@@ -1631,11 +1632,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.line_2)
 
-        self.pushButton_3 = QPushButton(self.frame_2)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(0, 50))
+        self.boton_appendCoordinador = QPushButton(self.frame_2)
+        self.boton_appendCoordinador.setObjectName(u"boton_appendCoordinador")
+        self.boton_appendCoordinador.setMinimumSize(QSize(0, 50))
 
-        self.verticalLayout_6.addWidget(self.pushButton_3)
+        self.verticalLayout_6.addWidget(self.boton_appendCoordinador)
 
         self.line_5 = QFrame(self.frame_2)
         self.line_5.setObjectName(u"line_5")
@@ -1644,12 +1645,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.line_5)
 
-        self.Boton_adminUsuarios = QPushButton(self.frame_2)
-        self.Boton_adminUsuarios.setObjectName(u"Boton_adminUsuarios")
-        self.Boton_adminUsuarios.setMinimumSize(QSize(0, 50))
-        self.Boton_adminUsuarios.setStyleSheet(u"")
+        self.pushButton_3 = QPushButton(self.frame_2)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMinimumSize(QSize(0, 50))
 
-        self.verticalLayout_6.addWidget(self.Boton_adminUsuarios)
+        self.verticalLayout_6.addWidget(self.pushButton_3)
 
         self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1729,6 +1729,13 @@ class Ui_MainWindow(object):
         self.botonAdmEvento_3.setFrameShadow(QFrame.Sunken)
 
         self.verticalLayout_11.addWidget(self.botonAdmEvento_3)
+
+        self.pushButton = QPushButton(self.frame_18)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setMinimumSize(QSize(0, 50))
+        self.pushButton.setAutoFillBackground(False)
+
+        self.verticalLayout_11.addWidget(self.pushButton)
 
         self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -2585,31 +2592,38 @@ class Ui_MainWindow(object):
         self.frame_20.setObjectName(u"frame_20")
         self.frame_20.setFrameShape(QFrame.StyledPanel)
         self.frame_20.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_12 = QVBoxLayout(self.frame_20)
-        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-        self.verticalLayout_Lis_Coordinadores = QVBoxLayout()
-        self.verticalLayout_Lis_Coordinadores.setObjectName(u"verticalLayout_Lis_Coordinadores")
-        self.scrollArea_2 = QScrollArea(self.frame_20)
-        self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setEnabled(False)
-        self.scrollArea_2.setWidgetResizable(True)
+        self.verticalLayout_13 = QVBoxLayout(self.frame_20)
+        self.verticalLayout_13.setSpacing(0)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, -1)
+        self.scrollArea_3 = QScrollArea(self.frame_20)
+        self.scrollArea_3.setObjectName(u"scrollArea_3")
+        self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setEnabled(False)
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 608, 512))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 628, 523))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents)
+        self.verticalLayout_Lis_Coordinadores = QVBoxLayout()
+        self.verticalLayout_Lis_Coordinadores.setObjectName(u"verticalLayout_Lis_Coordinadores")
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_Lis_Coordinadores.addWidget(self.scrollArea_2)
+        self.verticalLayout_Lis_Coordinadores.addItem(self.verticalSpacer_4)
 
 
-        self.verticalLayout_12.addLayout(self.verticalLayout_Lis_Coordinadores)
+        self.verticalLayout_15.addLayout(self.verticalLayout_Lis_Coordinadores)
+
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_13.addWidget(self.scrollArea_3)
 
 
         self.layout_usuarios.addWidget(self.frame_20)
 
         self.stackedWidget_admin.addWidget(self.lista_usuarios)
+        self.Solicitar_eliminacion = QWidget()
+        self.Solicitar_eliminacion.setObjectName(u"Solicitar_eliminacion")
+        self.stackedWidget_admin.addWidget(self.Solicitar_eliminacion)
 
         self.verticalLayout_7.addWidget(self.stackedWidget_admin)
 
@@ -2624,20 +2638,20 @@ class Ui_MainWindow(object):
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
         self.horizontalLayout_22.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.horizontalLayout_22.setContentsMargins(0, 0, 0, 0)
-        self.scrollArea_21 = QScrollArea(self.page_listaEventos)
-        self.scrollArea_21.setObjectName(u"scrollArea_21")
-        self.scrollArea_21.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
+        self.scrollArea_2 = QScrollArea(self.page_listaEventos)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
-        self.scrollArea_21.setWidgetResizable(True)
+        self.scrollArea_2.setWidgetResizable(True)
         self.Area_eventos_2 = QWidget()
         self.Area_eventos_2.setObjectName(u"Area_eventos_2")
-        self.Area_eventos_2.setGeometry(QRect(0, 0, 854, 560))
+        self.Area_eventos_2.setGeometry(QRect(0, 0, 832, 560))
         self.Area_eventos_2.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
-        self.verticalLayout_121 = QVBoxLayout(self.Area_eventos_2)
-        self.verticalLayout_121.setSpacing(0)
-        self.verticalLayout_121.setObjectName(u"verticalLayout_121")
-        self.verticalLayout_121.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_12 = QVBoxLayout(self.Area_eventos_2)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
         self.frame_header_LE = QFrame(self.Area_eventos_2)
         self.frame_header_LE.setObjectName(u"frame_header_LE")
         self.frame_header_LE.setMinimumSize(QSize(0, 137))
@@ -2701,15 +2715,15 @@ class Ui_MainWindow(object):
         self.gridLayout_18.addItem(self.horizontalSpacer_33, 1, 2, 1, 1)
 
 
-        self.verticalLayout_121.addWidget(self.frame_header_LE)
+        self.verticalLayout_12.addWidget(self.frame_header_LE)
 
         self.verticalSpacer_21 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_121.addItem(self.verticalSpacer_21)
+        self.verticalLayout_12.addItem(self.verticalSpacer_21)
 
-        self.scrollArea_21.setWidget(self.Area_eventos_2)
+        self.scrollArea_2.setWidget(self.Area_eventos_2)
 
-        self.horizontalLayout_22.addWidget(self.scrollArea_21)
+        self.horizontalLayout_22.addWidget(self.scrollArea_2)
 
         self.stackedWidget_principal.addWidget(self.page_listaEventos)
 
@@ -2722,9 +2736,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_principal.setCurrentIndex(0)
+        self.stackedWidget_principal.setCurrentIndex(6)
         self.stackedWidget_MenuAdCor.setCurrentIndex(1)
-        self.stackedWidget_admin.setCurrentIndex(0)
+        self.stackedWidget_admin.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2819,11 +2833,13 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(shortcut)
         self.Boton_cambiarContra.setText(QCoreApplication.translate("MainWindow", u"Cambiar Contase\u00f1a", None))
         self.Boton_adminEventos.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR EVENTOS", None))
-        self.boton_appendCoordinador.setText(QCoreApplication.translate("MainWindow", u"COORDINADORES", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"MENSAJES", None))
         self.Boton_adminUsuarios.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR USUARIOS", None))
+        self.boton_appendCoordinador.setText(QCoreApplication.translate("MainWindow", u"CREAR COORDINADORES", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"MENSAJES", None))
         self.Boton_ElaborarInforme.setText(QCoreApplication.translate("MainWindow", u"ELABORAR UN INFORME", None))
         self.Boton_CoorEventos.setText(QCoreApplication.translate("MainWindow", u"PROGRAMAR EVENTO", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"SOLICITAR CANCELACION\n"
+"DE EVENTOS", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">T\u00edtulo del evento:</span></p></body></html>", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Encargado del evento:</span></p></body></html>", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

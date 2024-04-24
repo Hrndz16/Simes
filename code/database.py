@@ -150,12 +150,12 @@ class DataBase():
     def listaCoordinadores(self,conCorreo=None):
         if conCorreo == None:
             """Retorna la lista de Coordinadores"""
-            consulta = f"""select idusuario,nomusuario,apeusuario from usuarios where tipousuario = '2'"""
+            consulta = f"""select idusuario,nomusuario,apeusuario from usuarios where tipousuario = '2' and estado_usuario = 'A'"""
             self.cur.execute(consulta)
             coordinadores = self.cur.fetchall()
         else:
             """Retorna la lista de Coordinadores"""
-            consulta = f"""select tipousuario,nomusuario,apeusuario,correousuario,fotousuario from usuarios where tipousuario = '2'"""
+            consulta = f"""select tipousuario,nomusuario,apeusuario,correousuario,fotousuario,estado_usuario from usuarios where tipousuario = '2'"""
             self.cur.execute(consulta)
             coordinadores = self.cur.fetchall()
             
@@ -254,3 +254,29 @@ class DataBase():
         consulta = f"""insert into informes (asunto,descrip_informe,encargado) values (%s,%s,%s)""" 
         self.cur.execute(consulta,tup)
         self.conn.commit()
+        
+    def desactivar_Usuario(self,correo):# Metodo para desactivar un usuario
+        consulta = f"""update usuarios set estado_usuario = 'B' where correousuario = '{correo}'"""
+        self.cur.execute(consulta)
+        self.conn.commit()
+        
+    def consultar_actividadPerfil(self,correo):
+        """Me dice si el usuario tiene una cuenta activa o si ya fue desactivada"""
+        consulta = f"""select estado_usuario from usuarios where correousuario = '{correo}'"""
+        self.cur.execute(consulta)
+        estado = self.cur.fetchall()[0][0]
+        self.conn.commit()
+        if estado == 'A':
+            return True
+        else: return False
+        
+    def eliminar_usuario(self,correo):
+        consulta = f"""delete from usuarios where correousuario = '{correo}'"""
+        self.cur.execute(consulta)
+        self.conn.commit()
+        
+  
+
+
+        
+        

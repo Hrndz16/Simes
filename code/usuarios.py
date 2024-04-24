@@ -3,12 +3,15 @@ import sys,os
 ruta = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(f'{ruta}\\imgs')
 from Ui_frameUsuario import Ui_MainWindow as frame
-from PySide6.QtWidgets import QMainWindow, QMessageBox,QFrame
-from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QMainWindow, QMessageBox,QFrame,QWidget
+from PySide6.QtCore import Qt, Signal
 from database import DataBase
 import locale
+from PySide6.QtGui import QPixmap
 
 class FrameUsuario(frame,QMainWindow):
+    button_clicked = Signal(str,QFrame)  # Señal que emite la ID del objeto cuando se hace clic en el botón
+
     def __init__(self,tipou,nombre,apellido,correo,foto):
         self.mensaje = QMessageBox()
         self.mensaje.setStyleSheet("""
@@ -65,26 +68,13 @@ class FrameUsuario(frame,QMainWindow):
         self.llenar_frame(tipou,nombre,apellido,correo,foto)
         self.obtenerUsuario()
         
+        self.Boton_eliminar.clicked.connect(self.emit_button_clicked)
+        self.id = str(correo)
 
-    def handle_button_clicked(self, id , frame):
-            if self.cedula == 0:
-                self.mensaje.setText('Se necesita estar registrado para hacer esto')
-                self.mensaje.exec()
-            elif self.datab.consultarRegistro(self.cedula,id):
-                self.mensaje2.setText('Estas seguro de que quieres cancelar tu asistencia')
-                
-                resultado = self.mensaje2.exec_()
-                if resultado == QMessageBox.Yes:
-                    self.datab.eliminarRegistro(self.cedula,id)
-                    self.mensaje.setText('Se ha cancelado tu asistencia')
-                    self.mensaje.exec()
-                    frame.ui.boton_sub.setText('Suscribirse')
-                    
-            else:
-                self.datab.registrarEvento(self.cedula, id)
-                self.mensaje.setText('Se ha registrado su asistencia')
-                self.mensaje.exec()
-                frame.ui.boton_sub.setText('Cancelar')
+    def emit_button_clicked(self):
+        # Cuando se hace clic en el botón, emite la señal button_clicked con la ID del objeto
+        self.button_clicked.emit(self.id,self)
+    
             
     
     def obtenerUsuario(self):
@@ -95,8 +85,9 @@ class FrameUsuario(frame,QMainWindow):
         self.label_correo.setText(correo)
         self.label_nombre.setText(nom)
         self.label_tipoU.setText(self.tipoUsuario(tipou))
+        self.agregarFotoPerfil_listaCoordinadores(foto)
         
-        
+          
     def tipoUsuario(self,tipo): 
         """Clasifica el tipo usuario en un strig 1 = "administrador", 2 = "Coordinador" 3 = "Visitante" """
         tipo = int(tipo)
@@ -107,5 +98,10 @@ class FrameUsuario(frame,QMainWindow):
                 return 'Coordinador'
             case 3:
                 return 'Visitante'
+            
+    def agregarFotoPerfil_listaCoordinadores(self,ruta):
+        if ruta is not None:
+            foto = QPixmap(os.path.join(ruta))
+            self.img_perfil.setPixmap(foto)
         
         

@@ -4,4 +4,5 @@ create table informes
     asunto varchar(150) not null,
     descrip_informe text not null,
     encargado not null-- este es el codigo del coordinador
-)
+);
+

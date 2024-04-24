@@ -24,19 +24,22 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 226)
+        MainWindow.resize(714, 218)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.usuario_frame = QFrame(self.centralwidget)
         self.usuario_frame.setObjectName(u"usuario_frame")
+        self.usuario_frame.setMinimumSize(QSize(0, 200))
+        self.usuario_frame.setStyleSheet(u"")
         self.usuario_frame.setFrameShape(QFrame.StyledPanel)
         self.usuario_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout = QVBoxLayout(self.usuario_frame)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.line = QFrame(self.usuario_frame)
         self.line.setObjectName(u"line")
+        self.line.setStyleSheet(u"background-color:rgb(151, 101, 27);")
         self.line.setFrameShape(QFrame.HLine)
         self.line.setFrameShadow(QFrame.Sunken)
 
@@ -54,11 +57,13 @@ class Ui_MainWindow(object):
         self.img_perfil.setMinimumSize(QSize(150, 150))
         self.img_perfil.setMaximumSize(QSize(150, 150))
         self.img_perfil.setStyleSheet(u"image: url(:/iconos/icons8-nombre-100.png);")
+        self.img_perfil.setScaledContents(True)
 
         self.horizontalLayout.addWidget(self.img_perfil)
 
         self.line_3 = QFrame(self.frame)
         self.line_3.setObjectName(u"line_3")
+        self.line_3.setStyleSheet(u"background-color:rgb(151, 101, 27);")
         self.line_3.setFrameShape(QFrame.VLine)
         self.line_3.setFrameShadow(QFrame.Sunken)
 
@@ -71,30 +76,35 @@ class Ui_MainWindow(object):
         self.gridLayout_2 = QGridLayout(self.frame_3)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setHorizontalSpacing(6)
-        self.label_correo = QLabel(self.frame_3)
-        self.label_correo.setObjectName(u"label_correo")
+        self.label_nombre = QLabel(self.frame_3)
+        self.label_nombre.setObjectName(u"label_nombre")
 
-        self.gridLayout_2.addWidget(self.label_correo, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.label_nombre, 1, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_2.addItem(self.verticalSpacer, 4, 0, 1, 1)
 
         self.label_tipoU = QLabel(self.frame_3)
         self.label_tipoU.setObjectName(u"label_tipoU")
 
-        self.gridLayout_2.addWidget(self.label_tipoU, 2, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.label_tipoU, 3, 0, 1, 1)
 
-        self.label_nombre = QLabel(self.frame_3)
-        self.label_nombre.setObjectName(u"label_nombre")
+        self.label_correo = QLabel(self.frame_3)
+        self.label_correo.setObjectName(u"label_correo")
 
-        self.gridLayout_2.addWidget(self.label_nombre, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.label_correo, 2, 0, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_2.addItem(self.verticalSpacer, 3, 0, 1, 1)
+        self.gridLayout_2.addItem(self.verticalSpacer_2, 0, 0, 1, 1)
 
 
         self.horizontalLayout.addWidget(self.frame_3)
 
         self.line_4 = QFrame(self.frame)
         self.line_4.setObjectName(u"line_4")
+        self.line_4.setStyleSheet(u"background-color:rgb(151, 101, 27);")
         self.line_4.setFrameShape(QFrame.VLine)
         self.line_4.setFrameShadow(QFrame.Sunken)
 
@@ -136,6 +146,7 @@ class Ui_MainWindow(object):
 
         self.line_2 = QFrame(self.usuario_frame)
         self.line_2.setObjectName(u"line_2")
+        self.line_2.setStyleSheet(u"background-color:rgb(151, 101, 27);")
         self.line_2.setFrameShape(QFrame.HLine)
         self.line_2.setFrameShadow(QFrame.Sunken)
 
@@ -154,9 +165,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.img_perfil.setText("")
-        self.label_correo.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_tipoU.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_nombre.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_tipoU.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_correo.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.Boton_eliminar.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None))
     # retranslateUi
 

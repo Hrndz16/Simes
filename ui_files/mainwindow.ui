@@ -149,7 +149,6 @@ QPushButton#Boton_inicio:hover {
          <property name="font">
           <font>
            <pointsize>-1</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -253,7 +252,7 @@ border-color:transparent;</string>
           <number>1</number>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="page_1_inicio">
           <property name="styleSheet">
@@ -289,7 +288,7 @@ background-color: rgba(255, 255, 255,0);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1036</width>
+                <width>1122</width>
                 <height>886</height>
                </rect>
               </property>
@@ -1303,9 +1302,8 @@ border-color: rgb(170, 170, 255);</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>Arial,sans-serif</family>
+                    <family>Arial</family>
                     <pointsize>-1</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -1538,7 +1536,7 @@ alternate-background-color: rgb(255, 162, 115);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-
+                <width>832</width>
                 <height>560</height>
                </rect>
               </property>
@@ -1714,9 +1712,8 @@ color: #2c3e50; /* Color del texto */
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial,sans-serif</family>
+                  <family>Arial</family>
                   <pointsize>-1</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -1750,9 +1747,8 @@ color: #2c3e50; /* Color del texto */
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial,sans-serif</family>
+                  <family>Arial</family>
                   <pointsize>-1</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -2399,9 +2395,8 @@ QToolButton:hover {
                       </property>
                       <property name="font">
                        <font>
-                        <family>Arial,sans-serif</family>
+                        <family>Arial</family>
                         <pointsize>-1</pointsize>
-                        <weight>75</weight>
                         <bold>true</bold>
                        </font>
                       </property>
@@ -2480,9 +2475,8 @@ QToolButton:hover {
                       </property>
                       <property name="font">
                        <font>
-                        <family>Arial,sans-serif</family>
+                        <family>Arial</family>
                         <pointsize>-1</pointsize>
-                        <weight>75</weight>
                         <bold>true</bold>
                        </font>
                       </property>
@@ -2889,6 +2883,29 @@ QPushButton:hover {
                    </widget>
                   </item>
                   <item>
+                   <widget class="QPushButton" name="Boton_adminUsuarios">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>ADMINISTAR USUARIOS</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="Line" name="line_2">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <widget class="QPushButton" name="boton_appendCoordinador">
                     <property name="minimumSize">
                      <size>
@@ -2897,12 +2914,12 @@ QPushButton:hover {
                      </size>
                     </property>
                     <property name="text">
-                     <string>COORDINADORES</string>
+                     <string>CREAR COORDINADORES</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="Line" name="line_2">
+                   <widget class="Line" name="line_5">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -2918,29 +2935,6 @@ QPushButton:hover {
                     </property>
                     <property name="text">
                      <string>MENSAJES</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="Line" name="line_5">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="Boton_adminUsuarios">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>50</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                    <property name="text">
-                     <string>ADMINISTAR USUARIOS</string>
                     </property>
                    </widget>
                   </item>
@@ -3091,6 +3085,23 @@ QPushButton:hover {
                    </widget>
                   </item>
                   <item>
+                   <widget class="QPushButton" name="pushButton">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="autoFillBackground">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>SOLICITAR CANCELACION
+DE EVENTOS</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <spacer name="verticalSpacer_22">
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
@@ -3164,7 +3175,7 @@ QPushButton:hover {
                  <string notr="true">background-color:transparent;</string>
                 </property>
                 <property name="currentIndex">
-    
+                 <number>4</number>
                 </property>
                 <widget class="QWidget" name="paginaCrearEvento">
                  <property name="styleSheet">
@@ -4364,9 +4375,8 @@ color: #2c3e50; /* Color del texto */
                           </property>
                           <property name="font">
                            <font>
-                            <family>Arial,sans-serif</family>
+                            <family>Arial</family>
                             <pointsize>-1</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -4400,9 +4410,8 @@ color: #2c3e50; /* Color del texto */
                           </property>
                           <property name="font">
                            <font>
-                            <family>Arial,sans-serif</family>
+                            <family>Arial</family>
                             <pointsize>-1</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -4570,40 +4579,61 @@ color: #2c3e50; /* Color del texto */
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_12">
+                    <layout class="QVBoxLayout" name="verticalLayout_13">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
                      <item>
-                      <layout class="QVBoxLayout" name="verticalLayout_Lis_Coordinadores">
-                       <item>
-                        <widget class="QScrollArea" name="scrollArea_2">
-                         <property name="enabled">
-                          <bool>false</bool>
-                         </property>
-                         <property name="widgetResizable">
-                          <bool>true</bool>
-                         </property>
-                         <widget class="QWidget" name="scrollAreaWidgetContents">
-                          <property name="enabled">
-                           <bool>false</bool>
-                          </property>
-                          <property name="geometry">
-                           <rect>
-                            <x>0</x>
-                            <y>0</y>
-                            <width>608</width>
-                            <height>512</height>
-                           </rect>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_15"/>
-                         </widget>
-                        </widget>
-                       </item>
-                      </layout>
+                      <widget class="QScrollArea" name="scrollArea_3">
+                       <property name="widgetResizable">
+                        <bool>true</bool>
+                       </property>
+                       <widget class="QWidget" name="scrollAreaWidgetContents">
+                        <property name="geometry">
+                         <rect>
+                          <x>0</x>
+                          <y>0</y>
+                          <width>628</width>
+                          <height>523</height>
+                         </rect>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_15">
+                         <item>
+                          <layout class="QVBoxLayout" name="verticalLayout_Lis_Coordinadores">
+                           <item>
+                            <spacer name="verticalSpacer_4">
+                             <property name="orientation">
+                              <enum>Qt::Vertical</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>20</width>
+                               <height>40</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </widget>
+                      </widget>
                      </item>
                     </layout>
                    </widget>
                   </item>
                  </layout>
                 </widget>
+                <widget class="QWidget" name="Solicitar_eliminacion"/>
                </widget>
               </item>
              </layout>
@@ -4645,7 +4675,7 @@ alternate-background-color: rgb(255, 162, 115);</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>854</width>
+                <width>832</width>
                 <height>560</height>
                </rect>
               </property>
