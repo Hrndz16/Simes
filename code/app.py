@@ -12,6 +12,7 @@ from eventos import FrameEvento
 from database import DataBase
 from Ui_nuevaContraseña import Ui_Dialog
 from usuarios import FrameUsuario
+from cancelarEvento import FrameCancelarEvento as can_evento
 
 class MainWindow(QMainWindow,MW):#Creacion de main Window
     def __init__(self):
@@ -63,7 +64,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_CambiarFoto_2.clicked.connect(lambda:self.agregarFotoCoodinador())
         self.Boton_objetos.clicked.connect(lambda:self.crear_LE())
         self.boton_prox_ev_LE.clicked.connect(lambda:self.botonProxEvento())
-        self.Boton_adminUsuarios.clicked.connect(lambda:self.mostrar_coordinadores())        
+        self.Boton_adminUsuarios.clicked.connect(lambda:self.mostrar_coordinadores())   
+        self.boton_cancelarEvento.clicked.connect(lambda:self.cancelar_eventosLista())     
         
     def botonIngresar(self):
         self.Correo_2.clear()
@@ -540,8 +542,48 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.db.desactivar_Usuario(correo)
         self.mostrar_coordinadores()
         
+    def cancelar_eventosLista(self):
+        self.stackedWidget_admin.setCurrentIndex(4)
+        self.limpiarVerticalLayout(self.verticalLayout_cancelacionEventos)
+        i = 0
+        eventos = self.db.lisEventos()
+        if eventos != []:
+            for registro in eventos:
+                if registro[5] == 'A':
+                    frame = can_evento(registro[0],registro[1],registro[2],registro[3],registro[4])
+                    self.verticalLayout_cancelacionEventos.insertWidget(i,frame)
+                elif registro[5] == 'E':
+                    frame = can_evento(registro[0],registro[1],registro[2],registro[3],registro[4])
+                    frame.boton_CancelarEvento.setDisabled(True)
+                    frame.boton_CancelarEvento.setText('Enviado\npara cancelar')
+                    self.verticalLayout_cancelacionEventos.insertWidget(i,frame)
+                else:
+                    frame = can_evento(registro[0],registro[1],registro[2],registro[3],registro[4])
+                    frame.boton_CancelarEvento.setDisabled(True)
+                    frame.boton_CancelarEvento.setText('Cancelado')
+                    self.verticalLayout_cancelacionEventos.insertWidget(i,frame)
+                    
+                
+                i = i + 1
+                
+            self.cargar_botonesCancelarEvento()
+        else:
+            self.Box_mensaje('¡No hay eventos programados en el centro cultural!')
         
-                     
+        
+    def cargar_botonesCancelarEvento(self):
+        for i in range(self.verticalLayout_cancelacionEventos.count()):
+            widget = self.verticalLayout_cancelacionEventos.itemAt(i).widget()
+            if isinstance(widget, can_evento):
+                widget.button_clicked.connect(self.handle_button_clicked2)
+                
+    def handle_button_clicked2(self,id,frame):
+        self.Box_mensaje('!La solicitud de cancelar el evento\nha sido enviada al administrador¡')
+        frame.boton_CancelarEvento.setDisabled(True)
+        frame.boton_CancelarEvento.setText('Enviado\npara cancelar')
+        self.db.cambiar_estadoEvento('e',id)
+        
+          
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
     window=MainWindow()

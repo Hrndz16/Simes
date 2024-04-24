@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setWindowModality(Qt.WindowModal)
         MainWindow.setEnabled(True)
-        MainWindow.resize(851, 643)
+        MainWindow.resize(836, 643)
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -844,7 +844,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.Area_eventos = QWidget()
         self.Area_eventos.setObjectName(u"Area_eventos")
-        self.Area_eventos.setGeometry(QRect(0, 0, 847, 560))
+        self.Area_eventos.setGeometry(QRect(0, 0, 832, 560))
         self.Area_eventos.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_5 = QVBoxLayout(self.Area_eventos)
@@ -1618,11 +1618,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.botonAdmEvento)
 
-        self.boton_appendCoordinador = QPushButton(self.frame_2)
-        self.boton_appendCoordinador.setObjectName(u"boton_appendCoordinador")
-        self.boton_appendCoordinador.setMinimumSize(QSize(0, 50))
+        self.Boton_adminUsuarios = QPushButton(self.frame_2)
+        self.Boton_adminUsuarios.setObjectName(u"Boton_adminUsuarios")
+        self.Boton_adminUsuarios.setMinimumSize(QSize(0, 50))
+        self.Boton_adminUsuarios.setStyleSheet(u"")
 
-        self.verticalLayout_6.addWidget(self.boton_appendCoordinador)
+        self.verticalLayout_6.addWidget(self.Boton_adminUsuarios)
 
         self.line_2 = QFrame(self.frame_2)
         self.line_2.setObjectName(u"line_2")
@@ -1631,11 +1632,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.line_2)
 
-        self.pushButton_3 = QPushButton(self.frame_2)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(0, 50))
+        self.boton_appendCoordinador = QPushButton(self.frame_2)
+        self.boton_appendCoordinador.setObjectName(u"boton_appendCoordinador")
+        self.boton_appendCoordinador.setMinimumSize(QSize(0, 50))
 
-        self.verticalLayout_6.addWidget(self.pushButton_3)
+        self.verticalLayout_6.addWidget(self.boton_appendCoordinador)
 
         self.line_5 = QFrame(self.frame_2)
         self.line_5.setObjectName(u"line_5")
@@ -1644,12 +1645,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.line_5)
 
-        self.Boton_adminUsuarios = QPushButton(self.frame_2)
-        self.Boton_adminUsuarios.setObjectName(u"Boton_adminUsuarios")
-        self.Boton_adminUsuarios.setMinimumSize(QSize(0, 50))
-        self.Boton_adminUsuarios.setStyleSheet(u"")
+        self.pushButton_3 = QPushButton(self.frame_2)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMinimumSize(QSize(0, 50))
 
-        self.verticalLayout_6.addWidget(self.Boton_adminUsuarios)
+        self.verticalLayout_6.addWidget(self.pushButton_3)
 
         self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1729,6 +1729,13 @@ class Ui_MainWindow(object):
         self.botonAdmEvento_3.setFrameShadow(QFrame.Sunken)
 
         self.verticalLayout_11.addWidget(self.botonAdmEvento_3)
+
+        self.boton_cancelarEvento = QPushButton(self.frame_18)
+        self.boton_cancelarEvento.setObjectName(u"boton_cancelarEvento")
+        self.boton_cancelarEvento.setMinimumSize(QSize(0, 50))
+        self.boton_cancelarEvento.setAutoFillBackground(False)
+
+        self.verticalLayout_11.addWidget(self.boton_cancelarEvento)
 
         self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -2586,13 +2593,15 @@ class Ui_MainWindow(object):
         self.frame_20.setFrameShape(QFrame.StyledPanel)
         self.frame_20.setFrameShadow(QFrame.Raised)
         self.verticalLayout_13 = QVBoxLayout(self.frame_20)
+        self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, -1)
         self.scrollArea_3 = QScrollArea(self.frame_20)
         self.scrollArea_3.setObjectName(u"scrollArea_3")
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 610, 514))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 628, 523))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.verticalLayout_Lis_Coordinadores = QVBoxLayout()
@@ -2612,6 +2621,41 @@ class Ui_MainWindow(object):
         self.layout_usuarios.addWidget(self.frame_20)
 
         self.stackedWidget_admin.addWidget(self.lista_usuarios)
+        self.Solicitar_eliminacion = QWidget()
+        self.Solicitar_eliminacion.setObjectName(u"Solicitar_eliminacion")
+        self.gridLayout_19 = QGridLayout(self.Solicitar_eliminacion)
+        self.gridLayout_19.setSpacing(0)
+        self.gridLayout_19.setObjectName(u"gridLayout_19")
+        self.gridLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.frame_21 = QFrame(self.Solicitar_eliminacion)
+        self.frame_21.setObjectName(u"frame_21")
+        self.frame_21.setFrameShape(QFrame.StyledPanel)
+        self.frame_21.setFrameShadow(QFrame.Raised)
+        self.gridLayout_20 = QGridLayout(self.frame_21)
+        self.gridLayout_20.setSpacing(0)
+        self.gridLayout_20.setObjectName(u"gridLayout_20")
+        self.gridLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea_4 = QScrollArea(self.frame_21)
+        self.scrollArea_4.setObjectName(u"scrollArea_4")
+        self.scrollArea_4.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 628, 541))
+        self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_cancelacionEventos = QVBoxLayout()
+        self.verticalLayout_cancelacionEventos.setObjectName(u"verticalLayout_cancelacionEventos")
+
+        self.verticalLayout_16.addLayout(self.verticalLayout_cancelacionEventos)
+
+        self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.gridLayout_20.addWidget(self.scrollArea_4, 0, 0, 1, 1)
+
+
+        self.gridLayout_19.addWidget(self.frame_21, 0, 0, 1, 1)
+
+        self.stackedWidget_admin.addWidget(self.Solicitar_eliminacion)
 
         self.verticalLayout_7.addWidget(self.stackedWidget_admin)
 
@@ -2633,7 +2677,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.Area_eventos_2 = QWidget()
         self.Area_eventos_2.setObjectName(u"Area_eventos_2")
-        self.Area_eventos_2.setGeometry(QRect(0, 0, 847, 560))
+        self.Area_eventos_2.setGeometry(QRect(0, 0, 832, 560))
         self.Area_eventos_2.setStyleSheet(u"background-color: rgb(241, 241, 241);\n"
 "alternate-background-color: rgb(255, 162, 115);")
         self.verticalLayout_12 = QVBoxLayout(self.Area_eventos_2)
@@ -2726,7 +2770,7 @@ class Ui_MainWindow(object):
 
         self.stackedWidget_principal.setCurrentIndex(6)
         self.stackedWidget_MenuAdCor.setCurrentIndex(0)
-        self.stackedWidget_admin.setCurrentIndex(3)
+        self.stackedWidget_admin.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2821,11 +2865,13 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(shortcut)
         self.Boton_cambiarContra.setText(QCoreApplication.translate("MainWindow", u"Cambiar Contase\u00f1a", None))
         self.Boton_adminEventos.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR EVENTOS", None))
-        self.boton_appendCoordinador.setText(QCoreApplication.translate("MainWindow", u"COORDINADORES", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"MENSAJES", None))
         self.Boton_adminUsuarios.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR USUARIOS", None))
+        self.boton_appendCoordinador.setText(QCoreApplication.translate("MainWindow", u"CREAR COORDINADORES", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"MENSAJES", None))
         self.Boton_ElaborarInforme.setText(QCoreApplication.translate("MainWindow", u"ELABORAR UN INFORME", None))
         self.Boton_CoorEventos.setText(QCoreApplication.translate("MainWindow", u"PROGRAMAR EVENTO", None))
+        self.boton_cancelarEvento.setText(QCoreApplication.translate("MainWindow", u"SOLICITAR CANCELACION\n"
+"DE EVENTOS", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">T\u00edtulo del evento:</span></p></body></html>", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Encargado del evento:</span></p></body></html>", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

@@ -1730,12 +1730,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_11.addWidget(self.botonAdmEvento_3)
 
-        self.pushButton = QPushButton(self.frame_18)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(0, 50))
-        self.pushButton.setAutoFillBackground(False)
+        self.boton_cancelarEvento = QPushButton(self.frame_18)
+        self.boton_cancelarEvento.setObjectName(u"boton_cancelarEvento")
+        self.boton_cancelarEvento.setMinimumSize(QSize(0, 50))
+        self.boton_cancelarEvento.setAutoFillBackground(False)
 
-        self.verticalLayout_11.addWidget(self.pushButton)
+        self.verticalLayout_11.addWidget(self.boton_cancelarEvento)
 
         self.verticalSpacer_22 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -2623,6 +2623,38 @@ class Ui_MainWindow(object):
         self.stackedWidget_admin.addWidget(self.lista_usuarios)
         self.Solicitar_eliminacion = QWidget()
         self.Solicitar_eliminacion.setObjectName(u"Solicitar_eliminacion")
+        self.gridLayout_19 = QGridLayout(self.Solicitar_eliminacion)
+        self.gridLayout_19.setSpacing(0)
+        self.gridLayout_19.setObjectName(u"gridLayout_19")
+        self.gridLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.frame_21 = QFrame(self.Solicitar_eliminacion)
+        self.frame_21.setObjectName(u"frame_21")
+        self.frame_21.setFrameShape(QFrame.StyledPanel)
+        self.frame_21.setFrameShadow(QFrame.Raised)
+        self.gridLayout_20 = QGridLayout(self.frame_21)
+        self.gridLayout_20.setSpacing(0)
+        self.gridLayout_20.setObjectName(u"gridLayout_20")
+        self.gridLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea_4 = QScrollArea(self.frame_21)
+        self.scrollArea_4.setObjectName(u"scrollArea_4")
+        self.scrollArea_4.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 628, 541))
+        self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_cancelacionEventos = QVBoxLayout()
+        self.verticalLayout_cancelacionEventos.setObjectName(u"verticalLayout_cancelacionEventos")
+
+        self.verticalLayout_16.addLayout(self.verticalLayout_cancelacionEventos)
+
+        self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.gridLayout_20.addWidget(self.scrollArea_4, 0, 0, 1, 1)
+
+
+        self.gridLayout_19.addWidget(self.frame_21, 0, 0, 1, 1)
+
         self.stackedWidget_admin.addWidget(self.Solicitar_eliminacion)
 
         self.verticalLayout_7.addWidget(self.stackedWidget_admin)
@@ -2737,7 +2769,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget_principal.setCurrentIndex(6)
-        self.stackedWidget_MenuAdCor.setCurrentIndex(1)
+        self.stackedWidget_MenuAdCor.setCurrentIndex(0)
         self.stackedWidget_admin.setCurrentIndex(4)
 
 
@@ -2833,12 +2865,12 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(shortcut)
         self.Boton_cambiarContra.setText(QCoreApplication.translate("MainWindow", u"Cambiar Contase\u00f1a", None))
         self.Boton_adminEventos.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR EVENTOS", None))
-        self.Boton_adminUsuarios.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR USUARIOS", None))
+        self.Boton_adminUsuarios.setText(QCoreApplication.translate("MainWindow", u"ELIMINAR COORDINADORES", None))
         self.boton_appendCoordinador.setText(QCoreApplication.translate("MainWindow", u"CREAR COORDINADORES", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"MENSAJES", None))
         self.Boton_ElaborarInforme.setText(QCoreApplication.translate("MainWindow", u"ELABORAR UN INFORME", None))
         self.Boton_CoorEventos.setText(QCoreApplication.translate("MainWindow", u"PROGRAMAR EVENTO", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"SOLICITAR CANCELACION\n"
+        self.boton_cancelarEvento.setText(QCoreApplication.translate("MainWindow", u"SOLICITAR CANCELACION\n"
 "DE EVENTOS", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">T\u00edtulo del evento:</span></p></body></html>", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Encargado del evento:</span></p></body></html>", None))

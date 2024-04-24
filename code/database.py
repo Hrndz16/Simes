@@ -157,8 +157,7 @@ class DataBase():
             """Retorna la lista de Coordinadores"""
             consulta = f"""select tipousuario,nomusuario,apeusuario,correousuario,fotousuario,estado_usuario from usuarios where tipousuario = '2'"""
             self.cur.execute(consulta)
-            coordinadores = self.cur.fetchall()
-            
+            coordinadores = self.cur.fetchall()            
         return coordinadores
     
     def cargarEventos(self):
@@ -199,6 +198,7 @@ class DataBase():
         tup = (con,correo)
         cons = f"""update usuarios set contrausuario = %s where correousuario = %s"""
         self.cur.execute(cons,tup)
+        self.conn.commit()
         
     def incertar_Coordinador(self,remplazo,cc,nom,apellido,correo,contra,tpid):
         tup = (cc,tpid,2,nom,apellido,correo,contra,self.fotoCoordinador)
@@ -265,7 +265,6 @@ class DataBase():
         consulta = f"""select estado_usuario from usuarios where correousuario = '{correo}'"""
         self.cur.execute(consulta)
         estado = self.cur.fetchall()[0][0]
-        self.conn.commit()
         if estado == 'A':
             return True
         else: return False
@@ -275,7 +274,25 @@ class DataBase():
         self.cur.execute(consulta)
         self.conn.commit()
         
-  
+    def lisEventos(self):
+        consulta = f"""select idevento,fechevento,horaevento,descripcionevento,nomevento,estado_evento from eventos"""
+        self.cur.execute(consulta)
+        registros = self.cur.fetchall()
+        return registros
+    
+    def cambiar_estadoEvento(self, estado, idevento):
+        """Para cambiar el estado del evento resive como parametro (i,a,e) o (I,A,E) para 
+        inhabilitado, habilitado, en espera; correspondientemente, y el id del evento"""
+        consulta = None
+        if estado == 'e' or estado == 'E':
+            consulta = f"""update eventos set estado_evento = 'E' where idevento = '{idevento}'"""
+            
+        elif estado == 'I' or estado == 'i':
+            consulta = f"""update eventos set estado_evento = 'I' where idevento = '{idevento}'"""
+        else:
+            consulta = f"""update eventos set estado_evento = 'A' where idevento = '{idevento}'"""
+        self.cur.execute(consulta)
+        self.conn.commit()
 
 
         

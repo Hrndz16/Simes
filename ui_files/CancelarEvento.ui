@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>204</height>
+    <height>213</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QFrame" name="frame">
+     <widget class="QFrame" name="frame_cancelacionEvento">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -52,28 +52,55 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="QLabel" name="Hora">
+           <widget class="QFrame" name="frame_3">
             <property name="minimumSize">
              <size>
-              <width>0</width>
-              <height>100</height>
+              <width>200</width>
+              <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>114</width>
-              <height>100</height>
+              <width>250</width>
+              <height>16777215</height>
              </size>
             </property>
-            <property name="styleSheet">
-             <string notr="true">.QLabel {
-    font-size: 14px; /* Tamaño de fuente normal */
-    color: #666; /* Color de texto más claro */
-}</string>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
             </property>
-            <property name="text">
-             <string>1-4pm</string>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
             </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>Fecha:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_fecha">
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="text">
+                <string>Hora: </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_hora">
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
@@ -84,6 +111,9 @@
               <height>16777215</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(178, 121, 36);</string>
+            </property>
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
@@ -91,6 +121,12 @@
           </item>
           <item>
            <widget class="QFrame" name="frame_2">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
@@ -114,7 +150,7 @@
               <number>0</number>
              </property>
              <item>
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="label_titulo">
                <property name="font">
                 <font>
                  <pointsize>22</pointsize>
@@ -127,14 +163,7 @@
               </widget>
              </item>
              <item>
-              <widget class="Line" name="line_3">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="Descripcion">
+              <widget class="QLabel" name="label_descripcion">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -163,6 +192,9 @@
           </item>
           <item>
            <widget class="Line" name="line_5">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(178, 121, 36);</string>
+            </property>
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
@@ -215,6 +247,9 @@ QPushButton:presset{
        </item>
        <item row="0" column="0">
         <widget class="Line" name="line">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(178, 121, 36);</string>
+         </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>

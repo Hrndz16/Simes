@@ -2782,7 +2782,7 @@ background-color: transparent;
               </size>
              </property>
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="page_4">
               <layout class="QHBoxLayout" name="horizontalLayout_24">
@@ -2894,7 +2894,7 @@ QPushButton:hover {
                      <string notr="true"/>
                     </property>
                     <property name="text">
-                     <string>ADMINISTAR USUARIOS</string>
+                     <string>ELIMINAR COORDINADORES</string>
                     </property>
                    </widget>
                   </item>
@@ -3085,7 +3085,7 @@ QPushButton:hover {
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pushButton">
+                   <widget class="QPushButton" name="boton_cancelarEvento">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
@@ -4633,7 +4633,74 @@ color: #2c3e50; /* Color del texto */
                   </item>
                  </layout>
                 </widget>
-                <widget class="QWidget" name="Solicitar_eliminacion"/>
+                <widget class="QWidget" name="Solicitar_eliminacion">
+                 <layout class="QGridLayout" name="gridLayout_19">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QFrame" name="frame_21">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_20">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QScrollArea" name="scrollArea_4">
+                       <property name="widgetResizable">
+                        <bool>true</bool>
+                       </property>
+                       <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                        <property name="geometry">
+                         <rect>
+                          <x>0</x>
+                          <y>0</y>
+                          <width>628</width>
+                          <height>541</height>
+                         </rect>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_16">
+                         <item>
+                          <layout class="QVBoxLayout" name="verticalLayout_cancelacionEventos"/>
+                         </item>
+                        </layout>
+                       </widget>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>
