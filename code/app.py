@@ -2,18 +2,19 @@
 import sys,os
 ruta = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(f'{ruta}\\imgs')
-from PySide6.QtWidgets import (QMainWindow,QApplication,QSpacerItem,
+from PySide6.QtWidgets import (QMainWindow,QApplication,
                                QMessageBox,QLineEdit,QFileDialog,
-                               QSizePolicy,QDialog)
+                               QDialog,QMenu, QWidgetAction,QVBoxLayout)
 from Ui_mainwindow import Ui_MainWindow as MW
 from PySide6.QtCore import Qt,QDate,QTime
-from PySide6.QtGui import QFont,QPixmap
+from PySide6.QtGui import QFont,QPixmap,QIcon,QPainter, QColor, QFontMetrics
 from eventos import FrameEvento
 from database import DataBase
 from Ui_nuevaContraseña import Ui_Dialog
 from usuarios import FrameUsuario
 from cancelarEvento import FrameCancelarEvento as can_evento
 from Evento_aceptar_rechazar import FrameCancelarEvento as aceptar_rechazar_evento
+from base_mensaje import frameMensaje
 
 class MainWindow(QMainWindow,MW):#Creacion de main Window
     def __init__(self):
@@ -71,7 +72,55 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.boton_solicitudesDeCancelacion.clicked.connect(lambda:self.solicitudes_cancelacionEventos())
         self.boton_StackedcancelarevetoAdmin.clicked.connect(lambda:self.cancelar_eventosAdministrador())
         
+        self.notificacion=False
+        imagen=QIcon("imgs/icons8-campana-100.png")
+        self.boton_abrir_menu_mensaje.setIcon(imagen)
+        self.boton_abrir_menu_mensaje.setVisible(False)
+        self.boton_abrir_menu_mensaje.clicked.connect(lambda:self.buzonMensajes())
         
+        
+    
+    def buzonMensajes(self):
+        self.eliminar_widgets(self.layout_mensajes,1)
+        self.stackedWidget_admin.setCurrentIndex(6)
+        mensajes=self.db.consultardatosinforme()
+        i=0
+        for mensaje in mensajes:
+            item=frameMensaje(mensaje[0],mensaje[1],mensaje[2])
+            self.layout_mensajes.insertWidget(i,item)
+            i+=1
+        self.cargar_Mensajes()
+            
+    def cargar_Mensajes(self):
+        for i in range(self.layout_mensajes.count()):
+            widget = self.layout_mensajes.itemAt(i).widget()
+            if isinstance(widget, frameMensaje):
+                widget.clicked.connect(self.handleFrameClicked)
+
+            
+    def handleFrameClicked(self,frame):
+        self.stackedWidget_admin.setCurrentIndex(7)
+        remitente=f'De: {frame.de_label.text()} '
+        asunto = f'De: {frame.asunto_label.text()} '
+        print(frame.desc)
+        self.textoInforme.setPlainText(frame.desc)
+        self.RemitenteMensaje.setText(remitente)
+        self.AsuntoMensaje.setText(asunto)
+        self.Boton_enviarInforme_3.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(6))
+    
+    def paintEvent(self, event):
+        super().paintEvent(event)
+        if self.notificacion:
+            painter = QPainter(self)
+            painter.setRenderHint(QPainter.Antialiasing)
+
+            size = self.size()
+            font_metrics = QFontMetrics(self.font())
+            text_width = font_metrics.width("•")
+
+            painter.setBrush(QColor("red"))
+            painter.drawEllipse(size.width() - text_width, 0, text_width, text_width)
+    
     def botonIngresar(self):
         self.Correo_2.clear()
         self.password_2.clear()
@@ -92,6 +141,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.stackedWidget_principal.setCurrentIndex(6)
             self.stackedWidget_admin.setCurrentIndex(0) # Lo posiciona en el stackedWidget de crear un evento
             self.stackedWidget_MenuAdCor.setCurrentIndex(0)# Lo posisiona en el menu del administrador
+            self.boton_abrir_menu_mensaje.setVisible(True)
             self.perfilAdministrador()# Aqui se inicializa la interfaz del perfil del administrador
         else:
             self.stackedWidget_principal.setCurrentIndex(6)
@@ -306,11 +356,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             item = FrameEvento(fecha, self.cedulaU)
             self.verticalLayout_5.insertWidget(i, item)
             i += 1
-            
-
-        
-
-            
+           
     def eliminar_widgets(self,layout,deja):
         while layout.count() > deja:  # Deja al menos un widget en el layout
             widget = layout.takeAt(0).widget()
@@ -715,6 +761,9 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.Box_mensaje('¡Correo no valido!')
             lis[3].clear()
         return b
+    
+   
+        
           
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)

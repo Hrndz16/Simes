@@ -293,6 +293,12 @@ class DataBase():
             consulta = f"""update eventos set estado_evento = 'A' where idevento = '{idevento}'"""
         self.cur.execute(consulta)
         self.conn.commit()
+    
+    def consultardatosinforme(self):
+        consulta= f'select nomusuario, asunto, descrip_informe from informes join usuarios on encargado=idusuario '
+        self.cur.execute(consulta)
+        resultado=self.cur.fetchall()
+        return resultado
 
 
         
