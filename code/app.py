@@ -70,6 +70,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.boton_cancelacionEventos.clicked.connect(lambda:self.cancelar_eventosAdministrador())## llama a cancelar eventos por parte del administrador
         self.boton_solicitudesDeCancelacion.clicked.connect(lambda:self.solicitudes_cancelacionEventos())
         self.boton_StackedcancelarevetoAdmin.clicked.connect(lambda:self.cancelar_eventosAdministrador())
+        self.Boton_enviarInforme.clicked.connect(lambda:self.guardar_informe())
+
         
         
     def botonIngresar(self):
@@ -695,11 +697,12 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         try:
             float(nombre)
             float(apellido)
-        except:
             b = False
             self.Box_mensaje('¡No se atmiten nombre y apellido como numero\nPuede ser combinacion de ambos!')
             lis[1].clear()
             lis[2].clear()
+        except:pass
+            
         correo = correo.rstrip()
         try:
             indice = correo.index('@')
@@ -715,6 +718,19 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
             self.Box_mensaje('¡Correo no valido!')
             lis[3].clear()
         return b
+    
+    def guardar_informe(self):
+        #1 se recopilan los datos en variables
+        asunto = self.AsuntoEvento.text()
+        texto = self.textoInforme.toPlainText()
+        encargado = self.Usu_activo
+        if asunto != '' and texto != '':
+            self.db.guardar_informe(asunto,texto,encargado)
+            self.Box_mensaje('¡Se envio con exito!')
+            self.AsuntoEvento.clear()
+            self.textoInforme.clear()
+        else:
+            self.Box_mensaje('¡En el informe todos los datos son necesarios!')
           
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)
