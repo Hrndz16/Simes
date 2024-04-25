@@ -289,7 +289,7 @@ border-color:transparent;</string>
           <number>1</number>
          </property>
          <property name="currentIndex">
-          <number>6</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page_1_inicio">
           <property name="styleSheet">
@@ -2716,6 +2716,36 @@ QPushButton:hover {
                   </widget>
                  </item>
                  <item>
+                  <widget class="QToolButton" name="Boton_cambiarContra_2">
+                   <property name="styleSheet">
+                    <string notr="true">/* Estilo para QPushButton */
+QToolButton {
+    border: 2px solid  rgb(109, 70, 3); /* Borde */
+    border-radius: 13px; /* Radio de borde */
+    padding: 5px 10px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-family: Arial, sans-serif; /* Fuente */
+    color: #ffffff; /* Color del texto */
+    background-color:  rgb(109, 70, 3); /* Color de fondo */
+}
+
+/* Estilo para QPushButton cuando se presiona */
+QToolButton:pressed {
+    background-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */
+}
+
+/* Estilo para QPushButton cuando el cursor está encima */
+QToolButton:hover {
+    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */
+    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Eliminar Cuenta</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QToolButton" name="Boton_cambiarContra">
                    <property name="styleSheet">
                     <string notr="true">/* Estilo para QPushButton */
@@ -4647,8 +4677,8 @@ color: #2c3e50; /* Color del texto */
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>568</width>
-                          <height>526</height>
+                          <width>79</width>
+                          <height>20</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -4729,8 +4759,8 @@ color: #2c3e50; /* Color del texto */
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>568</width>
-                          <height>544</height>
+                          <width>96</width>
+                          <height>26</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -4971,8 +5001,8 @@ Cancelacion</string>
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>570</width>
-                           <height>486</height>
+                           <width>81</width>
+                           <height>20</height>
                           </rect>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -5019,8 +5049,8 @@ Cancelacion</string>
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>570</width>
-                       <height>551</height>
+                       <width>98</width>
+                       <height>28</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_19">

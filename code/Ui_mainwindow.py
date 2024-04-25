@@ -1524,6 +1524,32 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_19.addWidget(self.Boto_cerrarsesion)
 
+        self.Boton_cambiarContra_2 = QToolButton(self.frame_7)
+        self.Boton_cambiarContra_2.setObjectName(u"Boton_cambiarContra_2")
+        self.Boton_cambiarContra_2.setStyleSheet(u"/* Estilo para QPushButton */\n"
+"QToolButton {\n"
+"    border: 2px solid  rgb(109, 70, 3); /* Borde */\n"
+"    border-radius: 13px; /* Radio de borde */\n"
+"    padding: 5px 10px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-family: Arial, sans-serif; /* Fuente */\n"
+"    color: #ffffff; /* Color del texto */\n"
+"    background-color:  rgb(109, 70, 3); /* Color de fondo */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando se presiona */\n"
+"QToolButton:pressed {\n"
+"    background-color:  rgba(109, 70, 3,200); /* Cambio de color al presionar */\n"
+"}\n"
+"\n"
+"/* Estilo para QPushButton cuando el cursor est\u00e1 encima */\n"
+"QToolButton:hover {\n"
+"    background-color: rgba(109, 70, 3,150); /* Cambio de color al pasar el cursor */\n"
+"    border: 2px solid  rgba(109, 70, 3,150); /* Cambio de borde al pasar el cursor */\n"
+"}")
+
+        self.horizontalLayout_19.addWidget(self.Boton_cambiarContra_2)
+
         self.Boton_cambiarContra = QToolButton(self.frame_7)
         self.Boton_cambiarContra.setObjectName(u"Boton_cambiarContra")
         self.Boton_cambiarContra.setStyleSheet(u"/* Estilo para QPushButton */\n"
@@ -2619,7 +2645,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 568, 526))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 79, 20))
         self.verticalLayout_15 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.verticalLayout_Lis_Coordinadores = QVBoxLayout()
@@ -2658,7 +2684,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 568, 544))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 96, 26))
         self.verticalLayout_16 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.verticalLayout_cancelacionEventos = QVBoxLayout()
@@ -2796,7 +2822,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 570, 486))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 81, 20))
         self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.verticalLayout_Aceptar_rechazarSolicitud = QVBoxLayout()
@@ -2825,7 +2851,7 @@ class Ui_MainWindow(object):
         self.scrollArea_7.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 570, 551))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 98, 28))
         self.verticalLayout_19 = QVBoxLayout(self.scrollAreaWidgetContents_5)
         self.verticalLayout_19.setSpacing(0)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
@@ -3192,7 +3218,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_principal.setCurrentIndex(6)
+        self.stackedWidget_principal.setCurrentIndex(4)
         self.stackedWidget_MenuAdCor.setCurrentIndex(0)
         self.stackedWidget_admin.setCurrentIndex(7)
         self.stackedWidgetCacelarEvento.setCurrentIndex(1)
@@ -3289,6 +3315,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(shortcut)
         self.Boto_cerrarsesion.setShortcut("")
 #endif // QT_CONFIG(shortcut)
+        self.Boton_cambiarContra_2.setText(QCoreApplication.translate("MainWindow", u"Eliminar Cuenta", None))
         self.Boton_cambiarContra.setText(QCoreApplication.translate("MainWindow", u"Cambiar Contase\u00f1a", None))
         self.Boton_adminEventos.setText(QCoreApplication.translate("MainWindow", u"ADMINISTAR EVENTOS", None))
         self.Boton_adminUsuarios.setText(QCoreApplication.translate("MainWindow", u"ELIMINAR COORDINADORES", None))

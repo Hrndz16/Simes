@@ -295,11 +295,21 @@ class DataBase():
         self.conn.commit()
     
     def consultardatosinforme(self):
-        consulta= f'select nomusuario, asunto, descrip_informe from informes join usuarios on encargado=idusuario '
+        consulta= f'select nomusuario,apeusuario, asunto, descrip_informe from informes join usuarios on encargado=idusuario '
         self.cur.execute(consulta)
         resultado=self.cur.fetchall()
         return resultado
 
+    def consultarContraseña(self,usuario):
+        consulta = f'select contrausuario from usuarios where idusuario=%s'
+        self.cur.execute(consulta,(usuario,))
+        resultado=self.cur.fetchone()[0]
+        return resultado
+    
+    def eliminar_usuario2(self,usuario):
+        consulta = f'delete from usuarios where idusuario=%s'
+        self.cur.execute(consulta,(usuario,))
+        self.conn.commit()
 
         
         

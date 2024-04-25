@@ -15,9 +15,40 @@ from usuarios import FrameUsuario
 from cancelarEvento import FrameCancelarEvento as can_evento
 from Evento_aceptar_rechazar import FrameCancelarEvento as aceptar_rechazar_evento
 from base_mensaje import frameMensaje
+from Ui_confirmacionEliminacion import Ui_Dialog as Contraseña
 
+
+class CustomDialog(QDialog,Contraseña):
+    def __init__(self, parent=None):
+        super().__init__()
+        self.setupUi(self)
+    def obtenerContraseña(self):
+        return self.lineEdit.text()
 class MainWindow(QMainWindow,MW):#Creacion de main Window
     def __init__(self):
+        self.mensaje2 = QMessageBox()
+        self.mensaje2.setStyleSheet("""
+                QMessageBox {
+                    background-color: #f0f0f0;
+                    border: 2px solid darkgray;
+                    border-radius: 100%;
+                }
+                QMessageBox QLabel {
+                    color: #333;
+                }
+                QMessageBox QPushButton {
+                    background-color: #c57007;
+                    color: white;
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                }
+                QMessageBox QPushButton:hover {
+                    background-color:#f49011;
+                }
+            """)
+        self.mensaje2.addButton(QMessageBox.Yes)
+        self.mensaje2.addButton(QMessageBox.No)
+        self.mensaje2.setWindowFlags(Qt.FramelessWindowHint)
         self.mensaje = QMessageBox()
         self.mensaje.setStyleSheet("""
                 QMessageBox {
@@ -72,6 +103,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.boton_solicitudesDeCancelacion.clicked.connect(lambda:self.solicitudes_cancelacionEventos())
         self.boton_StackedcancelarevetoAdmin.clicked.connect(lambda:self.cancelar_eventosAdministrador())
         self.Boton_enviarInforme.clicked.connect(lambda:self.guardar_informe())
+        self.Boton_cambiarContra_2.clicked.connect(lambda:self.borrarCuenta())
+        
 
         
         self.notificacion=False
@@ -80,15 +113,48 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.boton_abrir_menu_mensaje.setVisible(False)
         self.boton_abrir_menu_mensaje.clicked.connect(lambda:self.buzonMensajes())
         
+    def borrarCuenta(self):
+        self.mensaje2.setText('Estas seguro de querer borrar tu cuenta\n recuerda de esto es ireversible')
+        
+        if self.mensaje2.exec() == QMessageBox.Yes:
+            # Mostrar mensaje y esperar a que se cierre
+            self.mensaje.setText('Por razones de seguridad te pedimos que escribas tu contraseña')
+            self.mensaje.exec()
+
+            # Crear e iniciar el diálogo personalizado
+            dialog = CustomDialog()
+            dialog.pushButton.clicked.connect(lambda: self.confirmarcontra(dialog))
+            dialog.exec()
+
+    def confirmarcontra(self, dialog):
+        contra = dialog.obtenerContraseña()
+        
+        if contra == self.db.consultarContraseña(self.cedulaU):
+            
+            self.db.eliminar_usuario2(self.cedulaU)
+            dialog.close()
+            self.mensaje.setText('Se ha eliminado tu cuenta')
+            self.mensaje.exec()
+            self.cerrar_sesion()
+            
+        else:
+            self.mensaje.setText('Contraseña incorrecta')
+            self.mensaje.exec()
+            
+            
+        
+        
+        
         
     
     def buzonMensajes(self):
         self.eliminar_widgets(self.layout_mensajes,1)
         self.stackedWidget_admin.setCurrentIndex(6)
+        self.stackedWidget_principal.setCurrentIndex(6)
         mensajes=self.db.consultardatosinforme()
         i=0
         for mensaje in mensajes:
-            item=frameMensaje(mensaje[0],mensaje[1],mensaje[2])
+            item=frameMensaje(f'{mensaje[0]} {mensaje[1]}',mensaje[2],mensaje[3])
             self.layout_mensajes.insertWidget(i,item)
             i+=1
         self.cargar_Mensajes()
@@ -104,8 +170,8 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.stackedWidget_admin.setCurrentIndex(7)
         remitente=f'De: {frame.de_label.text()} '
         asunto = f'De: {frame.asunto_label.text()} '
-        print(frame.desc)
-        self.textoInforme.setPlainText(frame.desc)
+        
+        self.textoinformemensaje.setPlainText(frame.desc)
         self.RemitenteMensaje.setText(remitente)
         self.AsuntoMensaje.setText(asunto)
         self.Boton_enviarInforme_3.clicked.connect(lambda:self.stackedWidget_admin.setCurrentIndex(6))
@@ -367,6 +433,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         
         
     def cerrar_sesion(self):
+        self.boton_abrir_menu_mensaje.setVisible(False)
         self.tipo_usuario = 0
         self.Usu_activo = 0
         self.cedulaU = 0
@@ -771,7 +838,7 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         #1 se recopilan los datos en variables
         asunto = self.AsuntoEvento.text()
         texto = self.textoInforme.toPlainText()
-        encargado = self.Usu_activo
+        encargado = self.cedulaU
         if asunto != '' and texto != '':
             self.db.guardar_informe(asunto,texto,encargado)
             self.Box_mensaje('¡Se envio con exito!')
