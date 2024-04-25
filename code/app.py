@@ -381,14 +381,13 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         if nomevento == '':
             self.mensaje.setText("¡El Título del evento es obligatorio!")
             self.mensaje.exec_()
-            self.Boton_guardarEvento.clicked.disconnect()
-            self.Boton_guardarEvento.clicked.connect(lambda:self.perfilAdministrador())
-        elif encargado == '':
+            # self.Boton_guardarEvento.clicked.disconnect()
+            # self.Boton_guardarEvento.clicked.connect(lambda:self.perfilAdministrador())
+        if encargado == ['']:
             self.mensaje.setText("¡El encargado del evento es obligatorio!")
             self.mensaje.exec_()
-            self.Boton_guardarEvento.clicked.disconnect()
-            self.Boton_guardarEvento.clicked.connect(lambda:self.perfilAdministrador())
-
+            # self.Boton_guardarEvento.clicked.disconnect()
+            # self.Boton_guardarEvento.clicked.connect(lambda:self.perfilAdministrador())
         else: b = encargado[1]
             
         # Validamos que la hora de inicio no sea mayor o igual que la hora final
