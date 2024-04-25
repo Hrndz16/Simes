@@ -1651,6 +1651,18 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.pushButton_3)
 
+        self.line_7 = QFrame(self.frame_2)
+        self.line_7.setObjectName(u"line_7")
+        self.line_7.setFrameShape(QFrame.HLine)
+        self.line_7.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_6.addWidget(self.line_7)
+
+        self.boton_cancelacionEventos = QPushButton(self.frame_2)
+        self.boton_cancelacionEventos.setObjectName(u"boton_cancelacionEventos")
+
+        self.verticalLayout_6.addWidget(self.boton_cancelacionEventos)
+
         self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_6.addItem(self.verticalSpacer_10)
@@ -1772,6 +1784,7 @@ class Ui_MainWindow(object):
         self.stackedWidget_admin.setObjectName(u"stackedWidget_admin")
         sizePolicy.setHeightForWidth(self.stackedWidget_admin.sizePolicy().hasHeightForWidth())
         self.stackedWidget_admin.setSizePolicy(sizePolicy)
+        self.stackedWidget_admin.setMinimumSize(QSize(60, 0))
         self.stackedWidget_admin.setStyleSheet(u"background-color:transparent;")
         self.paginaCrearEvento = QWidget()
         self.paginaCrearEvento.setObjectName(u"paginaCrearEvento")
@@ -2076,17 +2089,17 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addItem(self.verticalSpacer_3)
 
         self.stackedWidget_admin.addWidget(self.paginaCrearEvento)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.page_2.setStyleSheet(u"QFrame{\n"
+        self.page_Elaborarinforme = QWidget()
+        self.page_Elaborarinforme.setObjectName(u"page_Elaborarinforme")
+        self.page_Elaborarinforme.setStyleSheet(u"QFrame{\n"
 "background-color: rgba(243, 226, 188,70);\n"
 "}")
-        self.gridLayout_11 = QGridLayout(self.page_2)
+        self.gridLayout_11 = QGridLayout(self.page_Elaborarinforme)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.gridLayout_11.setHorizontalSpacing(0)
         self.gridLayout_11.setVerticalSpacing(9)
         self.gridLayout_11.setContentsMargins(0, 0, 0, 9)
-        self.frame_11 = QFrame(self.page_2)
+        self.frame_11 = QFrame(self.page_Elaborarinforme)
         self.frame_11.setObjectName(u"frame_11")
         self.frame_11.setStyleSheet(u"QFrame{\n"
 "background-color:transparent;\n"
@@ -2309,7 +2322,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_11.addWidget(self.frame_11, 0, 0, 1, 1)
 
-        self.stackedWidget_admin.addWidget(self.page_2)
+        self.stackedWidget_admin.addWidget(self.page_Elaborarinforme)
         self.paginaFrearCoordinador = QWidget()
         self.paginaFrearCoordinador.setObjectName(u"paginaFrearCoordinador")
         self.paginaFrearCoordinador.setStyleSheet(u"QFrame{\n"
@@ -2656,6 +2669,145 @@ class Ui_MainWindow(object):
         self.gridLayout_19.addWidget(self.frame_21, 0, 0, 1, 1)
 
         self.stackedWidget_admin.addWidget(self.Solicitar_eliminacion)
+        self.canselar_eventoAdmin = QWidget()
+        self.canselar_eventoAdmin.setObjectName(u"canselar_eventoAdmin")
+        self.verticalLayout_14 = QVBoxLayout(self.canselar_eventoAdmin)
+        self.verticalLayout_14.setSpacing(0)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.frame_22 = QFrame(self.canselar_eventoAdmin)
+        self.frame_22.setObjectName(u"frame_22")
+        self.frame_22.setMaximumSize(QSize(16777215, 60))
+        self.frame_22.setFrameShape(QFrame.StyledPanel)
+        self.frame_22.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_26 = QHBoxLayout(self.frame_22)
+        self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.horizontalLayout_26.setContentsMargins(-1, 0, -1, -1)
+        self.horizontalSpacer_34 = QSpacerItem(105, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_26.addItem(self.horizontalSpacer_34)
+
+        self.boton_StackedcancelarevetoAdmin = QPushButton(self.frame_22)
+        self.boton_StackedcancelarevetoAdmin.setObjectName(u"boton_StackedcancelarevetoAdmin")
+        self.boton_StackedcancelarevetoAdmin.setMinimumSize(QSize(0, 50))
+        self.boton_StackedcancelarevetoAdmin.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(244, 144, 17);\n"
+"	\n"
+"	background-color: rgb(207, 118, 7); /* Color de fondo */\n"
+"    color: white; /* Color del texto */\n"
+"    border: solid transparent;\n"
+"    border-color:rgb(168, 13, 13);  /* Color del borde */\n"
+"    border-radius: 10px; /* Radio de borde para esquinas redondeadas */\n"
+"    padding: 8px 16px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Peso de la fuente */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#f49011 ;/* Cambiar el color de fondo al pasar el mouse */\n"
+"    border-color:#f49011;/* Cambiar el color del borde al pasar el mouse */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #f38704; /* Cambiar el color de fondo al hacer clic */\n"
+"    border-color:#f38704;/* Cambiar el color del borde al hacer clic */\n"
+"}")
+
+        self.horizontalLayout_26.addWidget(self.boton_StackedcancelarevetoAdmin)
+
+        self.horizontalSpacer_35 = QSpacerItem(104, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_26.addItem(self.horizontalSpacer_35)
+
+        self.boton_solicitudesDeCancelacion = QPushButton(self.frame_22)
+        self.boton_solicitudesDeCancelacion.setObjectName(u"boton_solicitudesDeCancelacion")
+        self.boton_solicitudesDeCancelacion.setMinimumSize(QSize(0, 50))
+        self.boton_solicitudesDeCancelacion.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(244, 144, 17);\n"
+"	\n"
+"	background-color: rgb(207, 118, 7); /* Color de fondo */\n"
+"    color: white; /* Color del texto */\n"
+"    border: solid transparent;\n"
+"    border-color:rgb(168, 13, 13);  /* Color del borde */\n"
+"    border-radius: 10px; /* Radio de borde para esquinas redondeadas */\n"
+"    padding: 8px 16px; /* Espaciado interno */\n"
+"    font-size: 14px; /* Tama\u00f1o de fuente */\n"
+"    font-weight: bold; /* Peso de la fuente */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color:#f49011 ;/* Cambiar el color de fondo al pasar el mouse */\n"
+"    border-color:#f49011;/* Cambiar el color del borde al pasar el mouse */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #f38704; /* Cambiar el color de fondo al hacer clic */\n"
+"    border-color:#f38704;/* Cambiar el color del borde al hacer clic */\n"
+"}")
+
+        self.horizontalLayout_26.addWidget(self.boton_solicitudesDeCancelacion)
+
+        self.horizontalSpacer_36 = QSpacerItem(105, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_26.addItem(self.horizontalSpacer_36)
+
+
+        self.verticalLayout_14.addWidget(self.frame_22)
+
+        self.stackedWidgetCacelarEvento = QStackedWidget(self.canselar_eventoAdmin)
+        self.stackedWidgetCacelarEvento.setObjectName(u"stackedWidgetCacelarEvento")
+        self.page_admiCancelaEvento = QWidget()
+        self.page_admiCancelaEvento.setObjectName(u"page_admiCancelaEvento")
+        self.verticalLayout_20 = QVBoxLayout(self.page_admiCancelaEvento)
+        self.verticalLayout_20.setSpacing(0)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea_5 = QScrollArea(self.page_admiCancelaEvento)
+        self.scrollArea_5.setObjectName(u"scrollArea_5")
+        self.scrollArea_5.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_3 = QWidget()
+        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 630, 483))
+        self.verticalLayout_21 = QVBoxLayout(self.scrollAreaWidgetContents_3)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.verticalLayout_LisEventosCanceladosHabilitados = QVBoxLayout()
+        self.verticalLayout_LisEventosCanceladosHabilitados.setObjectName(u"verticalLayout_LisEventosCanceladosHabilitados")
+
+        self.verticalLayout_21.addLayout(self.verticalLayout_LisEventosCanceladosHabilitados)
+
+        self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_3)
+
+        self.verticalLayout_20.addWidget(self.scrollArea_5)
+
+        self.stackedWidgetCacelarEvento.addWidget(self.page_admiCancelaEvento)
+        self.page_SolicitudCancelacion = QWidget()
+        self.page_SolicitudCancelacion.setObjectName(u"page_SolicitudCancelacion")
+        self.gridLayout_21 = QGridLayout(self.page_SolicitudCancelacion)
+        self.gridLayout_21.setSpacing(0)
+        self.gridLayout_21.setObjectName(u"gridLayout_21")
+        self.gridLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea_6 = QScrollArea(self.page_SolicitudCancelacion)
+        self.scrollArea_6.setObjectName(u"scrollArea_6")
+        self.scrollArea_6.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_4 = QWidget()
+        self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 630, 483))
+        self.verticalLayout_18 = QVBoxLayout(self.scrollAreaWidgetContents_4)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.verticalLayout_Aceptar_rechazarSolicitud = QVBoxLayout()
+        self.verticalLayout_Aceptar_rechazarSolicitud.setObjectName(u"verticalLayout_Aceptar_rechazarSolicitud")
+
+        self.verticalLayout_18.addLayout(self.verticalLayout_Aceptar_rechazarSolicitud)
+
+        self.scrollArea_6.setWidget(self.scrollAreaWidgetContents_4)
+
+        self.gridLayout_21.addWidget(self.scrollArea_6, 0, 0, 1, 1)
+
+        self.stackedWidgetCacelarEvento.addWidget(self.page_SolicitudCancelacion)
+
+        self.verticalLayout_14.addWidget(self.stackedWidgetCacelarEvento)
+
+        self.stackedWidget_admin.addWidget(self.canselar_eventoAdmin)
 
         self.verticalLayout_7.addWidget(self.stackedWidget_admin)
 
@@ -2770,7 +2922,8 @@ class Ui_MainWindow(object):
 
         self.stackedWidget_principal.setCurrentIndex(6)
         self.stackedWidget_MenuAdCor.setCurrentIndex(0)
-        self.stackedWidget_admin.setCurrentIndex(4)
+        self.stackedWidget_admin.setCurrentIndex(3)
+        self.stackedWidgetCacelarEvento.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2868,6 +3021,8 @@ class Ui_MainWindow(object):
         self.Boton_adminUsuarios.setText(QCoreApplication.translate("MainWindow", u"ELIMINAR COORDINADORES", None))
         self.boton_appendCoordinador.setText(QCoreApplication.translate("MainWindow", u"CREAR COORDINADORES", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"MENSAJES", None))
+        self.boton_cancelacionEventos.setText(QCoreApplication.translate("MainWindow", u"CANCELACI\u00d3N\n"
+"DE EVENTOS", None))
         self.Boton_ElaborarInforme.setText(QCoreApplication.translate("MainWindow", u"ELABORAR UN INFORME", None))
         self.Boton_CoorEventos.setText(QCoreApplication.translate("MainWindow", u"PROGRAMAR EVENTO", None))
         self.boton_cancelarEvento.setText(QCoreApplication.translate("MainWindow", u"SOLICITAR CANCELACION\n"
@@ -2912,6 +3067,9 @@ class Ui_MainWindow(object):
         self.boton_CrearCoodinador.setText(QCoreApplication.translate("MainWindow", u"CREAR CUENTA", None))
         self.Apellido_Coordinador.setInputMask("")
         self.Apellido_Coordinador.setText("")
+        self.boton_StackedcancelarevetoAdmin.setText(QCoreApplication.translate("MainWindow", u"Cancelar evento", None))
+        self.boton_solicitudesDeCancelacion.setText(QCoreApplication.translate("MainWindow", u"Solicitudes de\n"
+"Cancelacion", None))
         self.label_lista_eventos.setText(QCoreApplication.translate("MainWindow", u"Aun no te has suscrito a ningun evento", None))
         self.boton_prox_ev_LE.setText(QCoreApplication.translate("MainWindow", u"Proximos eventos", None))
     # retranslateUi

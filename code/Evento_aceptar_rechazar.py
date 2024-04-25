@@ -1,7 +1,7 @@
 import sys,os
 ruta = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(f'{ruta}\\imgs')
-from Ui_CancelarEvento import Ui_MainWindow as frame
+from Ui_Evento_aceptar_rechazar import Ui_MainWindow as frame
 from PySide6.QtWidgets import QMainWindow, QMessageBox,QFrame,QWidget
 from PySide6.QtCore import Qt, Signal
 from database import DataBase
@@ -10,8 +10,9 @@ from PySide6.QtGui import QPixmap
 
 class FrameCancelarEvento(frame,QMainWindow):
     button_clicked = Signal(str,QFrame)  # Señal que emite la ID del objeto cuando se hace clic en el botón
+    button_clickedRechazar = Signal(str,QFrame)
 
-    def __init__(self,id=None,fecha=None,hora=None,descripcion=None, titulo=None):
+    def __init__(self,id,fecha,hora,descripcion, titulo):
         self.mensaje = QMessageBox()
         self.mensaje.setStyleSheet("""
                 QMessageBox {
@@ -68,10 +69,17 @@ class FrameCancelarEvento(frame,QMainWindow):
         self.obtenerEvento()
         
         self.boton_CancelarEvento.clicked.connect(self.emit_button_clicked)
+        self.Boton_rechazarCancelacion.clicked.connect(self.emit_button_clicked2)
 
     def emit_button_clicked(self):
         # Cuando se hace clic en el botón, emite la señal button_clicked con la ID del objeto
         self.button_clicked.emit(self.id,self)
+        
+    
+    def emit_button_clicked2(self):
+        # Cuando se hace clic en el botón, emite la señal button_clicked con la ID del objeto
+        self.button_clickedRechazar.emit(self.id,self)
+
     
             
     

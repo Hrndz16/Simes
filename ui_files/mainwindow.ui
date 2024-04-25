@@ -2939,6 +2939,21 @@ QPushButton:hover {
                    </widget>
                   </item>
                   <item>
+                   <widget class="Line" name="line_7">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="boton_cancelacionEventos">
+                    <property name="text">
+                     <string>CANCELACIÓN
+DE EVENTOS</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <spacer name="verticalSpacer_10">
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
@@ -3171,11 +3186,17 @@ DE EVENTOS</string>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>60</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">background-color:transparent;</string>
                 </property>
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>3</number>
                 </property>
                 <widget class="QWidget" name="paginaCrearEvento">
                  <property name="styleSheet">
@@ -3748,7 +3769,7 @@ QTimeEdit::up-button {
                   </item>
                  </layout>
                 </widget>
-                <widget class="QWidget" name="page_2">
+                <widget class="QWidget" name="page_Elaborarinforme">
                  <property name="styleSheet">
                   <string notr="true">QFrame{
 background-color: rgba(243, 226, 188,70);
@@ -4697,6 +4718,249 @@ color: #2c3e50; /* Color del texto */
                       </widget>
                      </item>
                     </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="canselar_eventoAdmin">
+                 <layout class="QVBoxLayout" name="verticalLayout_14">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QFrame" name="frame_22">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>60</height>
+                     </size>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_26">
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <spacer name="horizontalSpacer_34">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>105</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="boton_StackedcancelarevetoAdmin">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>50</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+	color: rgb(244, 144, 17);
+	
+	background-color: rgb(207, 118, 7); /* Color de fondo */
+    color: white; /* Color del texto */
+    border: solid transparent;
+    border-color:rgb(168, 13, 13);  /* Color del borde */
+    border-radius: 10px; /* Radio de borde para esquinas redondeadas */
+    padding: 8px 16px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: bold; /* Peso de la fuente */
+}
+
+QPushButton:hover {
+    background-color:#f49011 ;/* Cambiar el color de fondo al pasar el mouse */
+    border-color:#f49011;/* Cambiar el color del borde al pasar el mouse */
+}
+
+QPushButton:pressed {
+    background-color: #f38704; /* Cambiar el color de fondo al hacer clic */
+    border-color:#f38704;/* Cambiar el color del borde al hacer clic */
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Cancelar evento</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_35">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>104</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="boton_solicitudesDeCancelacion">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>50</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+	color: rgb(244, 144, 17);
+	
+	background-color: rgb(207, 118, 7); /* Color de fondo */
+    color: white; /* Color del texto */
+    border: solid transparent;
+    border-color:rgb(168, 13, 13);  /* Color del borde */
+    border-radius: 10px; /* Radio de borde para esquinas redondeadas */
+    padding: 8px 16px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: bold; /* Peso de la fuente */
+}
+
+QPushButton:hover {
+    background-color:#f49011 ;/* Cambiar el color de fondo al pasar el mouse */
+    border-color:#f49011;/* Cambiar el color del borde al pasar el mouse */
+}
+
+QPushButton:pressed {
+    background-color: #f38704; /* Cambiar el color de fondo al hacer clic */
+    border-color:#f38704;/* Cambiar el color del borde al hacer clic */
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Solicitudes de
+Cancelacion</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="horizontalSpacer_36">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>105</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QStackedWidget" name="stackedWidgetCacelarEvento">
+                    <property name="currentIndex">
+                     <number>1</number>
+                    </property>
+                    <widget class="QWidget" name="page_admiCancelaEvento">
+                     <layout class="QVBoxLayout" name="verticalLayout_20">
+                      <property name="spacing">
+                       <number>0</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <item>
+                       <widget class="QScrollArea" name="scrollArea_5">
+                        <property name="widgetResizable">
+                         <bool>true</bool>
+                        </property>
+                        <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                         <property name="geometry">
+                          <rect>
+                           <x>0</x>
+                           <y>0</y>
+                           <width>630</width>
+                           <height>483</height>
+                          </rect>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_21">
+                          <item>
+                           <layout class="QVBoxLayout" name="verticalLayout_LisEventosCanceladosHabilitados"/>
+                          </item>
+                         </layout>
+                        </widget>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page_SolicitudCancelacion">
+                     <layout class="QGridLayout" name="gridLayout_21">
+                      <property name="leftMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="spacing">
+                       <number>0</number>
+                      </property>
+                      <item row="0" column="0">
+                       <widget class="QScrollArea" name="scrollArea_6">
+                        <property name="widgetResizable">
+                         <bool>true</bool>
+                        </property>
+                        <widget class="QWidget" name="scrollAreaWidgetContents_4">
+                         <property name="geometry">
+                          <rect>
+                           <x>0</x>
+                           <y>0</y>
+                           <width>630</width>
+                           <height>483</height>
+                          </rect>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_18">
+                          <item>
+                           <layout class="QVBoxLayout" name="verticalLayout_Aceptar_rechazarSolicitud"/>
+                          </item>
+                         </layout>
+                        </widget>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
                    </widget>
                   </item>
                  </layout>

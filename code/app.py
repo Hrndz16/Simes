@@ -13,6 +13,7 @@ from database import DataBase
 from Ui_nuevaContraseña import Ui_Dialog
 from usuarios import FrameUsuario
 from cancelarEvento import FrameCancelarEvento as can_evento
+from Evento_aceptar_rechazar import FrameCancelarEvento as aceptar_rechazar_evento
 
 class MainWindow(QMainWindow,MW):#Creacion de main Window
     def __init__(self):
@@ -65,7 +66,11 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         self.Boton_objetos.clicked.connect(lambda:self.crear_LE())
         self.boton_prox_ev_LE.clicked.connect(lambda:self.botonProxEvento())
         self.Boton_adminUsuarios.clicked.connect(lambda:self.mostrar_coordinadores())   
-        self.boton_cancelarEvento.clicked.connect(lambda:self.cancelar_eventosLista())     
+        self.boton_cancelarEvento.clicked.connect(lambda:self.cancelar_eventosLista()) ## llama a cancelar por parte del coordinador
+        self.boton_cancelacionEventos.clicked.connect(lambda:self.cancelar_eventosAdministrador())## llama a cancelar eventos por parte del administrador
+        self.boton_solicitudesDeCancelacion.clicked.connect(lambda:self.solicitudes_cancelacionEventos())
+        self.boton_StackedcancelarevetoAdmin.clicked.connect(lambda:self.cancelar_eventosAdministrador())
+        
         
     def botonIngresar(self):
         self.Correo_2.clear()
@@ -127,15 +132,18 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         contra=self.password.text()
         cc=self.Cedula.text()
         lis = [cc,contra,nombre,tipoCC,apellido,correo]
+        lis2 = [self.password,self.Nombre,self.Apellido,self.Correo]
         try:
             if bool(self.verificar_valoresObligatorios(lis)) == True:
-                cc=int(cc) #Valida si la cedula es un entero
-                self.guardarRegistrousuario(cc=cc,correo=correo,tipoCC=tipoCC,nombre=nombre,apellido=apellido,contra=contra)# Se validan los datos y se guarda el registro
+                if bool(self.validar_nom_correo_ape(contra,nombre,apellido,correo,lis2)):
+                    cc=int(cc) #Valida si la cedula es un entero
+                    self.guardarRegistrousuario(cc=cc,correo=correo,tipoCC=tipoCC,nombre=nombre,apellido=apellido,contra=contra)# Se validan los datos y se guarda el registro
             else: self.Box_mensaje('¡¡¡Todos los datos son obligatorios!!!')
         except ValueError:
             self.Box_mensaje('¡¡¡La cedula debe de ser un número!!!')
             self.Cedula.clear()
             pass
+        
         
     def verificar_valoresObligatorios(self,lis):
         '''Me ayuda a comprobar que todos los datos en el registro de un nuevo usuario tengan algun valor'''
@@ -448,11 +456,13 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         #         cc = int(cc)
         # lis = [cc,nombre,apellido,correo,contra,tpid]
         # self.datos_cuentaCoordinador(lis,correo,cc)
+        enlis = [self.password_Coordinador,self.Nombre_Coordinador,self.Apellido_Coordinador,self.Correo_Coordinador]
         try:
             if cc != '':
                 cc = int(cc)
             lis = [cc,nombre,apellido,correo,contra,tpid]
-            self.datos_cuentaCoordinador(lis,correo,cc)
+            if bool(self.validar_nom_correo_ape(contra,nombre,apellido,correo,enlis))==True:
+                self.datos_cuentaCoordinador(lis,correo,cc)
         except ValueError: 
             self.Box_mensaje('¡La cedula debe de ser un número!')
             self.Cedula_Coordinador.clear()
@@ -583,6 +593,128 @@ class MainWindow(QMainWindow,MW):#Creacion de main Window
         frame.boton_CancelarEvento.setText('Enviado\npara cancelar')
         self.db.cambiar_estadoEvento('e',id)
         
+        
+    ######################################################################################################
+    def cancelar_eventosAdministrador(self):
+        self.stackedWidget_admin.setCurrentIndex(5)
+        self.stackedWidgetCacelarEvento.setCurrentIndex(0)
+        self.limpiarVerticalLayout(self.verticalLayout_LisEventosCanceladosHabilitados)
+        i = 0
+        eventos = self.db.lisEventos()
+        try:
+            if eventos != []:
+                for registro in eventos:
+                    if registro[5] == 'A':
+                        frame = can_evento(registro[0],registro[1],registro[2],registro[3],registro[4])
+                        self.verticalLayout_LisEventosCanceladosHabilitados.insertWidget(i,frame)
+                        i = i + 1
+                    elif registro[5] == 'I':
+                        frame = can_evento(registro[0],registro[1],registro[2],registro[3],registro[4])
+                        frame.boton_CancelarEvento.setDisabled(True)
+                        frame.boton_CancelarEvento.setText('Evento\ncancelado')
+                        self.verticalLayout_LisEventosCanceladosHabilitados.insertWidget(i,frame)
+                        i = i + 1                     
+                self.cargar_botonesCancelarEventoAdmin()
+            else:
+                self.Box_mensaje('¡No hay eventos programados en el centro cultural!')
+        except:print("en este bloque esta el fallo")
+        
+        
+    def cargar_botonesCancelarEventoAdmin(self):
+        try:
+            for i in range(self.verticalLayout_LisEventosCanceladosHabilitados.count()):
+                widget = self.verticalLayout_LisEventosCanceladosHabilitados.itemAt(i).widget()
+                if isinstance(widget, can_evento):
+                    widget.button_clicked.connect(self.handle_button_clicked3)
+        except:
+            pass
+                               
+                
+    def handle_button_clicked3(self,id,frame):
+        self.Box_mensaje('!El evento ha sido cancelado')
+        frame.boton_CancelarEvento.setDisabled(True)
+        frame.boton_CancelarEvento.setText('Cancelado')
+        self.db.cambiar_estadoEvento('i',id)
+        
+    # ################################################################################################################
+    def solicitudes_cancelacionEventos(self):
+        self.stackedWidget_admin.setCurrentIndex(5)
+        self.stackedWidgetCacelarEvento.setCurrentIndex(1)
+        self.limpiarVerticalLayout(self.verticalLayout_Aceptar_rechazarSolicitud)
+        i = 0
+        eventos = self.db.lisEventos()
+        if eventos != []:
+            for registro in eventos:
+                if registro[5] == 'E':
+                    frame = aceptar_rechazar_evento(registro[0],registro[1],registro[2],registro[3],registro[4])
+                    self.verticalLayout_Aceptar_rechazarSolicitud.insertWidget(i,frame)
+                    i = i + 1
+            if i == 0:self.recargar()
+            try:
+                self.cargar_botonesCancelarEnAceptarRechazar()
+                self.cargar_botonesRechazarCancelacionEventoAdmin()
+                
+            except: pass
+            
+        else:
+            self.Box_mensaje('¡No hay eventos programados en el centro cultural!')
+
+            
+    def recargar(self):
+        self.Box_mensaje('¡No hay solicitudes de cancelacion de eventos!')
+        self.stackedWidgetCacelarEvento.setCurrentIndex(0)
+  
+        
+    def cargar_botonesCancelarEnAceptarRechazar(self):
+        for i in range(self.verticalLayout_Aceptar_rechazarSolicitud.count()):
+            widget = self.verticalLayout_Aceptar_rechazarSolicitud.itemAt(i).widget()
+            if isinstance(widget, aceptar_rechazar_evento):
+                widget.button_clicked.connect(self.handle_button_clicked3)
+                
+                
+    def cargar_botonesRechazarCancelacionEventoAdmin(self):
+        for i in range(self.verticalLayout_Aceptar_rechazarSolicitud.count()):
+            widget = self.verticalLayout_Aceptar_rechazarSolicitud.itemAt(i).widget()
+            if isinstance(widget, aceptar_rechazar_evento):
+                widget.button_clickedRechazar.connect(self.handle_button_clicked4)
+                #widget.button_clickedRechazar.connect(self.handle_button_clicked3)
+                
+                
+    def handle_button_clicked4(self,id,frame):
+        self.Box_mensaje('!La cancelacion del evento se rechazo')
+        frame.boton_CancelarEvento.setDisabled(True)
+        frame.boton_CancelarEvento.setText('Cancelado')
+        self.db.cambiar_estadoEvento('a',id)
+    
+    def validar_nom_correo_ape(self,contra,nombre,apellido,correo,lis):
+        b = True
+        if len(contra)<4:
+            b = False
+            self.Box_mensaje('La contraseña debe tener mas de 4 cacteres')
+            lis[0].clear()
+        try:
+            float(nombre)
+            float(apellido)
+        except:
+            b = False
+            self.Box_mensaje('¡No se atmiten nombre y apellido como numero\nPuede ser combinacion de ambos!')
+            lis[1].clear()
+            lis[2].clear()
+        correo = correo.rstrip()
+        try:
+            indice = correo.index('@')
+            correo = correo[indice:]
+            if correo == '@gmail.com':
+                pass
+            else:
+                self.Box_mensaje('¡Correo no valido!')
+                lis[3].clear()
+                b = False
+        except:
+            b = False
+            self.Box_mensaje('¡Correo no valido!')
+            lis[3].clear()
+        return b
           
 if __name__ == '__main__':#crea la ventana
     app = QApplication(sys.argv)

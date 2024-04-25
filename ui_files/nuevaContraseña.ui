@@ -157,14 +157,23 @@ color: #2c3e50; /* Color del texto */
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_2">
-        <property name="maximumSize">
+        <property name="minimumSize">
          <size>
           <width>50</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
           <height>16777215</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <property name="text">
-         <string>Ver</string>
+         <string>ver</string>
         </property>
        </widget>
       </item>

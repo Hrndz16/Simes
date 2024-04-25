@@ -18,6 +18,6 @@
   </qresource>
   <qresource prefix="fondos">
     <file>fondoInisioSesion.jpg</file>
-    <file>museo.jpg</file>
+    <file>ver.png</file>
   </qresource>
 </RCC>
